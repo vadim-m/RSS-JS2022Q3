@@ -477,6 +477,16 @@ body {
   padding: 0 20px;
   margin: 0 auto; }
 
+.section__title {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.2; }
+  .section__title--colored {
+    color: var(--orange); }
+
 .header {
   position: relative;
   background-color: var(--black);
@@ -593,5 +603,39 @@ body {
     background-color: var(--green); }
   .btn:disabled {
     background-color: var(--gray); }
+
+.backstage {
+  position: relative;
+  padding: 140px 0 100px; }
+  .backstage__wrapper {
+    display: flex; }
+
+.backstage__picture {
+  width: 53%; }
+
+.backstage__content {
+  width: 47%;
+  padding-left: 86px; }
+
+.backstage__title {
+  margin-bottom: 20px; }
+
+.backstage__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.3; }
+
+.backstage__subtitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 54px 0 34px; }
+
+.backstage__flowers {
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 /*# sourceMappingURL=main.css.map */
