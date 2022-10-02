@@ -1,6 +1,3 @@
-.nav {
-}
-
 .nav__list {
   display: flex;
   list-style: none;
@@ -20,7 +17,8 @@
     color: var(--orange);
   }
 
-  &:hover {
+  & a:hover,
+  & a:focus {
     color: var(--orange);
   }
 }

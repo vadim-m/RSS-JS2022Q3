@@ -42,7 +42,8 @@
   line-height: 1.4;
   transition: color 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--orange);
   }
 }

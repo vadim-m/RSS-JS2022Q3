@@ -1,0 +1,35 @@
+.btn {
+  width: 298px;
+  height: 54px;
+  background-color: var(--orange);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--white);
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+
+  padding: 0;
+
+  &--round {
+    border-radius: 25px;
+  }
+
+  &--square {
+    border-radius: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--orange-active);
+  }
+
+  &:active {
+    background-color: var(--green);
+  }
+
+  &:disabled {
+    background-color: var(--gray);
+  }
+}
