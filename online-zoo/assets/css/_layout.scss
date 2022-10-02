@@ -59,10 +59,10 @@ button {
 
 body {
   min-height: 100vh;
-  color: var(--main-text);
-  font-family: "Alegreya Sans", sans-serif;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  line-height: 1.42;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -80,8 +80,8 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1200px;
 
-  padding: 0 10px;
+  padding: 0 20px;
   margin: 0 auto;
 }

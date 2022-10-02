@@ -1,13 +1,14 @@
 :root {
-  --black-text: #001;
-  --grey-text: #1b1313;
-  --green-text: #135a46;
-  --white-text: #fff;
-  --blue: #5fc4d9;
-  --dark-blue: #0eacce;
-  --grey: #f6faf9;
-  --green: #135a46;
-  --white: #fff; }
+  --black: #333b41;
+  --gray: #767474;
+  --gray-light: #ABABAB
+  --gray-smoky: #F1F3F2
+  --green: #4B9200;
+  --orange: #F9804B;
+  --red: #D31414;
+  --yellow: #FFEE2E;
+  --white: #FFF;
+  --white-frosted: #FDFDFF; }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -453,10 +454,10 @@ button {
 
 body {
   min-height: 100vh;
-  color: var(--main-text);
-  font-family: "Alegreya Sans", sans-serif;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  line-height: 1.42;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -471,14 +472,62 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1160px;
-  padding: 0 10px;
+  max-width: 1200px;
+  padding: 0 20px;
   margin: 0 auto; }
 
-h1 {
-  color: green; }
+.header {
+  position: relative;
+  background-color: var(--black);
+  padding: 13px 0; }
 
-h3 {
-  color: var(--dark-blue); }
+.header__container {
+  display: flex;
+  align-items: center; }
+
+.header__logo {
+  width: 84px;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  transition: border-color 0.3s; }
+  .header__logo:hover {
+    border-color: var(--orange); }
+
+.header__title {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  visibility: hidden; }
+
+.header__nav {
+  flex-grow: 1;
+  padding: 0 62px; }
+
+.header__link {
+  color: var(--white);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: color 0.3s; }
+  .header__link:hover {
+    color: var(--orange); }
+
+.nav__list {
+  display: flex;
+  list-style: none; }
+
+.nav__item {
+  color: var(--white);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: color 0.3s;
+  margin-right: 58px; }
+  .nav__item.active {
+    color: var(--orange); }
+  .nav__item:hover {
+    color: var(--orange); }
 
 /*# sourceMappingURL=main.css.map */
