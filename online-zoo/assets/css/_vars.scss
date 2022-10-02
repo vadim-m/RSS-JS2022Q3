@@ -1,0 +1,23 @@
+// COLORS
+:root {
+  // text colors
+  --black-text: #001;
+  --grey-text: #1b1313;
+  --green-text: #135a46;
+  --white-text: #fff;
+  // content colors
+  --blue: #5fc4d9;
+  --dark-blue: #0eacce;
+  --grey: #f6faf9;
+  --green: #135a46;
+  --white: #fff;
+}
+
+// BREAKPOINTS
+
+// Устройства Large (компьютеры, менее 1200 пикселей) до 992рх
+$large: 1199.98px;
+// Устройства Medium (планшеты, менее 992 пикселей) до 768px
+$tablets: 991.98px;
+// Устройства X-Small (портретные телефоны, менее 576 пикселей) до 320px
+$phones: 575.98px;
