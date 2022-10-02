@@ -489,7 +489,7 @@ body {
 
 .header {
   position: relative;
-  background-color: var(--black);
+  background-color: #000;
   padding: 13px 0; }
 
 .header__container {
@@ -534,8 +534,9 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.4;
-  transition: color 0.3s;
-  margin-right: 58px; }
+  transition: color 0.3s; }
+  .nav__item:not(:last-child) {
+    margin-right: 58px; }
   .nav__item.active {
     color: var(--orange); }
   .nav__item a:hover, .nav__item a:focus {
@@ -582,12 +583,13 @@ body {
   margin-right: 100px; }
 
 .btn {
+  display: inline-block;
+  line-height: 54px;
   width: 298px;
   height: 54px;
   background-color: var(--orange);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1;
   color: var(--white);
   text-align: center;
   text-transform: uppercase;
@@ -637,5 +639,141 @@ body {
   position: absolute;
   top: 0;
   right: 0; }
+
+.footer {
+  background-color: #000;
+  padding: 40px 0 50px; }
+
+.footer__wrapper {
+  display: grid;
+  gap: 0 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "footer-logo . footer-form" "footer-donate . ." "footer-socials footer-nav footer-copyright"; }
+
+.footer__logo {
+  grid-area: footer-logo;
+  width: 84px;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  transition: border-color 0.3s;
+  margin-bottom: 68px; }
+  .footer__logo:hover {
+    border-color: var(--orange); }
+
+.footer__donate {
+  grid-area: footer-donate;
+  margin-bottom: 44px; }
+
+.footer__socials {
+  grid-area: footer-socials; }
+
+.footer__nav {
+  grid-area: footer-nav;
+  align-self: end; }
+
+.footer__form {
+  grid-area: footer-form; }
+
+.footer__copyright {
+  grid-area: footer-copyright;
+  justify-self: right;
+  align-self: end; }
+
+.socials__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none; }
+
+.socials__item:not(:last-child) {
+  margin-bottom: 10px; }
+
+.socials__link {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  transition: color 0.4s; }
+  .socials__link:hover, .socials__link:focus {
+    color: var(--green); }
+  .socials__link:hover .socials__icon, .socials__link:focus .socials__icon {
+    background-color: var(--green); }
+
+.socials__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  background-color: var(--gray);
+  border-radius: 50%;
+  transition: background-color 0.4s ease-in-out;
+  margin-right: 12px; }
+
+.socials__svg {
+  fill: var(--white);
+  width: 16px;
+  height: 16px; }
+
+.copyright__link {
+  display: inline-block;
+  max-width: 230px;
+  color: var(--white);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 1;
+  transition: 0.3s; }
+  .copyright__link:hover, .copyright__link:focus {
+    color: var(--orange); }
+  .copyright__link span {
+    display: inline-block;
+    margin-bottom: 10px; }
+
+.subscribe-form__title {
+  color: var(--white);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 14px; }
+
+.subscribe-form__email {
+  width: 228px;
+  height: 44px;
+  color: var(--gray);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  background-color: transparent;
+  border: 1px solid var(--orange);
+  border-radius: 2px;
+  padding: 10px;
+  margin-right: 8px; }
+  .subscribe-form__email:hover, .subscribe-form__email:focus, .subscribe-form__email:active {
+    border-color: var(--green);
+    outline: var(--green); }
+
+.subscribe-form__btn {
+  width: 130px;
+  height: 45px;
+  color: #000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  background-color: var(--gray-smoky);
+  border-radius: 5px;
+  transition: 0.25s;
+  padding: 0; }
+  .subscribe-form__btn:hover, .subscribe-form__btn:focus, .subscribe-form__btn:active {
+    color: var(--green);
+    outline: var(--green);
+    opacity: 0.85; }
 
 /*# sourceMappingURL=main.css.map */
