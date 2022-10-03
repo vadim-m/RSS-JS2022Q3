@@ -13,7 +13,7 @@
   }
 
   @include tablets {
-    padding: 50px 0;
+    padding: 50px 0 46px;
   }
 }
 
@@ -24,6 +24,7 @@
 
   @include tablets {
     flex-direction: row-reverse;
+    padding: 0 22px;
   }
 }
 
@@ -79,6 +80,8 @@
     @include tablets {
       width: 237px;
       height: 237px;
+      top: -39px;
+      left: -43px;
     }
   }
 }
@@ -88,5 +91,9 @@
 
   @include medium {
     margin-right: 61px;
+  }
+
+  @include tablets {
+    margin: 0 56px -6px 0;
   }
 }

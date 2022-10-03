@@ -84,7 +84,7 @@
   margin: 53px 0 33px;
 
   @include tablets {
-    margin: 30px 0 20px;
+    margin: 29px 0 18px 2px;
   }
 }
 
@@ -99,6 +99,8 @@
 
   @include tablets {
     display: block;
-    max-width: 128px;
+    max-width: 158px;
+    top: -5px;
+    right: -28px;
   }
 }

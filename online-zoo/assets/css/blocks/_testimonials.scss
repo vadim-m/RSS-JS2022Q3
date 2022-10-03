@@ -66,6 +66,7 @@
 
   @include tablets {
     width: 100%;
+    padding: 13px 30px 12px 12px;
   }
 
   &:last-child {
@@ -156,6 +157,7 @@
 
   @include tablets {
     -webkit-line-clamp: 2;
+    margin-left: 5px;
   }
 }
 
@@ -237,6 +239,13 @@
   @include tablets {
     display: flex;
     justify-content: center;
+  }
+
+  & .btn {
+    @include tablets {
+      width: 240px;
+      margin: 0 auto;
+    }
   }
 }
 

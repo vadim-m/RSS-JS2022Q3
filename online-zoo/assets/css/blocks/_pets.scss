@@ -24,7 +24,11 @@
   margin-bottom: 82px;
 
   @include medium {
-    gap: 94px 30px;
+    gap: 91px 30px;
+  }
+
+  @include tablets {
+    margin-bottom: 61px;
   }
 }
 
@@ -98,6 +102,10 @@
   transition: all 0.15s 0.1s ease-out;
 
   padding: 8px 5px 10px 16px;
+
+  @include tablets {
+    padding: 7px 5px 0px 11px;
+  }
 }
 
 .pets__title {
@@ -107,6 +115,10 @@
   font-size: 16px;
   line-height: 1.4;
   text-transform: uppercase;
+
+  @include tablets {
+    font-size: 12px;
+  }
 }
 
 .pets__habitat {
@@ -115,6 +127,10 @@
   font-weight: 300;
   font-size: 15px;
   line-height: 120%;
+
+  @include tablets {
+    font-size: 11px;
+  }
 }
 
 .pets__icon {
@@ -124,6 +140,11 @@
 .pets__svg {
   max-width: 48px;
   height: 40px;
+
+  @include tablets {
+    max-width: 39px;
+    max-height: 29px;
+  }
 }
 
 .pets__button {
@@ -164,7 +185,8 @@
     }
 
     @include tablets {
-      left: 216px;
+      left: 221px;
+      top: 49.5%;
     }
   }
 
@@ -183,7 +205,8 @@
     }
 
     @include tablets {
-      right: 216px;
+      right: 224px;
+      top: 49.5%;
     }
   }
 }
@@ -202,6 +225,10 @@
     height: 202px;
     background-image: url("./assets/images/pets/decor-palm-md.png");
   }
+
+  @include tablets {
+    left: -61px;
+  }
 }
 
 .pets__decor-flower {
@@ -217,5 +244,11 @@
     width: 241px;
     height: 180px;
     background-image: url("./assets/images/pets/decor-flower-md.png");
+  }
+
+  @include tablets {
+    background-size: contain;
+    width: 183px;
+    height: 137px;
   }
 }

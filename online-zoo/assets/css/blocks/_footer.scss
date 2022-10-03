@@ -2,6 +2,10 @@
   background-color: #000;
 
   padding: 40px 0 50px;
+
+  @include tablets {
+    padding: 10px 0;
+  }
 }
 
 .footer__wrapper {
@@ -37,6 +41,10 @@
 
   margin-bottom: 67px;
 
+  @include tablets {
+    margin-bottom: 32px;
+  }
+
   &:hover {
     border-color: var(--orange);
   }
@@ -61,6 +69,11 @@
   @include medium {
     margin-left: 33px;
   }
+
+  @include tablets {
+    margin-left: 0;
+    justify-self: start;
+  }
 }
 
 .footer__form {
@@ -78,4 +91,19 @@
   align-self: end;
 
   margin-right: -3px;
+
+  @include tablets {
+    margin-right: 0;
+    margin-top: 27px;
+    margin-left: -12px;
+    margin: 27px 0 0 -12px;
+  }
+}
+
+.footer {
+  @include tablets {
+    .nav__item:not(:last-child) {
+      margin-right: 37px;
+    }
+  }
 }
