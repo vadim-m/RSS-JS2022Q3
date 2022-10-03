@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/icons/favicon/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Uncial+Antiqua&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./main.css">
-  <title>PetStory online</title>
+  <title>PetStory Online</title>
 </head>
 
 <body>
@@ -39,6 +43,11 @@
         <div class="header__design">
           <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" target="_blank"
             class="header__link">Designed by ©</a>
+        </div>
+        <div class="header__burger">
+          <button id="burger-menu" class="burger-menu">
+            <span class=" burger-menu__item"></span>
+          </button>
         </div>
       </div>
     </header>
@@ -216,7 +225,7 @@
       </section>
 
       <section class="donation">
-        <div class="container">
+        <div class="container donation__container">
           <div class="donation__wrapper">
             <h2 class="section__title donation__title">Pick and feed a friend</h2>
             <div class="donation__content">
@@ -373,8 +382,8 @@
               </div>
             </li>
           </ul>
-          <div class="testimonials__slider">
-            <input type="range" id="">
+          <div class="testimonials__slider-wrap">
+            <input type="range" min="1" max="12" value="1" class="testimonials__slider">
           </div>
           <div class="testimonials__button">
             <button class="btn btn--square">leave feedback</button>
@@ -388,7 +397,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer__wrapper">
-          <div class="footer__logo">
+          <div class="footer__logo">PetStory online
             <a href="./" class="logo">
               <img src="./assets/images/logo/logo.png" alt="PetStory online" class="logo__img">
             </a>
@@ -456,5 +465,7 @@
     </footer>
   </div>
 </body>
+
+<script src="./main.js"></script>
 
 </html>

@@ -10,7 +10,7 @@
 
 .subscribe-form__email {
   width: 228px;
-  height: 44px;
+  height: 42px;
   color: var(--gray);
   font-style: normal;
   font-weight: 400;
@@ -21,7 +21,7 @@
   border-radius: 2px;
 
   padding: 10px;
-  margin-right: 8px;
+  margin-right: 6px;
 
   &:hover,
   &:focus,
@@ -32,8 +32,8 @@
 }
 
 .subscribe-form__btn {
-  width: 130px;
-  height: 45px;
+  width: 128px;
+  height: 41px;
   color: #000;
   font-family: "Roboto";
   font-style: normal;
@@ -45,6 +45,10 @@
   transition: 0.25s;
 
   padding: 0;
+
+  @include medium {
+    margin-right: 32px;
+  }
 
   &:hover,
   &:focus,

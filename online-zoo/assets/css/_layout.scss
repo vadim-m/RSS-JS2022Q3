@@ -84,6 +84,24 @@ body {
 
   padding: 0 20px;
   margin: 0 auto;
+
+  @include medium {
+    max-width: 1000px;
+
+    padding: 0 30px;
+  }
+
+  @include tablets {
+    max-width: 640px;
+
+    padding: 0 20px;
+  }
+
+  @include phones {
+    max-width: 320px;
+
+    padding: 0 10px;
+  }
 }
 
 .section__title {
@@ -93,6 +111,10 @@ body {
   font-weight: 400;
   font-size: 48px;
   line-height: 1.2;
+
+  @include phones {
+    font-size: 24px;
+  }
 
   &--colored {
     color: var(--orange);

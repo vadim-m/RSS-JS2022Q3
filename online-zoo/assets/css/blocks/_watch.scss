@@ -5,12 +5,37 @@
   background-size: cover;
 
   padding: 88px 0 100px;
+
+  @include medium {
+    padding: 45px;
+    position: relative;
+    z-index: -5;
+  }
+
+  @include tablets {
+    padding: 50px 0 46px;
+  }
+
+  @include phones {
+    padding: 41px 0;
+    position: relative;
+  }
 }
 
 .watch__container {
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include tablets {
+    flex-direction: row-reverse;
+    padding: 0 22px;
+  }
+
+  @include phones {
+    flex-direction: column;
+    padding: 0 10px;
+  }
 }
 
 .watch__text {
@@ -27,6 +52,25 @@
 
   margin-bottom: 60px;
 
+  @include medium {
+    font-size: 85px;
+    line-height: 0.75;
+    max-width: 420px;
+
+    margin-bottom: 40px;
+  }
+
+  @include tablets {
+    max-width: 250px;
+    font-size: 54px;
+  }
+
+  @include phones {
+    max-width: 130px;
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
   &--colored {
     color: var(--yellow);
   }
@@ -40,10 +84,45 @@
     height: 465px;
     border-radius: 100%;
     background-color: var(--orange);
-    z-index: -1;
+    z-index: -12;
+
+    @include medium {
+      width: 368px;
+      height: 368px;
+      top: -55px;
+      left: -49px;
+    }
+
+    @include tablets {
+      width: 237px;
+      height: 237px;
+      top: -39px;
+      left: -43px;
+    }
+
+    @include phones {
+      width: 119px;
+      height: 119px;
+      top: -18px;
+      left: -16px;
+    }
   }
 }
 
 .watch__button {
-  margin-right: 100px;
+  margin-right: 96px;
+
+  @include medium {
+    margin-right: 61px;
+  }
+
+  @include tablets {
+    margin: 0 56px -6px 0;
+  }
+
+  @include phones {
+    margin: 0;
+    position: absolute;
+    top: 207px;
+  }
 }
