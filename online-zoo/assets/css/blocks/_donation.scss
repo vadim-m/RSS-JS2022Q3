@@ -24,14 +24,14 @@
 
   opacity: 0.9;
 
-  padding: 70px 0 70px;
+  padding: 70px 0 100px;
 
   &__wrapper {
     background: rgba(253, 253, 255, 0.52);
     backdrop-filter: blur(2px);
     border-radius: 20px;
 
-    padding: 40px 0 100px;
+    padding: 40px 0 60px;
   }
 
   &__title {
@@ -71,7 +71,7 @@
   &--sliced {
     max-width: 868px;
     font-weight: 400;
-    margin-bottom: 60px;
+    margin-bottom: 63px;
   }
 }
 
@@ -84,7 +84,7 @@
   line-height: 1.3;
   text-align: center;
 
-  margin-bottom: 40px;
+  margin-bottom: 38px;
 }
 
 .donation__cards {
@@ -126,8 +126,8 @@
 }
 
 .donation__svg {
-  max-width: 120px;
-  max-height: 95px;
+  max-width: 118px;
+  max-height: 100px;
 }
 
 .donation__button {

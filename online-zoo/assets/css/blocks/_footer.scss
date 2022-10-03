@@ -21,7 +21,7 @@
   border-radius: 2px;
   transition: border-color 0.3s;
 
-  margin-bottom: 68px;
+  margin-bottom: 67px;
 
   &:hover {
     border-color: var(--orange);
@@ -39,14 +39,21 @@
 .footer__nav {
   grid-area: footer-nav;
   align-self: end;
+
+  & .nav__list {
+    justify-content: center;
+  }
 }
 
 .footer__form {
   grid-area: footer-form;
+  justify-self: end;
 }
 
 .footer__copyright {
   grid-area: footer-copyright;
-  justify-self: right;
+  justify-self: end;
   align-self: end;
+
+  margin-right: -3px;
 }

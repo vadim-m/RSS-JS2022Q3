@@ -1,7 +1,7 @@
 .testimonials {
   position: relative;
 
-  padding: 140px 0 180px;
+  padding: 142px 0 180px;
 }
 
 .testimonials__title {
@@ -17,10 +17,10 @@
 
 .testimonials__list {
   display: flex;
-  gap: 0 30px;
+  gap: 0 34px;
   list-style: none;
 
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .testimonials__item {
@@ -36,7 +36,7 @@
   font-size: 15px;
   line-height: 1.2;
 
-  padding: 15px 15px 20px 15px;
+  padding: 13px 10px 20px 17px;
 
   &::before {
     content: "";
@@ -96,7 +96,7 @@
 .testimonials__location {
   position: relative;
   display: inline-block;
-  margin-right: 11px;
+  margin-right: 13px;
 
   &:after {
     content: "";
@@ -108,7 +108,7 @@
     background-color: #bdbdbd;
     top: 50%;
     transform: translateY(-50%);
-    right: -10px;
+    right: -12px;
   }
 }
 
@@ -179,10 +179,11 @@
 
 .testimonials__decor {
   position: absolute;
+  z-index: -1;
   width: 247px;
   height: 408px;
   right: 0;
-  bottom: -100px;
+  bottom: -128px;
   background-repeat: no-repeat;
   background-image: url(./assets/images/testimonials/decor-leaf.png);
 }
