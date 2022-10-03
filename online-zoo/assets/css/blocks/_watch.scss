@@ -7,7 +7,7 @@
   padding: 88px 0 100px;
 
   @include medium {
-    padding: 44px;
+    padding: 45px;
     position: relative;
     z-index: -5;
   }
@@ -33,6 +33,14 @@
 
   margin-bottom: 60px;
 
+  @include medium {
+    font-size: 85px;
+    line-height: 0.75;
+    max-width: 420px;
+
+    margin-bottom: 40px;
+  }
+
   &--colored {
     color: var(--yellow);
   }
@@ -51,15 +59,16 @@
     @include medium {
       width: 368px;
       height: 368px;
+      top: -55px;
+      left: -49px;
     }
-  }
-
-  @include medium {
-    font-size: 85px;
-    line-height: 0.75;
   }
 }
 
 .watch__button {
   margin-right: 96px;
+
+  @include medium {
+    margin-right: 61px;
+  }
 }

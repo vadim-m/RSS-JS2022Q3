@@ -6,6 +6,10 @@
     position: relative;
     z-index: 10;
   }
+
+  @include medium {
+    padding: 81px 0 140px;
+  }
 }
 
 .pets__cards {
@@ -16,7 +20,7 @@
   margin-bottom: 82px;
 
   @include medium {
-    gap: 90px 30px;
+    gap: 94px 30px;
   }
 }
 
@@ -141,7 +145,7 @@
 
     @include medium {
       top: 50%;
-      left: 330px;
+      left: 322px;
     }
   }
 
@@ -156,7 +160,7 @@
 
     @include medium {
       top: 50%;
-      right: 330px;
+      right: 322px;
     }
   }
 }
