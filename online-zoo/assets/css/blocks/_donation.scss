@@ -34,6 +34,10 @@
     padding: 20px 0;
   }
 
+  @include phones {
+    padding: 20px 10px 16px;
+  }
+
   &__container {
     @include tablets {
       padding: 0;
@@ -54,6 +58,10 @@
     @include tablets {
       padding: 10px 20px 60px;
     }
+
+    @include phones {
+      padding: 20px 10px 40px;
+    }
   }
 
   &__title {
@@ -69,6 +77,11 @@
     @include tablets {
       font-size: 42px;
     }
+
+    @include phones {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -83,6 +96,10 @@
 
   @include tablets {
     margin: 0 0 30px 0;
+  }
+
+  @include phones {
+    margin: 0px 0 21px 0;
   }
 }
 
@@ -102,12 +119,21 @@
   @include tablets {
     font-size: 22px;
   }
+
+  @include phones {
+    font-size: 18px;
+    text-align: center;
+  }
 }
 
 .donation__text {
   font-size: 16px;
   font-style: normal;
   line-height: 1.3;
+
+  @include phones {
+    display: none;
+  }
 
   &--bold {
     font-weight: 500;
@@ -147,6 +173,10 @@
   @include tablets {
     margin-bottom: 20px;
   }
+
+  @include phones {
+    font-size: 24px;
+  }
 }
 
 .donation__cards {
@@ -161,6 +191,14 @@
 
   @include tablets {
     margin: 0px 13px 40px 0;
+  }
+
+  @include phones {
+    flex-direction: column;
+    align-items: center;
+    gap: 68px 0;
+
+    margin: 0 0 87px 0;
   }
 }
 
@@ -186,6 +224,12 @@
       right: -58px;
       background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODkiIGhlaWdodD0iMjkiIHZpZXdCb3g9IjAgMCA4OSAyOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuMzIzNjQ3IDE2LjY1MjZDMC43MzE1OTcgMTcuMzczIDUuNTc2MTkgMTUuMTMyNyAxMy40MjIxIDEyLjEwNjNDMTcuOTY2MyAxMC4zNDU0IDIyLjYyOTIgOC45MDc5OCAyNy4zNzYxIDcuODA0NjlDMzMuMDgyOSA2LjQ5MDAzIDM4Ljk0NjYgNS45ODY5OCA0NC43OTM5IDYuMzEwNDFDNTAuNTgzOSA2LjY3ODA5IDU2LjI1NzYgOC4xMDMwNCA2MS41MzQzIDEwLjUxNDdDNjUuOTU1OCAxMi40ODc1IDcwLjE4NTEgMTQuODY1NSA3NC4xNjggMTcuNjE4M0M3Ny4wMjIyIDE5LjYwMzMgNzkuMzI0NyAyMS40MTYyIDgxLjA5NDUgMjIuODIxQzgwLjE5NzkgMjIuODI2NCA3OS4zMTk0IDIyLjgzOTUgNzguNDgwOSAyMi44NjY4Qzc2LjMxMDkgMjIuOTM3MiA3NC4zNTQyIDIzLjA3ODQgNzIuNzA4MyAyMy4yNzg0QzY5LjQxNjUgMjMuNjc4NSA2Ny4zNjc1IDI0LjMxNDIgNjcuMzQxNyAyNS4wOTA0QzY3LjMxNiAyNS44NjY2IDY5LjMxODQgMjYuNjM2NSA3Mi41NzY1IDI3LjI1MzhDNzQuMjA1NiAyNy41NjI0IDc2LjE0ODYgMjcuODMyOSA3OC4zMDkxIDI4LjA0NjlDNzkuMzg5MyAyOC4xNTM5IDgwLjUyMzkgMjguMjQ2OCA4MS43MDA4IDI4LjMyMzNDODIuMjg5NCAyOC4zNTY4IDgyLjg4OCAyOC4zOTA4IDgzLjQ5NjQgMjguNDI1NEw4NC40MTUgMjguNDY2OEM4NC42MDY5IDI4LjQ3MDkgODQuNjE4MSAyOC40ODM3IDg1LjA0NjcgMjguNDgxNkM4NS4zNDc3IDI4LjQ3NTcgODUuNjQ2OSAyOC40MzM1IDg1LjkzNzggMjguMzU2Qzg2LjQzOTUgMjguMjIyOSA4Ni45MDI1IDI3Ljk3MjYgODcuMjg4NyAyNy42MjU3Qzg3LjY3NDggMjcuMjc4OCA4Ny45NzMxIDI2Ljg0NTIgODguMTU5MSAyNi4zNjA2Qzg4LjI3ODkgMjYuMDUwMyA4OC4zNTU0IDI1LjcyNSA4OC4zODYyIDI1LjM5MzhDODguNDA1MSAyNS4xOTc2IDg4LjQxMTEgMjUuMDAwNCA4OC40MDQxIDI0LjgwMzVMODguMzg4MiAyNC40OTVDODguMzY0MSAyNC4xMTIzIDg4LjMyNDkgMjMuNzQwNSA4OC4yNzQ3IDIzLjM4MUM4OC4xNzU5IDIyLjcwNTQgODguMDQxOCAyMi4wMzU1IDg3Ljg3MjggMjEuMzc0Qzg3LjU1MzMgMjAuMTI3MyA4Ny4yMjI4IDE5LjA4ODIgODYuODk1NiAxOC4wNDE1Qzg2LjIzNzYgMTUuOTcyNSA4NS41Njk1IDE0LjEyOCA4NC45MjkyIDEyLjU5ODVDODMuNjQ4OSA5LjUzOTU3IDgyLjQ3OTkgNy43NDA3MSA4MS43MjYgNy45MjcxMkM4MC45NzIgOC4xMTM1MyA4MC43NzU4IDEwLjI0OTcgODEuMDY4IDEzLjU1M0M4MS4yMTQxIDE1LjIwNDYgODEuNDgyMyAxNy4xNDc5IDgxLjg2NCAxOS4yODUyQzgxLjkwNiAxOS41MDQzIDgxLjk1IDE5LjczNDUgODEuOTkyOCAxOS45NThDODAuMzM5NiAxOC4wMDI2IDc4LjU0MyAxNi4xNzMyIDc2LjYxNzggMTQuNDg0OUM3Mi43MTA4IDExLjA2OTcgNjguMzg4MSA4LjE2MTg2IDYzLjc1MjIgNS44MzAzQzU3Ljk3NTEgMi44NTM5NiA1MS42NDQzIDEuMTA2MjUgNDUuMTU4NSAwLjY5NzI1M0MzOC43Mzk5IDAuMzI5ODE2IDMyLjMwNSAxLjAzMjY2IDI2LjExNzEgMi43NzdDMjEuMTU2NSA0LjE3MzYzIDE2LjM1NTMgNi4wODQ0NSAxMS43OTE2IDguNDc4MzdDNC4wNzc4MSAxMi41NjgxIC0wLjAzOTU3OTEgMTYuMDI5IDAuMzIzNjQ3IDE2LjY1MjZaIiBmaWxsPSIjNDY4RTBEIi8+Cjwvc3ZnPgo=");
     }
+
+    @include phones {
+      top: 191px;
+      right: -60px;
+      transform: rotate(84deg);
+    }
   }
 }
 
@@ -201,6 +245,16 @@
   align-items: center;
 
   margin-bottom: 30px;
+
+  @include phones {
+    margin-bottom: 8px;
+  }
+}
+
+.donation__desc {
+  @include phones {
+    position: absolute;
+  }
 }
 
 .donation__svg {

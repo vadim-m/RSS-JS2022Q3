@@ -10,6 +10,10 @@
     padding: 60px 0;
   }
 
+  @include phones {
+    padding: 104px 0 20px;
+  }
+
   &__wrapper {
     display: flex;
 
@@ -63,10 +67,18 @@
     width: 100%;
     max-width: 495px;
   }
+
+  @include phones {
+    background: none;
+  }
 }
 
 .backstage__title {
   margin-bottom: 20px;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
 }
 
 .backstage__text {
@@ -86,6 +98,10 @@
   @include tablets {
     margin: 29px 0 18px 2px;
   }
+
+  @include phones {
+    margin: 17px 0 7px 2px;
+  }
 }
 
 .backstage__decor {
@@ -102,5 +118,11 @@
     max-width: 158px;
     top: -5px;
     right: -28px;
+  }
+
+  @include phones {
+    max-width: 76px;
+    top: 33px;
+    right: -42px;
   }
 }

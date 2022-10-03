@@ -2,17 +2,21 @@
   padding: 77px 0 100px;
   position: relative;
 
-  &__wrapper {
-    position: relative;
-    z-index: 10;
-  }
-
   @include medium {
     padding: 81px 0 140px;
   }
 
   @include tablets {
     padding: 20px 0 100px;
+  }
+
+  @include phones {
+    padding: 20px 0 63px;
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
   }
 }
 
@@ -30,6 +34,12 @@
   @include tablets {
     margin-bottom: 61px;
   }
+
+  @include phones {
+    gap: 20px 0;
+    padding: 0px 8px;
+    margin-bottom: 20px;
+  }
 }
 
 .pets__card {
@@ -42,6 +52,10 @@
 
   @include tablets {
     grid-column: span 3;
+  }
+
+  @include phones {
+    grid-column: span 6;
   }
 
   &:nth-child(5),
@@ -165,6 +179,10 @@
   background-color: var(--orange);
   transition: background-color 0.3s ease-in-out;
 
+  @include phones {
+    display: none;
+  }
+
   &:hover,
   &:focus {
     background-color: var(--green);
@@ -229,6 +247,13 @@
   @include tablets {
     left: -61px;
   }
+
+  @include tablets {
+    left: -12px;
+    width: 72px;
+    height: 75px;
+    background-size: contain;
+  }
 }
 
 .pets__decor-flower {
@@ -250,5 +275,12 @@
     background-size: contain;
     width: 183px;
     height: 137px;
+  }
+
+  @include phones {
+    width: 90px;
+    height: 67px;
+    right: -19px;
+    bottom: -3px;
   }
 }

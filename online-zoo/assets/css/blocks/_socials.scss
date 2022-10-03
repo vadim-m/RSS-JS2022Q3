@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+
+  @include phones {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 51px 9px;
+  }
 }
 
 .socials__item:not(:last-child) {

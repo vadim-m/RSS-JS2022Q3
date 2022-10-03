@@ -6,6 +6,10 @@
   @include tablets {
     padding: 10px 0;
   }
+
+  @include phones {
+    padding: 20px 0;
+  }
 }
 
 .footer__wrapper {
@@ -30,9 +34,19 @@
       "footer-donate footer-donate . footer-socials"
       "footer-nav footer-nav footer-copyright footer-copyright";
   }
+
+  @include phones {
+    grid-template-areas:
+      "footer-logo"
+      "footer-socials"
+      "footer-donate"
+      "footer-copyright"
+      "footer-nav";
+  }
 }
 
 .footer__logo {
+  font-size: 0;
   grid-area: footer-logo;
   width: 84px;
   border: 1px solid var(--white);
@@ -45,6 +59,31 @@
     margin-bottom: 32px;
   }
 
+  @include phones {
+    margin-bottom: 30px;
+  }
+
+  @include phones {
+    color: var(--white);
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.2;
+    border: none;
+    width: 100%;
+    text-align: center;
+    background-image: url(./assets/images/footer/bamboo.png);
+    background-repeat: no-repeat;
+    background-position-x: 158px;
+  }
+
+  & a.logo {
+    @include phones {
+      display: none;
+    }
+  }
+
   &:hover {
     border-color: var(--orange);
   }
@@ -53,6 +92,10 @@
 .footer__donate {
   grid-area: footer-donate;
   margin-bottom: 44px;
+
+  @include phones {
+    margin-bottom: 32px;
+  }
 }
 
 .footer__socials {
@@ -74,6 +117,10 @@
     margin-left: 0;
     justify-self: start;
   }
+
+  @include phones {
+    justify-self: center;
+  }
 }
 
 .footer__form {
@@ -93,10 +140,13 @@
   margin-right: -3px;
 
   @include tablets {
-    margin-right: 0;
-    margin-top: 27px;
-    margin-left: -12px;
     margin: 27px 0 0 -12px;
+  }
+
+  @include phones {
+    margin: 0;
+    width: 214px;
+    margin-bottom: 30px;
   }
 }
 
@@ -104,6 +154,12 @@
   @include tablets {
     .nav__item:not(:last-child) {
       margin-right: 37px;
+    }
+  }
+
+  @include phones {
+    .nav__item:not(:last-child) {
+      margin-right: 30px;
     }
   }
 }

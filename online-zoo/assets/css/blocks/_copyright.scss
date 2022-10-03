@@ -9,6 +9,10 @@
   line-height: 1;
   transition: 0.3s;
 
+  @include phones {
+    font-size: 15px;
+  }
+
   &:hover,
   &:focus {
     color: var(--orange);

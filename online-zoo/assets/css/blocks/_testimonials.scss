@@ -10,6 +10,10 @@
   @include tablets {
     padding: 60px 0 80px;
   }
+
+  @include phones {
+    padding: 34px 0 60px;
+  }
 }
 
 .testimonials__title {
@@ -25,6 +29,11 @@
   @include medium {
     margin-bottom: 32px;
   }
+
+  @include phones {
+    font-size: 24px;
+    margin-bottom: 21px;
+  }
 }
 
 .testimonials__list {
@@ -37,10 +46,11 @@
   @include tablets {
     flex-wrap: wrap;
     gap: 15px 0;
+    margin-bottom: 40px;
   }
 
-  @include tablets {
-    margin-bottom: 40px;
+  @include phones {
+    margin-bottom: 27px;
   }
 }
 
@@ -67,6 +77,10 @@
   @include tablets {
     width: 100%;
     padding: 13px 30px 12px 12px;
+  }
+
+  @include phones {
+    padding: 8px 30px 18px 14px;
   }
 
   &:last-child {
@@ -115,6 +129,10 @@
   overflow: hidden;
 
   margin-right: 10px;
+
+  @include phones {
+    margin-right: 6px;
+  }
 }
 
 .testimonails__user-info {
@@ -272,5 +290,12 @@
     height: 198px;
     right: -5px;
     bottom: -66px;
+  }
+
+  @include phones {
+    width: 60px;
+    height: 98px;
+    right: 0px;
+    bottom: -32px;
   }
 }

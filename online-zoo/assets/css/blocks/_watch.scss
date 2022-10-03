@@ -15,6 +15,11 @@
   @include tablets {
     padding: 50px 0 46px;
   }
+
+  @include phones {
+    padding: 41px 0;
+    position: relative;
+  }
 }
 
 .watch__container {
@@ -25,6 +30,11 @@
   @include tablets {
     flex-direction: row-reverse;
     padding: 0 22px;
+  }
+
+  @include phones {
+    flex-direction: column;
+    padding: 0 10px;
   }
 }
 
@@ -55,6 +65,12 @@
     font-size: 54px;
   }
 
+  @include phones {
+    max-width: 130px;
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
   &--colored {
     color: var(--yellow);
   }
@@ -83,6 +99,13 @@
       top: -39px;
       left: -43px;
     }
+
+    @include phones {
+      width: 119px;
+      height: 119px;
+      top: -18px;
+      left: -16px;
+    }
   }
 }
 
@@ -95,5 +118,11 @@
 
   @include tablets {
     margin: 0 56px -6px 0;
+  }
+
+  @include phones {
+    margin: 0;
+    position: absolute;
+    top: 207px;
   }
 }
