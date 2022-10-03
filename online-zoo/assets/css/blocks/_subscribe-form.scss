@@ -46,6 +46,10 @@
 
   padding: 0;
 
+  @include medium {
+    margin-right: 32px;
+  }
+
   &:hover,
   &:focus,
   &:active {
