@@ -12,6 +12,18 @@
     "footer-logo . footer-form"
     "footer-donate . ."
     "footer-socials footer-nav footer-copyright";
+
+  @include medium {
+    // grid-template-areas:
+    //   "footer-logo footer-logo . . . .  footer-form footer-form footer-form"
+    //   "footer-donate footer-donate footer-donate . . . . . . "
+    //   "footer-socials footer-nav footer-nav footer-nav footer-nav footer-nav footer-nav footer-copyright footer-copyright";
+
+    grid-template-areas:
+      "footer-logo . . footer-form footer-form footer-form"
+      "footer-donate footer-donate . . . ."
+      "footer-socials footer-nav footer-nav footer-nav footer-copyright footer-copyright";
+  }
 }
 
 .footer__logo {

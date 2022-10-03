@@ -2,6 +2,10 @@
   position: relative;
 
   padding: 142px 0 180px;
+
+  @include medium {
+    padding: 100px 0 140px;
+  }
 }
 
 .testimonials__title {
@@ -37,6 +41,14 @@
   line-height: 1.2;
 
   padding: 13px 10px 20px 17px;
+
+  @include medium {
+    width: 33.333%;
+
+    &:last-child {
+      display: none;
+    }
+  }
 
   &::before {
     content: "";

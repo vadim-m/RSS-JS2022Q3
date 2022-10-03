@@ -84,6 +84,12 @@ body {
 
   padding: 0 20px;
   margin: 0 auto;
+
+  @include medium {
+    max-width: 1000px;
+
+    padding: 0 30px;
+  }
 }
 
 .section__title {

@@ -5,6 +5,12 @@
   background-size: cover;
 
   padding: 88px 0 100px;
+
+  @include medium {
+    padding: 44px;
+    position: relative;
+    z-index: -5;
+  }
 }
 
 .watch__container {
@@ -40,7 +46,17 @@
     height: 465px;
     border-radius: 100%;
     background-color: var(--orange);
-    z-index: -1;
+    z-index: -12;
+
+    @include medium {
+      width: 368px;
+      height: 368px;
+    }
+  }
+
+  @include medium {
+    font-size: 85px;
+    line-height: 0.75;
   }
 }
 

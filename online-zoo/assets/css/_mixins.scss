@@ -1,19 +1,13 @@
-// Функция для перевода в rem`ы
-@function rem($value) {
-  $remValue: ($value / 16) + rem;
-  @return $remValue;
-}
-
-// Функция для расчета line-height
-@function lh($value, $font) {
-  $lineHeightValue: ($value / $font);
-  @return $lineHeightValue;
-}
-
 // Миксины для Медиа-запросов
-// от 992 до 1199.98
+// от 1200 до 1339.98
 @mixin large {
   @media screen and (max-width: $large) {
+    @content;
+  }
+}
+// от 992 до 1199.98
+@mixin medium {
+  @media screen and (max-width: $medium) {
     @content;
   }
 }
