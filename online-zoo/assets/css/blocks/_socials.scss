@@ -18,6 +18,10 @@
   line-height: 1;
   transition: color 0.4s;
 
+  @include tablets {
+    font-size: 0;
+  }
+
   &:hover,
   &:focus {
     color: var(--green);

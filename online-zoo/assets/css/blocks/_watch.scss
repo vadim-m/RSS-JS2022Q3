@@ -11,12 +11,20 @@
     position: relative;
     z-index: -5;
   }
+
+  @include tablets {
+    padding: 50px 0;
+  }
 }
 
 .watch__container {
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include tablets {
+    flex-direction: row-reverse;
+  }
 }
 
 .watch__text {
@@ -41,6 +49,11 @@
     margin-bottom: 40px;
   }
 
+  @include tablets {
+    max-width: 250px;
+    font-size: 54px;
+  }
+
   &--colored {
     color: var(--yellow);
   }
@@ -61,6 +74,11 @@
       height: 368px;
       top: -55px;
       left: -49px;
+    }
+
+    @include tablets {
+      width: 237px;
+      height: 237px;
     }
   }
 }

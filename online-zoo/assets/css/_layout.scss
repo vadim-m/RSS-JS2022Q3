@@ -90,6 +90,12 @@ body {
 
     padding: 0 30px;
   }
+
+  @include tablets {
+    max-width: 640px;
+
+    padding: 0 20px;
+  }
 }
 
 .section__title {

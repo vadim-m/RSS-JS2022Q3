@@ -10,6 +10,10 @@
   @include medium {
     padding: 81px 0 140px;
   }
+
+  @include tablets {
+    padding: 20px 0 100px;
+  }
 }
 
 .pets__cards {
@@ -31,6 +35,17 @@
   cursor: pointer;
   border: 1px solid var(--orange);
   border-radius: 5px;
+
+  @include tablets {
+    grid-column: span 3;
+  }
+
+  &:nth-child(5),
+  &:nth-child(6) {
+    @include tablets {
+      display: none;
+    }
+  }
 
   &:hover .pets__img {
     transform: scale(1.05);
@@ -147,6 +162,10 @@
       top: 50%;
       left: 322px;
     }
+
+    @include tablets {
+      left: 216px;
+    }
   }
 
   &--right {
@@ -161,6 +180,10 @@
     @include medium {
       top: 50%;
       right: 322px;
+    }
+
+    @include tablets {
+      right: 216px;
     }
   }
 }
