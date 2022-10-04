@@ -76,6 +76,10 @@ body {
 
 .content {
   flex-grow: 1;
+
+  @include phones {
+    padding-top: 34px;
+  }
 }
 
 .container {
