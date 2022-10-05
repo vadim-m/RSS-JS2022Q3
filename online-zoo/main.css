@@ -470,7 +470,7 @@ body {
 
 .content {
   flex-grow: 1; }
-  @media screen and (max-width: 619.98px) {
+  @media screen and (max-width: 991.98px) {
     .content {
       padding-top: 34px; } }
 

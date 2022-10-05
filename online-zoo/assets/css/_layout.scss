@@ -77,7 +77,7 @@ body {
 .content {
   flex-grow: 1;
 
-  @include phones {
+  @include tablets {
     padding-top: 34px;
   }
 }
