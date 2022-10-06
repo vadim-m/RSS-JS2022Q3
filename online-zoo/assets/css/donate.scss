@@ -1,0 +1,20 @@
+@import "./_mixins.scss";
+@import "./_vars.scss";
+@import "./_normalize.scss";
+@import "./layout.scss";
+
+// blocks
+@import "./blocks/_header.scss";
+@import "./blocks/_btn.scss";
+@import "./blocks/_nav.scss";
+@import "./blocks/_burger-menu.scss";
+@import "./blocks/_watch.scss";
+@import "./blocks/_help.scss";
+@import "./blocks/_pick.scss";
+@import "./blocks/_animal.scss";
+@import "./blocks/_scale.scss";
+@import "./blocks/_donate-form.scss";
+@import "./blocks/_footer.scss";
+@import "./blocks/_socials.scss";
+@import "./blocks/_subscribe-form.scss";
+@import "./blocks/_copyright.scss";

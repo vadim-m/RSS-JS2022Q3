@@ -20,6 +20,31 @@
     padding: 41px 0;
     position: relative;
   }
+
+  &--donate {
+    background-image: url(../../assets/images/watch/panda-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 385px;
+
+    @include medium {
+      height: 389px;
+      background-size: auto;
+    }
+
+    @include tablets {
+      height: 335px;
+      background-image: url(../../assets/images/watch/panda-bg-tablet.jpg);
+      background-size: cover;
+    }
+
+    @include phones {
+      height: 187px;
+      background-image: url(../../assets/images/watch/panda-bg-mobile.jpg);
+    }
+  }
 }
 
 .watch__container {
