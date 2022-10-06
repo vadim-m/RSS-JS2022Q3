@@ -6,6 +6,10 @@
   }
 
   @include tablets {
+    padding: 27px 0 45px;
+  }
+
+  @include phones {
     padding: 27px 0 19px;
   }
 
@@ -97,7 +101,7 @@
   margin: 0 0 18px 7px;
 
   @include tablets {
-    margin-bottom: 42px;
+    margin: 0 0 6px 7px;
   }
   @include phones {
     margin: 0 0 10px 0;
