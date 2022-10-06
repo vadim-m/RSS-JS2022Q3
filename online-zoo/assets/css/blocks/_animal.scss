@@ -10,6 +10,10 @@
   background-image: url(../../assets/images/pick/close.svg);
   background-repeat: no-repeat;
   background-position: 165px 81px;
+
+  @include phones {
+    padding: 44px 32px 0 0;
+  }
 }
 
 .animal__days-number {
@@ -18,11 +22,17 @@
   font-weight: 500;
   font-size: 72px;
   line-height: 0.8;
-
   text-align: center;
   text-transform: uppercase;
 
   margin: 0 21px 8px 0;
+
+  @include phones {
+    font-size: 40px;
+    line-height: 0.8;
+
+    margin: -20px 21px 8px 0;
+  }
 }
 
 .animal__days-text {
@@ -31,12 +41,21 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 140%;
+  line-height: 1.4;
   text-align: center;
 
   margin-right: 11px;
+
+  @include phones {
+    font-size: 9px;
+    margin-right: 18px;
+  }
 }
 
 .animal__image {
   flex-shrink: 0;
+
+  @include phones {
+    max-width: 160px;
+  }
 }

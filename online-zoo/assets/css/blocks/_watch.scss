@@ -37,6 +37,12 @@
     @include tablets {
       height: 335px;
       background-image: url(../../assets/images/watch/panda-bg-tablet.jpg);
+      background-size: cover;
+    }
+
+    @include phones {
+      height: 187px;
+      background-image: url(../../assets/images/watch/panda-bg-mobile.jpg);
     }
   }
 }

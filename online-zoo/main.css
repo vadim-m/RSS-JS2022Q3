@@ -677,7 +677,12 @@ body {
     @media screen and (max-width: 991.98px) {
       .watch--donate {
         height: 335px;
-        background-image: url(../../assets/images/watch/panda-bg-tablet.jpg); } }
+        background-image: url(../../assets/images/watch/panda-bg-tablet.jpg);
+        background-size: cover; } }
+    @media screen and (max-width: 619.98px) {
+      .watch--donate {
+        height: 187px;
+        background-image: url(../../assets/images/watch/panda-bg-mobile.jpg); } }
 
 .watch__container {
   display: flex;

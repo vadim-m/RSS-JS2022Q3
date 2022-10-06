@@ -6,7 +6,7 @@
   }
 
   @include tablets {
-    padding: 27px 0 46px;
+    padding: 27px 0 19px;
   }
 
   &__wrapper {
@@ -22,6 +22,10 @@
 
     @include tablets {
       padding: 29px 0;
+    }
+
+    @include phones {
+      padding: 22px 0 22px;
     }
   }
 }
@@ -39,6 +43,10 @@
   @include tablets {
     margin: 0 10px 21px 0;
   }
+
+  @include phones {
+    margin: 0 10px 10px 0;
+  }
 }
 
 .pick__text {
@@ -53,7 +61,15 @@
 
   @include tablets {
     text-align: center;
+
     margin: 0 0 49px 5px;
+  }
+
+  @include phones {
+    font-size: 16px;
+    line-height: 1.4;
+
+    margin: 0 0 13px 0;
   }
 }
 
@@ -62,6 +78,10 @@
 
   @include tablets {
     margin-bottom: 42px;
+  }
+
+  @include phones {
+    margin-bottom: 0;
   }
 }
 
@@ -74,13 +94,13 @@
   line-height: 1.4;
   text-align: start;
 
-  margin-left: 7px;
-  margin-bottom: 18px;
-
   margin: 0 0 18px 7px;
 
   @include tablets {
-    margin: 0 0 6px 7px;
+    margin-bottom: 42px;
+  }
+  @include phones {
+    margin: 0 0 10px 0;
   }
 }
 
@@ -93,5 +113,9 @@
 
   @include tablets {
     margin-bottom: 51px;
+  }
+
+  @include phones {
+    margin-bottom: 25px;
   }
 }

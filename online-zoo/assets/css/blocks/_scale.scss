@@ -49,6 +49,11 @@
     @include tablets {
       padding: 0px 34px;
     }
+
+    @include phones {
+      padding: 0px 17px;
+      margin-bottom: 6px;
+    }
   }
 
   &__buttons {
@@ -60,6 +65,10 @@
     background-position: center center;
 
     padding: 8px 0;
+
+    @include phones {
+      padding: 3px 0;
+    }
   }
 
   &__labels {
@@ -69,6 +78,10 @@
 
     @include tablets {
       padding: 0px 13px;
+    }
+
+    @include phones {
+      padding: 0px 7px;
     }
   }
 }
@@ -84,6 +97,11 @@
   outline: none;
   cursor: pointer;
 
+  @include phones {
+    width: 6px;
+    height: 6px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -92,13 +110,9 @@
     border-radius: 50%;
     background-color: var(--yellow);
 
-    @media (max-width: 1599px) {
-    }
-    @media (max-width: 999px) {
-    }
-    @media (max-width: 639px) {
-      width: 5px;
-      height: 5px;
+    @include phones {
+      width: 6px;
+      height: 6px;
     }
   }
 
@@ -113,7 +127,7 @@
     background: url(../../assets/images/pick/circle.svg);
     background-size: contain;
 
-    @media (max-width: 639px) {
+    @include phones {
       width: 20px;
       height: 20px;
     }
@@ -146,5 +160,9 @@
 
   @include tablets {
     width: 10%;
+  }
+
+  @include phones {
+    font-size: 13px;
   }
 }
