@@ -5,6 +5,10 @@
     padding: 20px 0 30px;
   }
 
+  @include tablets {
+    padding: 27px 0 46px;
+  }
+
   &__wrapper {
     background: rgba(255, 255, 255, 0.52);
     backdrop-filter: blur(2px);
@@ -14,6 +18,10 @@
 
     @include medium {
       padding: 20px 44px 45px;
+    }
+
+    @include tablets {
+      padding: 29px 0;
     }
   }
 }
@@ -27,6 +35,10 @@
   @include medium {
     margin: 0 10px 12px 0;
   }
+
+  @include tablets {
+    margin: 0 10px 21px 0;
+  }
 }
 
 .pick__text {
@@ -38,10 +50,19 @@
   line-height: 1.2;
 
   margin: 0 0 59px 5px;
+
+  @include tablets {
+    text-align: center;
+    margin: 0 0 49px 5px;
+  }
 }
 
 .pick__animal {
   margin-bottom: 49px;
+
+  @include tablets {
+    margin-bottom: 42px;
+  }
 }
 
 .pick__amount {
@@ -57,6 +78,10 @@
   margin-bottom: 18px;
 
   margin: 0 0 18px 7px;
+
+  @include tablets {
+    margin: 0 0 6px 7px;
+  }
 }
 
 .pick__scale {
@@ -64,5 +89,9 @@
 
   @include medium {
     margin-bottom: 48px;
+  }
+
+  @include tablets {
+    margin-bottom: 51px;
   }
 }

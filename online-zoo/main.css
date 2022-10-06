@@ -674,6 +674,10 @@ body {
       .watch--donate {
         height: 389px;
         background-size: auto; } }
+    @media screen and (max-width: 991.98px) {
+      .watch--donate {
+        height: 335px;
+        background-image: url(../../assets/images/watch/panda-bg-tablet.jpg); } }
 
 .watch__container {
   display: flex;
@@ -1624,6 +1628,9 @@ body {
 @media screen and (max-width: 1199.98px) {
   .footer-donate .footer__nav {
     margin-left: 55px; } }
+@media screen and (max-width: 991.98px) {
+  .footer-donate .footer__nav {
+    margin-left: 0; } }
 
 .socials__list {
   display: flex;

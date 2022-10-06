@@ -170,5 +170,9 @@
     @include medium {
       margin-left: 55px;
     }
+
+    @include tablets {
+      margin-left: 0;
+    }
   }
 }

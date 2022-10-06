@@ -33,6 +33,11 @@
       height: 389px;
       background-size: auto;
     }
+
+    @include tablets {
+      height: 335px;
+      background-image: url(../../assets/images/watch/panda-bg-tablet.jpg);
+    }
   }
 }
 

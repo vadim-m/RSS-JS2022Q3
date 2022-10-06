@@ -10,6 +10,10 @@
       padding: 0px 20px;
     }
 
+    @include tablets {
+      padding: 0;
+    }
+
     // скрыть три первых суммы
     .one--hidden {
       @include medium {
@@ -18,13 +22,13 @@
     }
 
     .two--hidden {
-      @media (max-width: 999px) {
+      @include tablets {
         display: none;
       }
     }
 
     .three--hidden {
-      @media (max-width: 999px) {
+      @include tablets {
         display: none;
       }
     }
@@ -40,6 +44,10 @@
 
     @include medium {
       padding: 0 10px;
+    }
+
+    @include tablets {
+      padding: 0px 34px;
     }
   }
 
@@ -58,6 +66,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    @include tablets {
+      padding: 0px 13px;
+    }
   }
 }
 
@@ -130,5 +142,9 @@
 
   @include medium {
     width: 5%;
+  }
+
+  @include tablets {
+    width: 10%;
   }
 }
