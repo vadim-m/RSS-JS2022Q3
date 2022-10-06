@@ -647,7 +647,16 @@ body {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.4; }
+  line-height: 1.4;
+  margin-bottom: 40px; }
+
+.help__subtitle {
+  color: var(--orange);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.3; }
 
 .footer {
   background-color: #000;
@@ -878,8 +887,5 @@ body {
   .copyright__link span {
     display: inline-block;
     margin-bottom: 15px; }
-
-h1 {
-  font-size: 120px; }
 
 /*# sourceMappingURL=donate.css.map */
