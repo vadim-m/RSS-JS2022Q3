@@ -114,15 +114,34 @@
                 </div>
               </div>
             </div>
-            <div class="pick__input">
-
+            <div class="pick__form">
+              <form action="#" class="donate-form">
+                <input type="number" title="Введите число" required class="donate-form__input"
+                  placeholder="Another amount">
+                <div class="donate-form__radio-wrap">
+                  <label class="donate-form__radio">
+                    <input type="radio" name="donate-radio" checked class="donate--hide">
+                    <span class="donate-form__radio-span"></span>
+                    Monthly
+                  </label>
+                  <label class="donate-form__radio">
+                    <input type="radio" name="donate-radio" class="donate--hide">
+                    <span class="donate-form__radio-span"></span>
+                    Once
+                  </label>
+                </div>
+                <button type="submit" class="donate-form__submit btn btn--round">Feed a friend now</button>
+                <div class="donate-form__text">
+                  Share with your friends on social networks
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class=" footer">
       <div class="container">
         <div class="footer__wrapper">
           <div class="footer__logo">PetStory online
