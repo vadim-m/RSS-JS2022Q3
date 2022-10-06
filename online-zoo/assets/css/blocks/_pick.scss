@@ -1,0 +1,45 @@
+.pick {
+  padding: 20px 0 180px;
+
+  &__wrapper {
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+
+    padding: 40px 90px 62px;
+  }
+}
+
+.pick__title {
+  color: var(--orange);
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+.pick__text {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+
+  margin-bottom: 20px;
+}
+
+.pick__animal {
+  margin-bottom: 20px;
+}
+
+.pick__amount {
+  color: #000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: start;
+
+  margin-bottom: 15px;
+}

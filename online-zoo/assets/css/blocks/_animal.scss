@@ -1,0 +1,36 @@
+.animal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal__info {
+  padding: 40px 80px 0 0;
+
+  background-image: url(../../assets/images/pick/close.svg);
+  background-repeat: no-repeat;
+  background-position: 185px 70px;
+}
+
+.animal__days-number {
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 0.8;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.animal__days-text {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+}
