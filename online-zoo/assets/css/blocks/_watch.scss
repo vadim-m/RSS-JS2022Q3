@@ -20,6 +20,15 @@
     padding: 41px 0;
     position: relative;
   }
+
+  &--donate {
+    background-image: url(../../assets/images/watch/panda-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 385px;
+  }
 }
 
 .watch__container {
