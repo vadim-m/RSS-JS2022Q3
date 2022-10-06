@@ -1,5 +1,9 @@
 .help {
   padding: 40px 0;
+
+  @include medium {
+    padding: 40px 0 20px;
+  }
 }
 
 .help__title {
@@ -12,8 +16,9 @@
 
   margin-bottom: 11px;
 
-  @include tablets {
-    margin-bottom: 30px;
+  @include medium {
+    max-width: 766px;
+    margin-bottom: 31px;
   }
 }
 

@@ -642,6 +642,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 385px; }
+    @media screen and (max-width: 1199.98px) {
+      .watch--donate {
+        height: 389px;
+        background-size: auto; } }
 
 .watch__container {
   display: flex;
@@ -730,6 +734,9 @@ body {
 
 .help {
   padding: 40px 0; }
+  @media screen and (max-width: 1199.98px) {
+    .help {
+      padding: 40px 0 20px; } }
 
 .help__title {
   color: var(--white);
@@ -739,9 +746,10 @@ body {
   font-size: 36px;
   line-height: 1.3;
   margin-bottom: 11px; }
-  @media screen and (max-width: 991.98px) {
+  @media screen and (max-width: 1199.98px) {
     .help__title {
-      margin-bottom: 30px; } }
+      max-width: 766px;
+      margin-bottom: 31px; } }
 
 .help__text {
   color: var(--white);
@@ -762,16 +770,25 @@ body {
 
 .pick {
   padding: 20px 0 180px; }
+  @media screen and (max-width: 1199.98px) {
+    .pick {
+      padding: 20px 0 30px; } }
   .pick__wrapper {
     background: rgba(255, 255, 255, 0.52);
     backdrop-filter: blur(2px);
     border-radius: 20px;
     padding: 40px 90px 62px; }
+    @media screen and (max-width: 1199.98px) {
+      .pick__wrapper {
+        padding: 20px 44px 45px; } }
 
 .pick__title {
   color: var(--orange);
   text-align: center;
   margin: 0 10px 20px 0; }
+  @media screen and (max-width: 1199.98px) {
+    .pick__title {
+      margin: 0 10px 12px 0; } }
 
 .pick__text {
   color: var(--black);
@@ -799,6 +816,9 @@ body {
 
 .pick__scale {
   margin-bottom: 50px; }
+  @media screen and (max-width: 1199.98px) {
+    .pick__scale {
+      margin-bottom: 48px; } }
 
 .animal {
   display: flex;
@@ -840,16 +860,10 @@ body {
   flex-wrap: wrap;
   position: relative;
   border-radius: 2px; }
-  @media (max-width: 1599px) {
+  @media screen and (max-width: 1199.98px) {
     .scale__bar {
-      width: 810px; } }
-  @media (max-width: 999px) {
-    .scale__bar {
-      width: 600px; } }
-  @media (max-width: 639px) {
-    .scale__bar {
-      height: 13px; } }
-  @media (max-width: 1599px) {
+      padding: 0px 20px; } }
+  @media screen and (max-width: 1199.98px) {
     .scale__bar .one--hidden {
       display: none; } }
   @media (max-width: 999px) {
@@ -864,6 +878,9 @@ body {
   background: #404950;
   padding: 0 25px;
   margin-bottom: 12px; }
+  @media screen and (max-width: 1199.98px) {
+    .scale__buttons-wrap {
+      padding: 0 10px; } }
 .scale__buttons {
   width: 100%;
   display: flex;
@@ -928,9 +945,9 @@ body {
     color: var(--orange-active); }
   .scale__label.active {
     color: var(--orange-active); }
-  @media (max-width: 639px) {
+  @media screen and (max-width: 1199.98px) {
     .scale__label {
-      font-size: 13px; } }
+      width: 5%; } }
 
 .donate-form {
   display: flex;
@@ -981,8 +998,14 @@ body {
   cursor: pointer; }
   .donate-form__radio:first-child {
     margin-right: 50px; }
+    @media screen and (max-width: 1199.98px) {
+      .donate-form__radio:first-child {
+        margin-right: 48px; } }
   .donate-form__radio:last-child {
     margin-right: 10px; }
+    @media screen and (max-width: 1199.98px) {
+      .donate-form__radio:last-child {
+        margin-right: 18px; } }
 
 .donate-form__radio .donate-form__radio-span {
   position: relative;
@@ -1133,6 +1156,10 @@ input:checked + .donate-form__radio-span::after {
 @media screen and (max-width: 619.98px) {
   .footer .nav__item:not(:last-child) {
     margin-right: 30px; } }
+
+@media screen and (max-width: 1199.98px) {
+  .footer-donate .footer__nav {
+    margin-left: 55px; } }
 
 .socials__list {
   display: flex;

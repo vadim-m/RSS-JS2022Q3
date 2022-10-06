@@ -670,6 +670,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 385px; }
+    @media screen and (max-width: 1199.98px) {
+      .watch--donate {
+        height: 389px;
+        background-size: auto; } }
 
 .watch__container {
   display: flex;
@@ -1616,6 +1620,10 @@ body {
 @media screen and (max-width: 619.98px) {
   .footer .nav__item:not(:last-child) {
     margin-right: 30px; } }
+
+@media screen and (max-width: 1199.98px) {
+  .footer-donate .footer__nav {
+    margin-left: 55px; } }
 
 .socials__list {
   display: flex;

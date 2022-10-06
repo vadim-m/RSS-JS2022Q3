@@ -60,10 +60,18 @@
 
   &:first-child {
     margin-right: 50px;
+
+    @include medium {
+      margin-right: 48px;
+    }
   }
 
   &:last-child {
     margin-right: 10px;
+
+    @include medium {
+      margin-right: 18px;
+    }
   }
 }
 

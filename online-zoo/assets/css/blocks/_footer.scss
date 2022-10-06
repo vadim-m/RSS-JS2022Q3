@@ -150,6 +150,7 @@
   }
 }
 
+// костыли для PP
 .footer {
   @include tablets {
     .nav__item:not(:last-child) {
@@ -160,6 +161,14 @@
   @include phones {
     .nav__item:not(:last-child) {
       margin-right: 30px;
+    }
+  }
+}
+
+.footer-donate {
+  .footer__nav {
+    @include medium {
+      margin-left: 55px;
     }
   }
 }

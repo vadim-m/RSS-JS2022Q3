@@ -1,12 +1,20 @@
 .pick {
   padding: 20px 0 180px;
 
+  @include medium {
+    padding: 20px 0 30px;
+  }
+
   &__wrapper {
     background: rgba(255, 255, 255, 0.52);
     backdrop-filter: blur(2px);
     border-radius: 20px;
 
     padding: 40px 90px 62px;
+
+    @include medium {
+      padding: 20px 44px 45px;
+    }
   }
 }
 
@@ -15,6 +23,10 @@
   text-align: center;
 
   margin: 0 10px 20px 0;
+
+  @include medium {
+    margin: 0 10px 12px 0;
+  }
 }
 
 .pick__text {
@@ -49,4 +61,8 @@
 
 .pick__scale {
   margin-bottom: 50px;
+
+  @include medium {
+    margin-bottom: 48px;
+  }
 }

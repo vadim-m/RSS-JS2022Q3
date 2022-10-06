@@ -28,6 +28,11 @@
     background-size: cover;
 
     height: 385px;
+
+    @include medium {
+      height: 389px;
+      background-size: auto;
+    }
   }
 }
 

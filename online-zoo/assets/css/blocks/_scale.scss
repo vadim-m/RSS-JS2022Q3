@@ -6,19 +6,13 @@
     position: relative;
     border-radius: 2px;
 
-    @media (max-width: 1599px) {
-      width: 810px;
-    }
-    @media (max-width: 999px) {
-      width: 600px;
-    }
-    @media (max-width: 639px) {
-      height: 13px;
+    @include medium {
+      padding: 0px 20px;
     }
 
     // скрыть три первых суммы
     .one--hidden {
-      @media (max-width: 1599px) {
+      @include medium {
         display: none;
       }
     }
@@ -43,6 +37,10 @@
 
     padding: 0 25px;
     margin-bottom: 12px;
+
+    @include medium {
+      padding: 0 10px;
+    }
   }
 
   &__buttons {
@@ -130,7 +128,7 @@
     color: var(--orange-active);
   }
 
-  @media (max-width: 639px) {
-    font-size: 13px;
+  @include medium {
+    width: 5%;
   }
 }
