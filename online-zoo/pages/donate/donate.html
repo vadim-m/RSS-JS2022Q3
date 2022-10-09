@@ -88,14 +88,14 @@
             <div class="pick__amount">Amount</div>
             <div class="pick__scale scale">
               <div class="scale__bar">
-                <div class="scale__buttons-wrap">
-                  <div class="scale__buttons">
+                <div class="scale__radios-wrap">
+                  <div class="scale__radios">
                     <input type="radio" id="5000" name="scale-radio" class="scale__radio one--hidden">
                     <input type="radio" id="2000" name="scale-radio" class="scale__radio two--hidden">
-                    <input type="radio" id="1000" name="scale-radio" class="scale__radio three--hidden" checked>
+                    <input type="radio" id="1000" name="scale-radio" class="scale__radio three--hidden">
                     <input type="radio" id="500" name="scale-radio" class="scale__radio">
                     <input type="radio" id="250" name="scale-radio" class="scale__radio">
-                    <input type="radio" id="100" name="scale-radio" class="scale__radio">
+                    <input type="radio" id="100" checked name="scale-radio" class="scale__radio">
                     <input type="radio" id="50" name="scale-radio" class="scale__radio">
                     <input type="radio" id="25" name="scale-radio" class="scale__radio">
                   </div>
@@ -104,10 +104,10 @@
                 <div class="scale__labels">
                   <label for="5000" class="scale__label one--hidden">$5000</label>
                   <label for="2000" class="scale__label two--hidden">$2000</label>
-                  <label for="1000" class="scale__label active three--hidden">$1000</label>
+                  <label for="1000" class="scale__label three--hidden">$1000</label>
                   <label for="500" class="scale__label four">$500</label>
                   <label for="250" class="scale__label five">$250</label>
-                  <label for="100" class="scale__label six">$100</label>
+                  <label for="100" class="scale__label active six">$100</label>
                   <label for="50" class="scale__label seven">&nbsp$50</label>
                   <label for="25" class="scale__label eight">&nbsp$25</label>
                 </div>
@@ -115,8 +115,8 @@
             </div>
             <div class="pick__form">
               <form action="#" class="donate-form">
-                <input type="number" title="Введите число" required class="donate-form__input"
-                  placeholder="Another amount">
+                <input type="number" min="1" max="9999" value="100" title="Введите число" required
+                  class="donate-form__input" id="donate-form__input" placeholder="Another amount">
                 <div class="donate-form__radio-wrap">
                   <label class="donate-form__radio">
                     <input type="radio" name="donate-radio" checked class="donate--hide">
@@ -210,6 +210,7 @@
       </div>
     </footer>
 
+    <script src="./donate.js"></script>
   </div>
 </body>
 

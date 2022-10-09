@@ -1012,23 +1012,23 @@ body {
   @media screen and (max-width: 991.98px) {
     .scale__bar .three--hidden {
       display: none; } }
-.scale__buttons-wrap {
+.scale__radios-wrap {
   width: 100%;
   display: flex;
   background: #404950;
   padding: 0 25px;
   margin-bottom: 12px; }
   @media screen and (max-width: 1199.98px) {
-    .scale__buttons-wrap {
+    .scale__radios-wrap {
       padding: 0 10px; } }
   @media screen and (max-width: 991.98px) {
-    .scale__buttons-wrap {
+    .scale__radios-wrap {
       padding: 0px 34px; } }
   @media screen and (max-width: 619.98px) {
-    .scale__buttons-wrap {
+    .scale__radios-wrap {
       padding: 0px 17px;
       margin-bottom: 6px; } }
-.scale__buttons {
+.scale__radios {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1037,7 +1037,7 @@ body {
   background-position: center center;
   padding: 8px 0; }
   @media screen and (max-width: 619.98px) {
-    .scale__buttons {
+    .scale__radios {
       padding: 3px 0; } }
 .scale__labels {
   width: 100%;
@@ -1075,7 +1075,7 @@ body {
       .scale__radio::before {
         width: 6px;
         height: 6px; } }
-  .scale__radio:checked::after {
+  .scale__radio::after {
     content: "";
     width: 40px;
     height: 40px;
@@ -1083,12 +1083,16 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url(../../assets/images/pick/circle.svg);
-    background-size: contain; }
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out; }
     @media screen and (max-width: 619.98px) {
-      .scale__radio:checked::after {
+      .scale__radio::after {
         width: 20px;
         height: 20px; } }
+  .scale__radio:checked::after {
+    background: url(../../assets/images/pick/circle.svg);
+    background-size: contain;
+    opacity: 1; }
 
 .scale__label {
   display: flex;
@@ -1099,7 +1103,7 @@ body {
   font-size: 26px;
   line-height: 1.4;
   text-transform: uppercase;
-  transition: color 0.15s;
+  transition: color 0.25s ease-in-out;
   cursor: pointer; }
   .scale__label:hover {
     color: var(--orange-active); }
@@ -1126,17 +1130,22 @@ body {
   color: var(--black);
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 20px;
   line-height: 1.4;
+  text-align: center;
   background-color: transparent;
   background-image: url(../../assets/images/pick/dollar.svg);
   background-repeat: no-repeat;
   background-position: 95% center;
   border: 1px solid #929699;
   border-radius: 2px;
-  padding: 15px 10px;
+  padding: 12px 10px;
   margin-bottom: 25px; }
+  .donate-form__input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left; }
   @media screen and (max-width: 991.98px) {
     .donate-form__input {
       max-width: 180px;
@@ -1144,6 +1153,7 @@ body {
       margin-bottom: 33px; } }
   @media screen and (max-width: 619.98px) {
     .donate-form__input {
+      font-size: 13px;
       margin-bottom: 25px; } }
   .donate-form__input:hover, .donate-form__input:active, .donate-form__input:focus {
     outline: 1px solid var(--green); }
