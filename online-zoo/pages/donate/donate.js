@@ -61,6 +61,7 @@ donateInput.addEventListener("input", (e) => {
   removeCheckedRadio(radios);
 });
 
+// Удаляем атрибут checked на радиокнопках
 function removeCheckedRadio(nodelist) {
   nodelist.forEach((item) => {
     item.checked = false;

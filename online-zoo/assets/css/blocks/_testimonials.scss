@@ -36,12 +36,20 @@
   }
 }
 
+.testimonials__list-wrap {
+  overflow: hidden;
+}
+
 .testimonials__list {
   display: flex;
-  gap: 0 34px;
   list-style: none;
+  position: relative;
+  left: 0;
 
-  margin-bottom: 24px;
+  transition: left 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+
+  padding: 5px;
+  margin: 0 -0.7% 24px;
 
   @include tablets {
     flex-wrap: wrap;
@@ -50,43 +58,59 @@
   }
 
   @include phones {
-    margin-bottom: 27px;
+    padding: 4px 0;
+    margin: 0 0 27px;
+  }
+}
+
+.testimonials__item-wrap {
+  width: 25%;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: space-around;
+
+  @include medium {
+    width: 33.333%;
+  }
+
+  @include tablets {
+    width: 100%;
+
+    padding: 0 2px;
+
+    &:nth-child(n + 4) {
+      display: none;
+    }
   }
 }
 
 .testimonials__item {
-  display: block;
-  width: 25%;
-  background-color: var(--gray-smoky);
-  border-radius: 20px;
-  position: relative;
+  height: 100%;
+  max-width: 270px;
   color: var(--gray);
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.2;
+  background-color: var(--gray-smoky);
+  border-radius: 20px;
+  position: relative;
 
   padding: 13px 10px 20px 17px;
 
   @include medium {
-    width: 33.333%;
     padding: 13px 21px 20px 17px;
   }
 
   @include tablets {
-    width: 100%;
+    max-width: 100%;
     padding: 13px 30px 12px 12px;
   }
 
   @include phones {
     padding: 8px 30px 18px 14px;
-  }
-
-  &:last-child {
-    @include medium {
-      display: none;
-    }
   }
 
   &::before {

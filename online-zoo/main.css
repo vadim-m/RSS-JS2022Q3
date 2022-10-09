@@ -1331,11 +1331,17 @@ body {
       font-size: 24px;
       margin-bottom: 21px; } }
 
+.testimonials__list-wrap {
+  overflow: hidden; }
+
 .testimonials__list {
   display: flex;
-  gap: 0 34px;
   list-style: none;
-  margin-bottom: 24px; }
+  position: relative;
+  left: 0;
+  transition: left 1.2s cubic-bezier(0.85, 0, 0.15, 1);
+  padding: 5px;
+  margin: 0 -0.7% 24px; }
   @media screen and (max-width: 991.98px) {
     .testimonials__list {
       flex-wrap: wrap;
@@ -1343,35 +1349,47 @@ body {
       margin-bottom: 40px; } }
   @media screen and (max-width: 619.98px) {
     .testimonials__list {
-      margin-bottom: 27px; } }
+      padding: 4px 0;
+      margin: 0 0 27px; } }
+
+.testimonials__item-wrap {
+  width: 25%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around; }
+  @media screen and (max-width: 1199.98px) {
+    .testimonials__item-wrap {
+      width: 33.333%; } }
+  @media screen and (max-width: 991.98px) {
+    .testimonials__item-wrap {
+      width: 100%;
+      padding: 0 2px; }
+      .testimonials__item-wrap:nth-child(n + 4) {
+        display: none; } }
 
 .testimonials__item {
-  display: block;
-  width: 25%;
-  background-color: var(--gray-smoky);
-  border-radius: 20px;
-  position: relative;
+  height: 100%;
+  max-width: 270px;
   color: var(--gray);
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.2;
+  background-color: var(--gray-smoky);
+  border-radius: 20px;
+  position: relative;
   padding: 13px 10px 20px 17px; }
   @media screen and (max-width: 1199.98px) {
     .testimonials__item {
-      width: 33.333%;
       padding: 13px 21px 20px 17px; } }
   @media screen and (max-width: 991.98px) {
     .testimonials__item {
-      width: 100%;
+      max-width: 100%;
       padding: 13px 30px 12px 12px; } }
   @media screen and (max-width: 619.98px) {
     .testimonials__item {
       padding: 8px 30px 18px 14px; } }
-  @media screen and (max-width: 1199.98px) {
-    .testimonials__item:last-child {
-      display: none; } }
   .testimonials__item::before {
     content: "";
     position: absolute;
