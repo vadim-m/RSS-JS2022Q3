@@ -34,7 +34,7 @@
     }
   }
 
-  &__buttons-wrap {
+  &__radios-wrap {
     width: 100%;
     display: flex;
     background: #404950;
@@ -56,7 +56,7 @@
     }
   }
 
-  &__buttons {
+  &__radios {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -116,7 +116,7 @@
     }
   }
 
-  &:checked::after {
+  &::after {
     content: "";
     width: 40px;
     height: 40px;
@@ -124,13 +124,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url(../../assets/images/pick/circle.svg);
-    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
 
     @include phones {
       width: 20px;
       height: 20px;
     }
+  }
+
+  &:checked::after {
+    background: url(../../assets/images/pick/circle.svg);
+    background-size: contain;
+    opacity: 1;
   }
 }
 
@@ -143,7 +149,7 @@
   font-size: 26px;
   line-height: 1.4;
   text-transform: uppercase;
-  transition: color 0.15s;
+  transition: color 0.25s ease-in-out;
   cursor: pointer;
 
   &:hover {
