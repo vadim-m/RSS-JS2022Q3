@@ -8,6 +8,27 @@ function removeActiveClass(item) {
   item.classList.remove("active");
 }
 
+// Переключить элементу класс active
+function toggleActiveClass(item) {
+  item.classList.toggle("active");
+}
+
+// Burger menu
+const burgerButton = document.querySelector(".burger-menu");
+const headerElem = document.querySelector(".header");
+const headerDropdown = document.querySelector(".header__dropdown");
+burgerButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  toggleActiveClass(headerElem);
+  toggleActiveClass(burgerButton);
+});
+
+headerDropdown.addEventListener("click", (e) => {
+  removeActiveClass(headerElem);
+  removeActiveClass(burgerButton);
+});
+
 // Testimonials Slider
 const range = document.querySelector(".testimonials__slider");
 const testimonialsList = document.querySelector(".testimonials__list");
@@ -61,3 +82,10 @@ popup.addEventListener("click", (e) => {
 
 checkRange();
 checkTestimonials();
+
+// Pets Carusel
+function showTooltip() {
+  alert(
+    "Единственное что не успел сделать это карусель в блоке Pets. Не успел уложится в дедлайн. Если будет возможность проверьте, пожалуйста, не в первые дни кроссчека. Я постараюсь закончить третью неделю полностью чуть позже. Или напишите мне в discord @Vadim_M#0673, спасибо!"
+  );
+}

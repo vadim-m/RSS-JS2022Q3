@@ -45,10 +45,11 @@
             class="header__link">Designed by ©</a>
         </div>
         <div class="header__burger">
-          <button id="burger-menu" class="burger-menu">
+          <button class="burger-menu">
             <span class=" burger-menu__item"></span>
           </button>
         </div>
+        <div class="header__dropdown"></div>
       </div>
     </header>
 
@@ -208,9 +209,9 @@
 
             </div>
             <div class="pets__controls">
-              <button class="pets__control pets__control--left">
+              <button onclick="showTooltip()" class="pets__control pets__control--left">
               </button>
-              <button class="pets__control pets__control--right">
+              <button onclick="showTooltip()" class="pets__control pets__control--right">
               </button>
             </div>
           </div>
@@ -713,6 +714,7 @@
       </div>
 
     </div>
+
 </body>
 
 <script src="./main.js"></script>
