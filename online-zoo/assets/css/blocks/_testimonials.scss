@@ -145,6 +145,10 @@
   display: flex;
 
   margin-bottom: 10px;
+
+  @include tablets {
+    pointer-events: none;
+  }
 }
 
 .testimonials__photo {
@@ -200,6 +204,8 @@
   @include tablets {
     -webkit-line-clamp: 2;
     margin-left: 5px;
+
+    pointer-events: none;
   }
 }
 

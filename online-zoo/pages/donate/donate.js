@@ -22,16 +22,6 @@ function changeActiveElements(nodelist, value) {
   });
 }
 
-// Добавить элементу класс active
-function setActiveClass(item) {
-  item.classList.add("active");
-}
-
-// Удалить элементу класс active
-function removeActiveClass(item) {
-  item.classList.remove("active");
-}
-
 // Установить значение в поле .donate-form__input
 function setInputValue(value) {
   donateInput.value = value;
