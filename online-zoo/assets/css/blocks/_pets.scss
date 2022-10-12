@@ -17,7 +17,18 @@
   &__wrapper {
     position: relative;
     z-index: 10;
+
+    min-height: 870px;
   }
+}
+
+.pets__slide {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 1s linear;
 }
 
 .pets__cards {
@@ -172,6 +183,7 @@
   background-repeat: no-repeat;
   background-position: center;
   transform: translateY(-50%);
+  z-index: 50;
 
   width: 62px;
   height: 62px;
