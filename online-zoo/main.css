@@ -976,7 +976,7 @@ body {
   .pets__wrapper {
     position: relative;
     z-index: 10;
-    min-height: 870px; }
+    min-height: 950px; }
 
 .pets__slide {
   top: 0;
