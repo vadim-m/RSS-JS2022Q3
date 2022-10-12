@@ -102,118 +102,14 @@
 
       <section class="pets">
         <div class="container pets__container">
-          <div class="pets__wrapper">
-            <div class="pets__cards">
+          <div class="pets__slider">
 
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/panda.jpg" alt="panda" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">Giant Pandas</h4>
-                    <div class="pets__habitat">Native to Southwest China</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#banana"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/eagle.jpg" alt="eagle" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">Eagles</h4>
-                    <div class="pets__habitat">Native to South America</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#meet"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/gorilla.jpg" alt="gorilla" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">Gorillas</h4>
-                    <div class="pets__habitat">Native to Congo</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#banana"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/sloth.jpg" alt="sloth" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">Two-toed Sloth</h4>
-                    <div class="pets__habitat">Mesoamerica, South America</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#banana"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/cheetah.jpg" alt="cheetah" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">Cheetahs</h4>
-                    <div class="pets__habitat">Native to Africa</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#meet"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pets__card">
-                <div class="pets__photo">
-                  <img src="./assets/images/pets/penguin.jpg" alt="penguin" class="pets__img">
-                </div>
-                <div class="pets__info">
-                  <div class="pets__text">
-                    <h4 class="pets__title">penguins</h4>
-                    <div class="pets__habitat">Native to Antarctica</div>
-                  </div>
-                  <div class="pets__icon">
-                    <svg class="pets__svg">
-                      <use xlink:href="./assets/icons/pets/pets.svg#meet"></use>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="pets__controls">
-              <button onclick="showTooltip()" class="pets__control pets__control--left">
-              </button>
-              <button onclick="showTooltip()" class="pets__control pets__control--right">
-              </button>
-            </div>
+          </div>
+          <div class="pets__controls">
+            <button onclick="moveLeft()" class="pets__control pets__control--left">
+            </button>
+            <button onclick="moveRight()" class="pets__control pets__control--right">
+            </button>
           </div>
           <div class="pets__button">
             <button class="btn btn--round">choose your favorite</button>
@@ -718,5 +614,6 @@
 </body>
 
 <script src="./main.js"></script>
+<script src="./assets/scripts/pets-slider.js"></script>
 
 </html>
