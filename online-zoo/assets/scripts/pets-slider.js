@@ -1,4 +1,4 @@
-const slider = document.querySelector(".pets__wrapper");
+const slider = document.querySelector(".pets__slider");
 const leftButton = document.querySelector(".pets__control--left");
 const rightButton = document.querySelector(".pets__control--right");
 
@@ -82,7 +82,7 @@ function draw() {
 
   // Наполняем слайд
   slide.appendChild(fillSlide());
-  // Добавили слайд в слайдер (в pets__wrapper)
+  // Добавили слайд в слайдер (в pets__slider)
   slider.appendChild(slide);
   // Увеличили переменную смещения слайдов
   offset++;
@@ -116,7 +116,7 @@ function moveLeft() {
   // Возращаем слушатель
   setTimeout(() => {
     leftButton.onclick = moveLeft;
-  }, 1200);
+  }, 900);
 }
 
 // Клик по стрелке вправо
@@ -144,7 +144,7 @@ function moveRight() {
   // Возращаем слушатель
   setTimeout(() => {
     rightButton.onclick = moveRight;
-  }, 1200);
+  }, 900);
 }
 
 // Функция для заполнения одного слайда
