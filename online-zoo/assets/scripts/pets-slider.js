@@ -113,9 +113,13 @@ function moveLeft() {
   // Добавляем в начало слайдера
   slider.prepend(slide);
 
-  // Возращаем слушатель
   setTimeout(() => {
+    // Возращаем слушатель
     leftButton.onclick = moveLeft;
+    // Генерируем новые карточки последнему слайду
+    const slides = document.querySelectorAll(".pets__slide");
+    slides[slides.length - 1].innerHTML = "";
+    slides[slides.length - 1].appendChild(fillSlide());
   }, 900);
 }
 
@@ -141,9 +145,13 @@ function moveRight() {
   // Добавляем в конец слайдера
   slider.appendChild(slide);
 
-  // Возращаем слушатель
   setTimeout(() => {
+    // Возращаем слушатель
     rightButton.onclick = moveRight;
+    // Генерируем новые карточки первому слайду
+    const slides = document.querySelectorAll(".pets__slide");
+    slides[0].innerHTML = "";
+    slides[0].appendChild(fillSlide());
   }, 900);
 }
 
