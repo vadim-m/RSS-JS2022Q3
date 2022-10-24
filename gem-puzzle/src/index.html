@@ -11,18 +11,34 @@
 </head>
 
 <body>
-  <!-- <div class="wrapper">
-    <!-- <div class="buttons">
-      <button class="btn">Shuffle!</button>
-      <button class="btn">Sound On/Off</button>
-      <button class="btn">Results</button>
-      <button class="btn">Shuffle!</button>
-    </div> -->
-  <!-- <div class="counters"></div> -->
-  <!-- <div class="size">
-      choose frame size
+
+  <div class="buttons">
+    <button class="button">Shuffle!</button>
+    <button class="button">Sound On/Off</button>
+    <button class="button">Results</button>
+  </div>
+
+  <div class="counters">
+    <div class="counters__moves">Moves:
+      <span>0</span>
     </div>
-  </div -->
+    <div class="counters__time">Time:
+      <span>00 : 00</span>
+    </div>
+  </div>
+  <div class="size">
+    <label>Choose a frame size:
+      <select id="size-select">
+        <option value="3">3</option>
+        <option selected value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </label>
+  </div>
+
 </body>
 
 </html>

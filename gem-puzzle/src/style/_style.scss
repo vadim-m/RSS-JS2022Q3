@@ -51,6 +51,11 @@ body {
   }
 }
 
+.counters {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .puzzles {
   width: 100%;
   display: flex;

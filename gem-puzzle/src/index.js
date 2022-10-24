@@ -25,6 +25,24 @@ appendElement(buttonsElem, shuffleBtnElem);
 const puzzleElem = createElement("div", "puzzles", "puzzles", "");
 appendElement(wrapperElem, puzzleElem);
 
+// click listener on puzzles
+puzzleElem.addEventListener("click", (e) => {
+  const puzzle = e.target;
+
+  if (e.target !== puzzleElem) {
+    const puzzleNum = +puzzle.dataset.pos;
+    const puzzlePosition = getPositionByNum(puzzleNum, matrix);
+    const emptyPuzzlePosition = getPositionByNum(puzzleCount, matrix);
+
+    const isPossible = canSwapPuzzles(puzzlePosition, emptyPuzzlePosition);
+
+    if (isPossible) {
+      swapPuzzles(matrix, puzzlePosition, emptyPuzzlePosition);
+      setPuzzles(matrix);
+    }
+  }
+});
+
 // create array from 0 to size X size
 const initialDigitsArr = new Array(puzzleCount)
   .fill(0)
@@ -121,4 +139,34 @@ function shuffleArray(array) {
   }
 
   return array;
+}
+
+// find puzzle coordinates
+function getPositionByNum(num, matrix) {
+  for (let y = 0; y < matrix.length; y++) {
+    for (let x = 0; x < matrix[y].length; x++) {
+      if (matrix[y][x] === num) {
+        return { x, y };
+      }
+    }
+  }
+
+  return null;
+}
+
+function canSwapPuzzles(firstPos, secondPos) {
+  const dx = Math.abs(firstPos.x - secondPos.x);
+  const dy = Math.abs(firstPos.y - secondPos.y);
+
+  return (
+    (dx === 1 || dy === 1) &&
+    (firstPos.x === secondPos.x || firstPos.y === secondPos.y)
+  );
+}
+
+//
+function swapPuzzles(matrix, firstPos, secondPos) {
+  const firstPosition = matrix[firstPos.y][firstPos.x];
+  matrix[firstPos.y][firstPos.x] = matrix[secondPos.y][secondPos.x];
+  matrix[secondPos.y][secondPos.x] = firstPosition;
 }
