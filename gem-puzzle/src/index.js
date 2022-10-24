@@ -2,6 +2,7 @@ import "./index.html";
 import "./index.scss";
 import { createElement, appendElement } from "./modules/utils";
 
+// get elements from page
 const bodyElem = document.querySelector("body");
 
 // side size
@@ -11,6 +12,14 @@ let puzzleCount = sideSize * sideSize;
 // create wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
 appendElement(bodyElem, wrapperElem);
+
+// create buttons wrapper
+const buttonsElem = createElement("div", "buttons", "noId", "");
+appendElement(wrapperElem, buttonsElem);
+
+// create shuffle button
+const shuffleBtnElem = createElement("button", "button", "shuffle", "Shuffle");
+appendElement(buttonsElem, shuffleBtnElem);
 
 // create puzzles wrapper
 const puzzleElem = createElement("div", "puzzles", "puzzles", "");
@@ -34,6 +43,18 @@ puzzles[puzzleCount - 1].style.display = "none";
 
 // set position for every puzzle
 setPuzzles(matrix);
+
+// shuffle button click
+shuffleBtnElem.addEventListener("click", (e) => {
+  e.preventDefault();
+  const mixedArr = shuffleArray(matrix.flat());
+  matrix = getMatrix(mixedArr);
+
+  setPuzzles(matrix);
+});
+
+// first click for upload page
+shuffleBtnElem.click();
 
 // fill puzzles wrapper
 function fillPuzzles() {
@@ -82,4 +103,22 @@ function setPuzzles(matrix) {
 
       setPuzzlePosition(x, y, puzzle);
     }
+}
+
+// shuffle array fucntion
+function shuffleArray(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
 }
