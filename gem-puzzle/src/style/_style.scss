@@ -1,5 +1,64 @@
+html {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 body {
   font-family: "Montserrat";
   background-color: $back;
   color: $text;
+}
+
+.wrapper {
+  width: 90vw;
+  max-width: 660px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 5vw;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.puzzles {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  border: 2px solid #45cdda;
+  overflow: hidden;
+
+  padding-bottom: 100%;
+}
+
+.puzzle {
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: azure;
+  border: 1px solid $back;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+
+  margin: 0;
+  padding: 0;
 }
