@@ -56,6 +56,10 @@ export function resetStopwatch() {
   min = 0;
 }
 
+export function stopStopwatch() {
+  clearTimeout(timer);
+}
+
 function addSecStopwatch() {
   sec++;
   if (sec >= 60) {

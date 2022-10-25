@@ -19,7 +19,18 @@ export function playSound(audio) {
   }
 
   if (isPlay) {
-    audio.play();
+    // HTML5 autoplay error hack
+    let resp = audio.play();
+
+    if (resp !== undefined) {
+      resp
+        .then((_) => {
+          // play
+        })
+        .catch((error) => {
+          //show error
+        });
+    }
   }
 }
 

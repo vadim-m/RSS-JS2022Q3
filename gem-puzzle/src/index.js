@@ -19,9 +19,9 @@ import {
   resetMoves,
   updateMoves,
   getMoves,
-  stopwatchElem,
   startStopwatch,
   resetStopwatch,
+  stopStopwatch,
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
 import { playSound, togglePlaySound } from "./modules/sounds-player";
@@ -29,30 +29,36 @@ import { playSound, togglePlaySound } from "./modules/sounds-player";
 // create and add page wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
 appendElement(document.body, wrapperElem);
-
 // add buttons
 appendButtons(wrapperElem);
 // add counters
 appendCounters(wrapperElem);
-
 // create and add puzzle wrapper
-const puzzleElem = createElement("div", "puzzles", "puzzles", "");
-appendElement(wrapperElem, puzzleElem);
-
+const puzzlesElem = createElement("div", "puzzles", "puzzles", "");
+appendElement(wrapperElem, puzzlesElem);
 // add size select
 appendSizeSelect(wrapperElem);
 
+// PARAMS FOR START GAME
+let sideSize = 4;
+let puzzleCount = sideSize * sideSize;
+let matrix;
+let puzzles = [];
+
+// Start Game
+startGame(sideSize);
+
+// LISTENERS
 // handle click on puzzle (event listener on puzzles wrapper)
-puzzleElem.addEventListener("click", (e) => {
+puzzlesElem.addEventListener("click", (e) => {
   const puzzle = e.target;
 
-  if (e.target !== puzzleElem) {
+  if (e.target !== puzzlesElem) {
     const puzzleNum = +puzzle.dataset.pos;
     const puzzlePosition = getPositionByNum(puzzleNum, matrix);
     const emptyPuzzlePosition = getPositionByNum(puzzleCount, matrix);
 
     const isPossible = canSwapPuzzles(puzzlePosition, emptyPuzzlePosition);
-
     if (isPossible) {
       // moves counter
       increaseMoves();
@@ -65,18 +71,6 @@ puzzleElem.addEventListener("click", (e) => {
     }
   }
 });
-
-// PARAMS FOR START GAME
-let sideSize = 4;
-let puzzleCount = sideSize * sideSize;
-let matrix;
-let puzzles = [];
-
-// Start Game
-startGame();
-
-// set position for every puzzle
-setPuzzles(matrix);
 
 // shuffle button click
 shuffleBtnElem.addEventListener("click", (e) => {
@@ -103,18 +97,39 @@ soundBtnElem.addEventListener("click", (e) => {
   togglePlaySound();
 });
 
-// start the game when page uploaded
-shuffleBtnElem.click();
-// start stopwatch
-startStopwatch();
+// change select click
+selectElem.addEventListener("change", (e) => {
+  sideSize = e.target.value;
+  startGame(sideSize);
+});
 
-function startGame() {
+// FUNCTIONS
+function startGame(frameSize) {
+  // clear puzzles if its not a first game
+  puzzlesElem.innerHTML = ``;
+  puzzles = [];
+  // calc puzzles counr
+  puzzleCount = frameSize * frameSize;
   // create array from 0 to size X size
   const initialDigitsArr = fillArray(puzzleCount);
-  // start functions
+  // fill items in puzzles wrapper
   fillPuzzles(initialDigitsArr);
-  // matrix
-  matrix = getMatrix(initialDigitsArr);
+  // get shuffles array
+  const mixedArr = shuffleArray(initialDigitsArr);
+  // get started matrix
+  matrix = getMatrix(mixedArr);
+  // set position for every puzzle
+
+  setPuzzles(matrix);
+  // play shuffle sound
+  playSound("shuffle");
+  // start stopwatch
+  stopStopwatch();
+  resetStopwatch();
+  startStopwatch();
+  // moves counter reset
+  resetMoves();
+  updateMoves();
 }
 
 // fill puzzles wrapper
@@ -129,10 +144,8 @@ function fillPuzzles(arr) {
       puzzle.style.display = "none";
     }
     // add puzzle in puzzles wrapper
-    appendElement(puzzleElem, puzzle);
+    appendElement(puzzlesElem, puzzle);
   }
-
-  console.log(puzzles);
 }
 
 // get matrix from simple array
@@ -152,13 +165,14 @@ function getMatrix(arr) {
     matrix[y][x] = arr[i];
     x++;
   }
-
   return matrix;
 }
 
 // set  position for every puzzle item
 function setPuzzlePosition(posX, posY, puzzle) {
   const step = 100;
+  puzzle.style.width = `${100 / sideSize}%`;
+  puzzle.style.height = `${100 / sideSize}%`;
   puzzle.style.transform = `translate3D(${posX * step}%, ${posY * step}%, 0)`;
 }
 
@@ -168,7 +182,6 @@ function setPuzzles(matrix) {
     for (let x = 0; x < matrix[y].length; x++) {
       const puzzleValue = matrix[y][x];
       const puzzle = puzzles[puzzleValue - 1];
-
       setPuzzlePosition(x, y, puzzle);
     }
 }
@@ -204,11 +217,6 @@ function doSwapPuzzles(matrix, firstPos, secondPos) {
   matrix[secondPos.y][secondPos.x] = firstPosition;
 }
 
-// // CHANGE SIZE!
-// selectElem.addEventListener("change", (e) => {
-//   sideSize = e.target.value;
-//   puzzleCount = sideSize * sideSize;
-//   const mixedArr = shuffleArray(matrix.flat());
-//   matrix = getMatrix(mixedArr);
-//   setPuzzles(matrix);
-// });
+alert(
+  "Если есть возможность, пожалуйста проверьте страницу после 25. Пытаясь прикрутить проверку на решаемость расклада, я сломал всю логику и сборку webpack. Попытюсь ночью исправить. Спасибо за понимание. Discord - @Vadim_M#0673"
+);
