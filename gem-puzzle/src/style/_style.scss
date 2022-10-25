@@ -35,9 +35,10 @@ body {
 .buttons {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .button {
@@ -60,8 +61,11 @@ body {
 }
 
 .counters {
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
+
+  margin-bottom: 1rem;
 }
 
 .puzzles {
@@ -73,6 +77,7 @@ body {
   overflow: hidden;
 
   padding-bottom: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .puzzle {
@@ -101,4 +106,8 @@ body {
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
   }
+}
+
+.size__select {
+  margin-left: 0.5rem;
 }

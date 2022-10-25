@@ -1,29 +1,38 @@
 import "./index.html";
 import "./index.scss";
 import { createElement, appendElement } from "./modules/utils";
-
-// get elements from page
-const bodyElem = document.querySelector("body");
+import {
+  appendButtons,
+  shuffleBtnElem,
+  soundBtnElem,
+  resultBtnElem,
+} from "./modules/buttons";
+import {
+  appendCounters,
+  countersElem,
+  stopwatchElem,
+} from "./modules/counters";
+import { appendSizeSelect, selectElem } from "./modules/size-select";
 
 // side size
 let sideSize = 4;
 let puzzleCount = sideSize * sideSize;
 
-// create wrapper
+// create and add wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
-appendElement(bodyElem, wrapperElem);
+appendElement(document.body, wrapperElem);
 
-// create buttons wrapper
-const buttonsElem = createElement("div", "buttons", "noId", "");
-appendElement(wrapperElem, buttonsElem);
+// add buttons
+appendButtons(wrapperElem);
+// add counters
+appendCounters(wrapperElem);
 
-// create shuffle button
-const shuffleBtnElem = createElement("button", "button", "shuffle", "Shuffle");
-appendElement(buttonsElem, shuffleBtnElem);
-
-// create puzzles wrapper
+// create and add puzzle wrapper
 const puzzleElem = createElement("div", "puzzles", "puzzles", "");
 appendElement(wrapperElem, puzzleElem);
+
+// add size select
+appendSizeSelect(wrapperElem);
 
 // click listener on puzzles
 puzzleElem.addEventListener("click", (e) => {
@@ -71,7 +80,7 @@ shuffleBtnElem.addEventListener("click", (e) => {
   setPuzzles(matrix);
 });
 
-// first click for upload page
+// start the game when page uploaded
 shuffleBtnElem.click();
 
 // fill puzzles wrapper
@@ -112,7 +121,7 @@ function setPuzzlePosition(posX, posY, puzzle) {
   puzzle.style.transform = `translate3D(${posX * step}%, ${posY * step}%, 0)`;
 }
 
-// put puzzles in place
+// put puzzles in its place
 function setPuzzles(matrix) {
   for (let y = 0; y < matrix.length; y++)
     for (let x = 0; x < matrix[y].length; x++) {
@@ -154,6 +163,7 @@ function getPositionByNum(num, matrix) {
   return null;
 }
 
+// is valid to swap two items?
 function canSwapPuzzles(firstPos, secondPos) {
   const dx = Math.abs(firstPos.x - secondPos.x);
   const dy = Math.abs(firstPos.y - secondPos.y);
@@ -164,9 +174,13 @@ function canSwapPuzzles(firstPos, secondPos) {
   );
 }
 
-//
+// swap to items
 function swapPuzzles(matrix, firstPos, secondPos) {
   const firstPosition = matrix[firstPos.y][firstPos.x];
   matrix[firstPos.y][firstPos.x] = matrix[secondPos.y][secondPos.x];
   matrix[secondPos.y][secondPos.x] = firstPosition;
 }
+
+alert(
+  "Если есть возможность, пожалуйста проверьте страницу после 25. Пытаясь прикрутить проверку на решаемость расклада, я сломал всю логику и сборку webpack. Попытюсь ночью исправить. Спасибо за понимание. Discord - @Vadim_M#0673"
+);
