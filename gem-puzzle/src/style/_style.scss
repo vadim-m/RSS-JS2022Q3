@@ -27,9 +27,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 
   padding: 0 5vw;
-  margin: 0 auto;
+  margin: 3rem auto 0;
 }
 
 .buttons {
@@ -81,7 +83,7 @@ body {
   width: 8rem;
 
   @media screen and (max-width: 480px) {
-    width: 6rem;
+    width: 7rem;
   }
 }
 
@@ -123,6 +125,70 @@ body {
   }
 }
 
-.size__select {
-  margin-left: 0.5rem;
+.size {
+  margin-bottom: 1.5rem;
+  &__select {
+    margin-left: 0.5rem;
+  }
+}
+
+.score {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+
+  &__item {
+    font-size: 1rem;
+    text-align: left;
+    border-bottom: 1px solid $blue;
+
+    padding: 0.25rem 0;
+    margin-bottom: 0.5rem;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+  }
+
+  &__popup {
+    width: 80%;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    background-color: rgba($color: $blue, $alpha: 0.75);
+    position: absolute;
+    top: 25%;
+    transform: translate3d(0, -50%, 0);
+    text-align: center;
+
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+
+  &__popup-btn {
+    display: block;
+    font-size: 1.2rem;
+    width: 10rem;
+    height: 4rem;
+    background-color: $background;
+    border: 2px solid $blue;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s ease-in;
+
+    padding: 0;
+    margin: 3rem auto 0;
+
+    &:hover {
+      border: 2px solid #000;
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 8rem;
+    }
+  }
 }

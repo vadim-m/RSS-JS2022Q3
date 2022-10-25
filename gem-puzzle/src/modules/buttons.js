@@ -28,6 +28,6 @@ export const resultBtnElem = createElement(
   "button",
   "button",
   "result",
-  "Result"
+  "Results"
 );
 appendElement(buttonsElem, resultBtnElem);
