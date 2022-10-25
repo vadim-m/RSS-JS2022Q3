@@ -7,10 +7,9 @@ export function appendCounters(parent) {
 // create counters wrapper
 const countersElem = createElement("div", "counters", "counters", "");
 
-// moves counter
+// create moves counter
 let movesCount = 0;
 
-// create counters
 export const counterElem = createElement(
   "div",
   "counter",
@@ -35,11 +34,44 @@ export function getMoves() {
   return movesCount;
 }
 
-// stopwatch
+// create stopwatch
+let sec = 0;
+let min = 0;
+let timer;
+
 export const stopwatchElem = createElement(
   "div",
   "counter",
   "stopwatch-counter",
-  "Time: 00 : 00"
+  `Time: 0${min} : 0${sec}`
 );
 appendElement(countersElem, stopwatchElem);
+
+export function startStopwatch() {
+  timer = setTimeout(updateStopwatch, 1000);
+}
+
+export function resetStopwatch() {
+  sec = 0;
+  min = 0;
+}
+
+function addSecStopwatch() {
+  sec++;
+  if (sec >= 60) {
+    sec = 0;
+    min++;
+    if (min >= 60) {
+      alert("It took you too long!");
+    }
+  }
+}
+
+function updateStopwatch() {
+  addSecStopwatch();
+  stopwatchElem.textContent = `
+    Time: ${min > 9 ? min : "0" + min} : 
+          ${sec > 9 ? sec : "0" + sec}
+    `;
+  startStopwatch();
+}

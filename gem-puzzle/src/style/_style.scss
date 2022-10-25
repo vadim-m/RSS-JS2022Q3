@@ -68,6 +68,14 @@ body {
   margin-bottom: 1rem;
 }
 
+.counter {
+  width: 8rem;
+
+  @media screen and (max-width: 480px) {
+    width: 6rem;
+  }
+}
+
 .puzzles {
   width: 100%;
   display: flex;

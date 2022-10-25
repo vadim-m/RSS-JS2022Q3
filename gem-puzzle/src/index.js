@@ -15,6 +15,8 @@ import {
   updateMoves,
   getMoves,
   stopwatchElem,
+  startStopwatch,
+  resetStopwatch,
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
 
@@ -53,7 +55,7 @@ puzzleElem.addEventListener("click", (e) => {
       // moves counter
       increaseMoves();
       updateMoves();
-
+      // swap items
       swapPuzzles(matrix, puzzlePosition, emptyPuzzlePosition);
       setPuzzles(matrix);
     }
@@ -82,9 +84,11 @@ setPuzzles(matrix);
 // shuffle button click
 shuffleBtnElem.addEventListener("click", (e) => {
   e.preventDefault();
-  // moves counter
+  // moves counter reset
   resetMoves();
   updateMoves();
+  // stopwatch reset
+  resetStopwatch();
 
   const mixedArr = shuffleArray(matrix.flat());
   matrix = getMatrix(mixedArr);
@@ -94,6 +98,8 @@ shuffleBtnElem.addEventListener("click", (e) => {
 
 // start the game when page uploaded
 shuffleBtnElem.click();
+// start stopwatch
+startStopwatch();
 
 // fill puzzles wrapper
 function fillPuzzles() {
@@ -194,7 +200,6 @@ function swapPuzzles(matrix, firstPos, secondPos) {
 }
 
 // moves counter
-
 selectElem.addEventListener("change", (e) => {
   sideSize = e.target.value;
   puzzleCount = sideSize * sideSize;
