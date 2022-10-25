@@ -2,6 +2,10 @@ html {
   min-height: 100vh;
   box-sizing: border-box;
   font-size: 100%;
+
+  @media screen and (max-width: 480px) {
+    font-size: 80%;
+  }
 }
 
 *,
@@ -49,6 +53,10 @@ body {
   &:hover {
     background-color: $blue;
   }
+
+  @media screen and (max-width: 480px) {
+    width: 6rem;
+  }
 }
 
 .counters {
@@ -88,5 +96,9 @@ body {
 
   &:hover {
     background-color: $blue;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.5rem;
   }
 }
