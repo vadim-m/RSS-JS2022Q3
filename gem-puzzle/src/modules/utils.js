@@ -12,6 +12,11 @@ export function appendElement(parent, child) {
   parent.appendChild(child);
 }
 
+// fill array from 0 to size X
+export function fillArray(itemsCount) {
+  return new Array(itemsCount).fill(0).map((value, index) => index + 1);
+}
+
 // shuffle array fucntion
 export function shuffleArray(array) {
   let currentIndex = array.length,

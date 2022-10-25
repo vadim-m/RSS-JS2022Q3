@@ -1,6 +1,11 @@
 import "./index.html";
 import "./index.scss";
-import { createElement, appendElement, shuffleArray } from "./modules/utils";
+import {
+  createElement,
+  appendElement,
+  fillArray,
+  shuffleArray,
+} from "./modules/utils";
 import {
   appendButtons,
   shuffleBtnElem,
@@ -21,7 +26,7 @@ import {
 import { appendSizeSelect, selectElem } from "./modules/size-select";
 import { playSound, togglePlaySound } from "./modules/sounds-player";
 
-// create and add wrapper
+// create and add page wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
 appendElement(document.body, wrapperElem);
 
@@ -37,11 +42,7 @@ appendElement(wrapperElem, puzzleElem);
 // add size select
 appendSizeSelect(wrapperElem);
 
-// side size
-let sideSize = 4;
-let puzzleCount = sideSize * sideSize;
-
-// Handle click on puzzle (event listener on puzzles wrapper)
+// handle click on puzzle (event listener on puzzles wrapper)
 puzzleElem.addEventListener("click", (e) => {
   const puzzle = e.target;
 
@@ -65,21 +66,14 @@ puzzleElem.addEventListener("click", (e) => {
   }
 });
 
-// create array from 0 to size X size
-const initialDigitsArr = new Array(puzzleCount)
-  .fill(0)
-  .map((value, index) => index + 1);
+// PARAMS FOR START GAME
+let sideSize = 4;
+let puzzleCount = sideSize * sideSize;
+let matrix;
+let puzzles = [];
 
-// start functions
-fillPuzzles();
-
-// matrix
-let matrix = getMatrix(initialDigitsArr);
-
-// get puzzles elements
-const puzzles = Array.from(document.querySelectorAll(".puzzle"));
-// delete last element
-puzzles[puzzleCount - 1].style.display = "none";
+// Start Game
+startGame();
 
 // set position for every puzzle
 setPuzzles(matrix);
@@ -101,6 +95,7 @@ shuffleBtnElem.addEventListener("click", (e) => {
   setPuzzles(matrix);
 });
 
+// sound button click
 soundBtnElem.addEventListener("click", (e) => {
   e.preventDefault();
   e.target.classList.toggle("active");
@@ -113,13 +108,31 @@ shuffleBtnElem.click();
 // start stopwatch
 startStopwatch();
 
+function startGame() {
+  // create array from 0 to size X size
+  const initialDigitsArr = fillArray(puzzleCount);
+  // start functions
+  fillPuzzles(initialDigitsArr);
+  // matrix
+  matrix = getMatrix(initialDigitsArr);
+}
+
 // fill puzzles wrapper
-function fillPuzzles() {
-  for (let i = 1; i <= initialDigitsArr.length; i++) {
+function fillPuzzles(arr) {
+  for (let i = 1; i <= arr.length; i++) {
     const puzzle = createElement("div", "puzzle", "noId", i);
     puzzle.dataset.pos = i;
+    // fill puzzles array
+    puzzles.push(puzzle);
+    // hide last puzzle
+    if (i === arr.length) {
+      puzzle.style.display = "none";
+    }
+    // add puzzle in puzzles wrapper
     appendElement(puzzleElem, puzzle);
   }
+
+  console.log(puzzles);
 }
 
 // get matrix from simple array
