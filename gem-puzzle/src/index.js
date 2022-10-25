@@ -10,13 +10,13 @@ import {
 import {
   appendCounters,
   countersElem,
+  increaseMoves,
+  resetMoves,
+  updateMoves,
+  getMoves,
   stopwatchElem,
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
-
-// side size
-let sideSize = 4;
-let puzzleCount = sideSize * sideSize;
 
 // create and add wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
@@ -34,7 +34,11 @@ appendElement(wrapperElem, puzzleElem);
 // add size select
 appendSizeSelect(wrapperElem);
 
-// click listener on puzzles
+// side size
+let sideSize = 4;
+let puzzleCount = sideSize * sideSize;
+
+// Handle click on puzzle (event listener on puzzles wrapper)
 puzzleElem.addEventListener("click", (e) => {
   const puzzle = e.target;
 
@@ -46,6 +50,10 @@ puzzleElem.addEventListener("click", (e) => {
     const isPossible = canSwapPuzzles(puzzlePosition, emptyPuzzlePosition);
 
     if (isPossible) {
+      // moves counter
+      increaseMoves();
+      updateMoves();
+
       swapPuzzles(matrix, puzzlePosition, emptyPuzzlePosition);
       setPuzzles(matrix);
     }
@@ -74,6 +82,10 @@ setPuzzles(matrix);
 // shuffle button click
 shuffleBtnElem.addEventListener("click", (e) => {
   e.preventDefault();
+  // moves counter
+  resetMoves();
+  updateMoves();
+
   const mixedArr = shuffleArray(matrix.flat());
   matrix = getMatrix(mixedArr);
 
@@ -181,6 +193,13 @@ function swapPuzzles(matrix, firstPos, secondPos) {
   matrix[secondPos.y][secondPos.x] = firstPosition;
 }
 
-alert(
-  "Если есть возможность, пожалуйста проверьте страницу после 25. Пытаясь прикрутить проверку на решаемость расклада, я сломал всю логику и сборку webpack. Попытюсь ночью исправить. Спасибо за понимание. Discord - @Vadim_M#0673"
-);
+// moves counter
+
+selectElem.addEventListener("change", (e) => {
+  sideSize = e.target.value;
+  puzzleCount = sideSize * sideSize;
+  const mixedArr = shuffleArray(matrix.flat());
+  matrix = getMatrix(mixedArr);
+
+  setPuzzles(matrix);
+});
