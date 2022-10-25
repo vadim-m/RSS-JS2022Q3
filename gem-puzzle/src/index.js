@@ -1,6 +1,6 @@
 import "./index.html";
 import "./index.scss";
-import { createElement, appendElement } from "./modules/utils";
+import { createElement, appendElement, shuffleArray } from "./modules/utils";
 import {
   appendButtons,
   shuffleBtnElem,
@@ -19,6 +19,7 @@ import {
   resetStopwatch,
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
+import { playSound, togglePlaySound } from "./modules/sounds-player";
 
 // create and add wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
@@ -55,8 +56,10 @@ puzzleElem.addEventListener("click", (e) => {
       // moves counter
       increaseMoves();
       updateMoves();
+      // play move sound
+      playSound("move");
       // swap items
-      swapPuzzles(matrix, puzzlePosition, emptyPuzzlePosition);
+      doSwapPuzzles(matrix, puzzlePosition, emptyPuzzlePosition);
       setPuzzles(matrix);
     }
   }
@@ -84,6 +87,8 @@ setPuzzles(matrix);
 // shuffle button click
 shuffleBtnElem.addEventListener("click", (e) => {
   e.preventDefault();
+  // play shuffle sound
+  playSound("shuffle");
   // moves counter reset
   resetMoves();
   updateMoves();
@@ -94,6 +99,13 @@ shuffleBtnElem.addEventListener("click", (e) => {
   matrix = getMatrix(mixedArr);
 
   setPuzzles(matrix);
+});
+
+soundBtnElem.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.target.classList.toggle("active");
+  // On / Off sounds
+  togglePlaySound();
 });
 
 // start the game when page uploaded
@@ -113,14 +125,12 @@ function fillPuzzles() {
 // get matrix from simple array
 function getMatrix(arr) {
   const matrix = [];
-
   for (let i = 0; i < sideSize; i++) {
     matrix.push([]);
   }
 
   let x = 0;
   let y = 0;
-
   for (let i = 0; i < arr.length; i++) {
     if (x >= sideSize) {
       y++;
@@ -150,24 +160,6 @@ function setPuzzles(matrix) {
     }
 }
 
-// shuffle array fucntion
-function shuffleArray(array) {
-  let currentIndex = array.length,
-    randomIndex;
-
-  while (currentIndex != 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
 // find puzzle coordinates
 function getPositionByNum(num, matrix) {
   for (let y = 0; y < matrix.length; y++) {
@@ -193,18 +185,17 @@ function canSwapPuzzles(firstPos, secondPos) {
 }
 
 // swap to items
-function swapPuzzles(matrix, firstPos, secondPos) {
+function doSwapPuzzles(matrix, firstPos, secondPos) {
   const firstPosition = matrix[firstPos.y][firstPos.x];
   matrix[firstPos.y][firstPos.x] = matrix[secondPos.y][secondPos.x];
   matrix[secondPos.y][secondPos.x] = firstPosition;
 }
 
-// moves counter
-selectElem.addEventListener("change", (e) => {
-  sideSize = e.target.value;
-  puzzleCount = sideSize * sideSize;
-  const mixedArr = shuffleArray(matrix.flat());
-  matrix = getMatrix(mixedArr);
-
-  setPuzzles(matrix);
-});
+// // CHANGE SIZE!
+// selectElem.addEventListener("change", (e) => {
+//   sideSize = e.target.value;
+//   puzzleCount = sideSize * sideSize;
+//   const mixedArr = shuffleArray(matrix.flat());
+//   matrix = getMatrix(mixedArr);
+//   setPuzzles(matrix);
+// });

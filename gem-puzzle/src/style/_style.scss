@@ -58,6 +58,15 @@ body {
   @media screen and (max-width: 480px) {
     width: 6rem;
   }
+
+  &.active {
+    color: $red;
+    border: 2px solid $red;
+  }
+
+  &.active:hover {
+    background-color: $blue;
+  }
 }
 
 .counters {
