@@ -15,18 +15,16 @@ import {
 } from "./modules/buttons";
 import {
   appendCounters,
-  countersElem,
   increaseMoves,
   resetMoves,
   updateMoves,
-  getMoves,
   startStopwatch,
   resetStopwatch,
   stopStopwatch,
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
 import { playSound, togglePlaySound } from "./modules/sounds-player";
-import { appendScoreList, appendScorePopup } from "./modules/score";
+import { appendScoreList, appendScorePopup, showPopup } from "./modules/score";
 
 // create and add page wrapper
 const wrapperElem = createElement("div", "wrapper", "noId", "");
@@ -40,7 +38,7 @@ const puzzlesElem = createElement("div", "puzzles", "puzzles", "");
 appendElement(wrapperElem, puzzlesElem);
 // add size select
 appendSizeSelect(wrapperElem);
-// TEST list and Popup
+// add list and popup
 appendScoreList(wrapperElem);
 appendScorePopup(wrapperElem);
 
@@ -110,8 +108,14 @@ selectElem.addEventListener("change", (e) => {
   startGame(sideSize);
 });
 
+// result button click
+resultBtnElem.addEventListener("click", (e) => {
+  document.querySelector("#score").classList.toggle("hide");
+});
+
 // FUNCTIONS
-function startGame(frameSize) {
+export function startGame(frameSize) {
+  frameSize = frameSize ? frameSize : sideSize;
   // clear puzzles and stop stopwatch if its not a first game
   if (puzzles.length > 0) {
     puzzlesElem.innerHTML = ``;
@@ -212,14 +216,19 @@ function checkVictory(matrix) {
       return;
     }
   }
-
-  setTimeout(() => {
-    getGameScore();
-    addGameScore();
-    updateScoreList();
-  }, 200);
+  // play music
+  playSound("win");
+  // stop stopwatch
+  stopStopwatch();
+  // show popup
+  showPopup();
 }
 
-// alert(
-//   "Если есть возможность, пожалуйста проверьте страницу после 25. Пытаясь прикрутить проверку на решаемость расклада, я сломал всю логику и сборку webpack. Попытюсь ночью исправить. Спасибо за понимание. Discord - @Vadim_M#0673"
-// );
+console.log(
+  `Пожалуйста решайте 3х3. Проверку на решаемость не докрутил.
+  \nИз всех пунктов не выполнил:
+  \n- Драг и дроп перемещение -15
+  \n- Не реализовал сохранение игры ( половину сделал - сохранения топ-10 резульатов в locale storage) -10. Тут на усмотрение проверяющего
+  \n Discord - @Vadim_M#0673
+  `
+);

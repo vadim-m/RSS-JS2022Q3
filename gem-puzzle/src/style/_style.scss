@@ -22,16 +22,15 @@ body {
 .wrapper {
   width: 90vw;
   max-width: 660px;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
 
   padding: 0 5vw;
-  margin: 3rem auto 0;
+  margin: 4rem auto 0;
 }
 
 .buttons {
@@ -133,14 +132,26 @@ body {
 }
 
 .score {
-  width: 80%;
+  width: 90%;
+  max-height: 450px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
   text-align: center;
   list-style: none;
+  transition: max-height 0.35s linear;
+
   padding: 0;
   margin: 0 auto;
+
+  &.hide {
+    max-height: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 
   &__item {
     font-size: 1rem;
@@ -148,7 +159,7 @@ body {
     border-bottom: 1px solid $blue;
 
     padding: 0.25rem 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 
     &:first-child {
       padding-top: 1rem;
@@ -156,17 +167,27 @@ body {
   }
 
   &__popup {
-    width: 80%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     line-height: 1.5;
     font-size: 1.5rem;
-    background-color: rgba($color: $blue, $alpha: 0.75);
-    position: absolute;
-    top: 25%;
-    transform: translate3d(0, -50%, 0);
+    background-color: rgba($color: $blue, $alpha: 0.85);
+    position: fixed;
+    top: 0;
+    left: -200%;
     text-align: center;
+    transition: all 0.2s ease-out;
 
     margin: 0 auto;
     padding: 3rem 1rem;
+
+    &.active {
+      left: 0;
+    }
   }
 
   &__popup-btn {

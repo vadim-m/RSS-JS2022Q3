@@ -60,6 +60,11 @@ export function stopStopwatch() {
   clearTimeout(timer);
 }
 
+export function getStopwatchTime() {
+  const time = [min > 9 ? min : "0" + min, sec > 9 ? sec : "0" + sec];
+  return time;
+}
+
 function addSecStopwatch() {
   sec++;
   if (sec >= 60) {
