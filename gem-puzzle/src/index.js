@@ -65,10 +65,17 @@ shuffleBtnElem.addEventListener("click", (e) => {
   // stopwatch reset
   resetStopwatch();
 
-  const mixedArr = shuffleArray(matrix.flat());
+  let mixedArr = shuffleArray(matrix.flat());
   matrix = getMatrix(mixedArr, sideSize);
-  // TEST Cgeck combine
-  checkCombination(matrix);
+
+  // check combine
+  let isSolvable = checkCombination(matrix);
+  console.log(isSolvable);
+  while (!isSolvable) {
+    mixedArr = shuffleArray(matrix.flat());
+    matrix = getMatrix(mixedArr, sideSize);
+    isSolvable = checkCombination(matrix);
+  }
 
   setPuzzles(matrix);
 });
@@ -132,9 +139,19 @@ export function startGame(frameSize) {
   // fill items in puzzles wrapper
   fillPuzzles(initialDigitsArr);
   // get shuffles array
-  const mixedArr = shuffleArray(initialDigitsArr);
+  let mixedArr = shuffleArray(initialDigitsArr);
   // get started matrix
   matrix = getMatrix(mixedArr, sideSize);
+
+  // check combine
+  let isSolvable = checkCombination(matrix);
+  console.log(isSolvable);
+  while (!isSolvable) {
+    mixedArr = shuffleArray(matrix.flat());
+    matrix = getMatrix(mixedArr, sideSize);
+    isSolvable = checkCombination(matrix);
+  }
+
   // set position for every puzzle
   setPuzzles(matrix);
   // play shuffle sound

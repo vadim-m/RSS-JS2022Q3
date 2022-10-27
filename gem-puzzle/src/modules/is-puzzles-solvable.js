@@ -1,4 +1,4 @@
-let N = 4;
+let frameSize = 4;
 
 // A utility function to count inversions in given
 // array 'arr[]'. Note that this function can be
@@ -25,10 +25,10 @@ function findXPosition(matrix) {
   const emptyPuzzle = Math.max(...matrix.flat());
 
   // start from bottom-right corner of matrix
-  for (let i = N - 1; i >= 0; i--) {
-    for (let j = N - 1; j >= 0; j--) {
+  for (let i = frameSize - 1; i >= 0; i--) {
+    for (let j = frameSize - 1; j >= 0; j--) {
       if (matrix[i][j] === emptyPuzzle) {
-        return N - i;
+        return frameSize - i;
       }
     }
   }
@@ -39,7 +39,7 @@ function isPuzzlesSolvable(puzzles) {
   // count inversions in given puzzles
   const invCount = getInvCount(puzzles);
   // if grid is odd
-  if (N % 2 !== 0) {
+  if (frameSize % 2 !== 0) {
     // return true if inversion count is even
     console.log("odd", invCount, invCount % 2 == 0);
 
@@ -56,12 +56,14 @@ function isPuzzlesSolvable(puzzles) {
 }
 
 export function checkCombination(puzzles) {
-  N = puzzles.length;
-  console.log("checkCombine", puzzles, N);
+  frameSize = puzzles.length;
+  console.log("checkCombine", puzzles, frameSize);
 
   if (isPuzzlesSolvable(puzzles)) {
     console.log("Solvable");
+    return true;
   } else {
     console.log("Not Solvable");
+    return false;
   }
 }
