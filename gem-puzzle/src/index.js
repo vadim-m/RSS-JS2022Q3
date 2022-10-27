@@ -70,7 +70,6 @@ shuffleBtnElem.addEventListener("click", (e) => {
 
   // check combine
   let isSolvable = checkCombination(matrix);
-  console.log(isSolvable);
   while (!isSolvable) {
     mixedArr = shuffleArray(matrix.flat());
     matrix = getMatrix(mixedArr, sideSize);
