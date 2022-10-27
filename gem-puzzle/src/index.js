@@ -24,6 +24,7 @@ import {
 } from "./modules/counters";
 import { appendSizeSelect, selectElem } from "./modules/size-select";
 import { playSound, togglePlaySound } from "./modules/sounds-player";
+import { checkCombination } from "./modules/is-puzzles-solvable";
 import { appendScoreList, appendScorePopup, showPopup } from "./modules/score";
 
 // create and add page wrapper
@@ -66,6 +67,8 @@ shuffleBtnElem.addEventListener("click", (e) => {
 
   const mixedArr = shuffleArray(matrix.flat());
   matrix = getMatrix(mixedArr, sideSize);
+  // TEST Cgeck combine
+  checkCombination(matrix);
 
   setPuzzles(matrix);
 });
@@ -224,11 +227,11 @@ function checkVictory(matrix) {
   showPopup();
 }
 
-console.log(
-  `Пожалуйста решайте 3х3. Проверку на решаемость не докрутил.
-  \nИз всех пунктов не выполнил:
-  \n- Драг и дроп перемещение -15
-  \n- Не реализовал сохранение игры ( половину сделал - сохранения топ-10 резульатов в locale storage) -10. Тут на усмотрение проверяющего
-  \n Discord - @Vadim_M#0673
-  `
-);
+// console.log(
+//   `Пожалуйста решайте 3х3. Проверку на решаемость не докрутил.
+//   \nИз всех пунктов не выполнил:
+//   \n- Драг и дроп перемещение -15
+//   \n- Не реализовал сохранение игры ( половину сделал - сохранения топ-10 резульатов в locale storage) -10. Тут на усмотрение проверяющего
+//   \n Discord - @Vadim_M#0673
+//   `
+// );
