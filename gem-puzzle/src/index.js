@@ -145,7 +145,6 @@ export function startGame(frameSize) {
 
   // check combine
   let isSolvable = checkCombination(matrix);
-  console.log(isSolvable);
   while (!isSolvable) {
     mixedArr = shuffleArray(matrix.flat());
     matrix = getMatrix(mixedArr, sideSize);
@@ -243,12 +242,3 @@ function checkVictory(matrix) {
   // show popup
   showPopup();
 }
-
-// console.log(
-//   `Пожалуйста решайте 3х3. Проверку на решаемость не докрутил.
-//   \nИз всех пунктов не выполнил:
-//   \n- Драг и дроп перемещение -15
-//   \n- Не реализовал сохранение игры ( половину сделал - сохранения топ-10 резульатов в locale storage) -10. Тут на усмотрение проверяющего
-//   \n Discord - @Vadim_M#0673
-//   `
-// );

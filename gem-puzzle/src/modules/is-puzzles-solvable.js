@@ -12,7 +12,6 @@ function getInvCount(matrix) {
   for (let i = 0; i < arr.length - 1; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] !== emptyPuzzle && arr[j] !== emptyPuzzle && arr[i] > arr[j]) {
-        // console.log(arr[i], ">", arr[j]);
         inv_count++;
       }
     }
@@ -41,29 +40,22 @@ function isPuzzlesSolvable(puzzles) {
   // if grid is odd
   if (frameSize % 2 !== 0) {
     // return true if inversion count is even
-    console.log("odd", invCount, invCount % 2 == 0);
-
     return invCount % 2 == 0;
     // grid is even
   } else {
     // (pos = even && invCount = odd) || (pos = odd && invCount = even)
     // or true if (pos + invCount % 2 !== 0)
     const pos = findXPosition(puzzles);
-    console.log("even", invCount, pos);
-
     return (pos + invCount) % 2 !== 0;
   }
 }
 
 export function checkCombination(puzzles) {
   frameSize = puzzles.length;
-  console.log("checkCombine", puzzles, frameSize);
 
   if (isPuzzlesSolvable(puzzles)) {
-    console.log("Solvable");
     return true;
   } else {
-    console.log("Not Solvable");
     return false;
   }
 }
