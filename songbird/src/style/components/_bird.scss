@@ -1,0 +1,49 @@
+.bird__wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.bird__photo {
+  grid-column: span 1;
+}
+.bird__pic {
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+
+  padding-top: 100%;
+}
+
+.bird__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.bird__description {
+  grid-column: span 3;
+  align-self: center;
+}
+
+.bird__classification {
+  grid-column: span 1;
+  justify-self: center;
+  text-align: center;
+}
+
+.bird__kind {
+  font-weight: 700;
+
+  margin-bottom: 0.5rem;
+}
+
+.bird__player {
+  grid-column: span 3;
+  align-self: flex-end;
+}

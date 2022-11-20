@@ -13,4 +13,41 @@
   &--active {
     left: 0;
   }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.game__header {
+  display: flex;
+  align-items: center;
+  background-color: var(--green);
+  border: 2px solid var(--green);
+  border-radius: 2rem;
+  overflow: hidden;
+
+  margin-bottom: 3rem;
+}
+
+.game__questions {
+  padding: 1rem 0.5rem 1rem 1rem;
+}
+
+.game__stage {
+  display: flex;
+  background-color: var(--white);
+
+  padding: 1rem 0;
+}
+
+.game__score {
+  min-width: 95px;
+
+  padding: 1rem 1rem 1rem 0.5rem;
+}
+
+.game__wrapper {
+  width: 100%;
 }

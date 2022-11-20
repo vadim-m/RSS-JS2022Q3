@@ -1,0 +1,82 @@
+.gameplay {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+
+  &__photo {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  &__classification {
+    grid-column: span 7;
+    align-self: end;
+    justify-self: center;
+    text-align: center;
+
+    padding: 0.5rem 0;
+  }
+
+  &__next {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  &__player {
+    grid-column: span 7;
+    align-self: flex-end;
+  }
+}
+
+.gameplay__photo {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gameplay__pic {
+  position: relative;
+
+  padding-top: 75%;
+}
+
+.gameplay__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gameplay__kind {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.gameplay__next {
+  align-self: center;
+}
+
+.gameplay__btn-next {
+  width: 100%;
+  padding-top: 100%;
+  background-color: var(--white);
+  background-image: url("./img/icons/next.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30%;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: var(--yellow);
+  }
+
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #cccccc;
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}

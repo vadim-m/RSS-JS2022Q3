@@ -1,0 +1,34 @@
+.app {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  background-color: var(--green);
+  border-radius: 2rem;
+  backdrop-filter: blur(3px);
+  overflow: hidden;
+
+  padding: 2rem;
+
+  &__options {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bird-info {
+    grid-column: span 8;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1.6rem;
+
+    padding: 1rem;
+  }
+
+  &__gameplay {
+    grid-column: span 12;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1.6rem;
+
+    padding: 1rem;
+  }
+}
