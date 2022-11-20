@@ -1,8 +1,18 @@
 .startpage {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -200vw;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: left 1s linear;
+
+  &--active {
+    left: 0;
+  }
 
   &__container {
     width: initial;
@@ -11,13 +21,15 @@
 
 .startpage__content {
   background-color: var(--white);
-  border-radius: 20px;
+  border: 1px solid var(--green);
+  border-radius: 3.1rem;
+  overflow: hidden;
 }
 
 .startpage__header {
   width: 100%;
   background-color: var(--green);
-  border-radius: 20px 20px 0 0;
+  border-radius: 3rem 3rem 3rem 0;
 
   padding: 1.5rem;
 }
@@ -54,15 +66,17 @@
 }
 
 .startpage__controls {
-  border: 1px solid var(--green);
-  border-radius: 0 0 20px 20px;
+  background-color: var(--green);
+  border-radius: 0 0 3rem 3rem;
 }
 
 .startpage__btns {
   display: flex;
   flex-direction: column;
+  background-color: var(--white);
+  border-radius: 3rem 0 0 0;
 
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .startpage__btn {
@@ -71,7 +85,7 @@
   font-size: 1.4rem;
   background-color: transparent;
   border: 1px solid var(--green);
-  border-radius: 2rem;
+  border-radius: 3rem;
   transition: background-color 0.2s ease-in-out;
 
   &:not(:last-child) {
@@ -85,7 +99,9 @@
 }
 
 .startpage__footer {
-  padding: 0 1.5rem 1.5rem;
+  background-color: var(--white);
+
+  padding: 0 2rem 1.5rem;
 }
 
 .startpage__language {

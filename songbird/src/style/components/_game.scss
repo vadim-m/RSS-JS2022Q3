@@ -1,0 +1,16 @@
+.game {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -200vw;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: left 1s linear;
+
+  &--active {
+    left: 0;
+  }
+}
