@@ -8,19 +8,38 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-  <title>Songbird</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>Songbird Quiz!</title>
 </head>
 
 <body>
   <div class="wrapper">
     <main class="content">
-      <section class="startpage">
-        <header class="startpage__header">
-          <div class="startpage__logo logo"></div>
-          <h1 class="startpage__title"></h1>
-        </header>
+      <section class="section startpage">
+        <div class="startpage__container container">
+          <div class="startpage__content">
+            <header class="startpage__header">
+              <div class="startpage__logo logo"></div>
+              <h1 class="startpage__title">Songbird</h1>
+            </header>
+            <div class="startpage__controls">
+              <div class="startpage__btns">
+                <button class="startpage__btn">Игра</button>
+                <button class="startpage__btn">Результаты</button>
+                <button class="startpage__btn">Галерея</button>
+              </div>
+              <footer class="startpage__footer">
+                <div class="startpage__language">
+                  <label class="startpage__checkbox">
+                    Выбрать язык:
+                    <input type="checkbox" class="startpage__checkbox-input visually-hidden">
+                    <span class="startpage__checkbox-span"></span>
+                  </label>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -28,7 +47,7 @@
       <div class="footer__container container">
         <a href="https://github.com/vadim-m" target="_blank" class="footer__link footer__link--github">
         </a>
-        <span class="footer__date">Vadim Monastyrskiy © 2022</span>
+        <span class="footer__info">Вадим Монастырский © 2022</span>
         <a href="https://rs.school/js/" target="_blank" class="footer__link footer__link--rss">
         </a>
       </div>

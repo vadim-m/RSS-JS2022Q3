@@ -51,7 +51,7 @@ p {
 
 body {
   min-height: 100vh;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   color: var(--black);
   line-height: 1.2;
@@ -85,5 +85,13 @@ body {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+}
+
+.section {
+  flex-grow: 1;
+
+  padding: 1.5rem 0;
 }

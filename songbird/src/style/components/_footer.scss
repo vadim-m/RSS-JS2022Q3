@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--green-light);
+    background: var(--green);
     border-radius: 20px 20px 0 0;
 
     padding: 0 1.5rem;
@@ -18,11 +18,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  opacity: 0.65;
   transition: opacity 0.2s ease;
 
   &:hover,
   &:focus {
-    opacity: 0.75;
+    opacity: 1;
   }
 
   &--github {
@@ -38,7 +39,7 @@
   }
 }
 
-.footer__date {
+.footer__info {
   font-size: 1.2rem;
   font-weight: 400;
 }
