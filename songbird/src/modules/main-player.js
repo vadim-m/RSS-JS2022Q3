@@ -25,6 +25,11 @@ function pauseMusic() {
   removeActiveClass(gamePlayerPlayBtn);
 }
 
+function stopMusic() {
+  questionAudio.pause();
+  questionAudio.currentTime = 0;
+}
+
 export function setAudioSrc(url) {
   questionAudio.src = url;
 }
