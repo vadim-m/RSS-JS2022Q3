@@ -14,12 +14,13 @@
 
 <body>
   <div class="wrapper">
+
     <main class="content">
       <section class="section startpage">
         <div class="container startpage__container">
           <div class="startpage__content">
             <header class="startpage__header">
-              <div class="startpage__logo logo"></div>
+              <div class="startpage__logo"></div>
               <h1 class="startpage__title">Songbird</h1>
             </header>
             <div class="startpage__controls">
@@ -41,7 +42,7 @@
           </div>
         </div>
       </section>
-      <section class="section game game--active">
+      <section class="section game">
         <h2 class="game__title visually-hidden">Game</h2>
         <div class="container game__container">
           <div class="game__content">
@@ -168,6 +169,28 @@
           </div>
         </div>
       </section>
+      <section class="section results active">
+        <div class="container results__container">
+          <div class="results__wrapper">
+            <header class="results__header">
+              <div class="results__logo"></div>
+              <h4 class="results__title">Результат:</h4>
+              <p class="results__score">10</p>
+            </header>
+            <div class="results__content">
+              <div class="results__text">
+                <p class="results__message">Поздравляем! Вы набрали максимум очков!</p>
+                <p class="results__message">Спасибо за игру, сыграть еще раз?</p>
+              </div>
+              <div class="results__btns">
+                <button class="results__btn">Игра</button>
+                <button class="results__btn">Главная</button>
+                <button class="results__btn">Галерея</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -179,6 +202,7 @@
         </a>
       </div>
     </footer>
+
   </div>
 </body>
 

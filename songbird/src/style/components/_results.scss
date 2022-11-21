@@ -1,0 +1,127 @@
+.results {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -200vw;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: left 1s linear;
+
+  &.active {
+    left: 0;
+  }
+
+  &__container {
+    width: initial;
+  }
+}
+
+.results__wrapper {
+  background-color: var(--white);
+  border: 1px solid var(--green);
+  border-radius: 3.2rem;
+  overflow: hidden;
+}
+
+.results__header {
+  width: 100%;
+  background-color: var(--green);
+  border-radius: 3rem 3rem 3rem 0;
+
+  padding: 1.5rem;
+}
+
+.results__logo {
+  width: 8rem;
+  height: 8rem;
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./img/icons/medal-gold.png");
+  background-color: var(--white);
+  border-radius: 2rem;
+
+  margin: 0 auto 1rem;
+}
+
+.results__title {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.2px;
+  text-align: center;
+
+  margin: 0 auto 1rem;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 40%;
+    height: 6px;
+    background-color: var(--yellow);
+    border-radius: 3px;
+
+    margin: 1rem auto 0;
+  }
+}
+
+.results__score {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+
+.results__content {
+  background-color: var(--green);
+  border-radius: 0 0 3rem 3rem;
+}
+
+.results__text {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 3rem 0 0 0;
+  text-align: center;
+
+  padding: 2rem 2rem 1rem;
+}
+
+.results__message {
+  margin-bottom: 0.5rem;
+}
+
+.results__btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+
+  padding: 1rem 2rem 2rem;
+}
+
+.results__btn {
+  width: 14rem;
+  height: 4rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.6px;
+  background-color: transparent;
+  border: 2px solid var(--green);
+  border-radius: 3rem;
+  transition: background-color 0.2s ease-in-out;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--green);
+  }
+}
