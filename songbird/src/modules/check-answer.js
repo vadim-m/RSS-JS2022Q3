@@ -18,7 +18,6 @@ function changeIsStagePlaying() {
 function addModifier(el, modifier) {
   let currentClass = el.classList[0];
   el.classList.add(`${currentClass}--${modifier}`);
-  console.log(el.classList);
 }
 
 function checkId(id) {
@@ -26,22 +25,19 @@ function checkId(id) {
 }
 
 export function checkAnswer(target, id) {
-  // ! show info
-
   if (isStagePlaying) {
     if (checkId(id)) {
-      addModifier(target, "good");
       changeIsStagePlaying();
       stopMusic();
       changeDisabledNextBtn();
       changeKindVisibility();
       changeGenusVisibility();
       changeImageVisibility();
-      playSound("win");
+      addModifier(target, "good");
+      playSound("good");
     } else {
       addModifier(target, "bad");
-      playSound("lose");
+      playSound("bad");
     }
-    console.log(gameCorrectId, +id, target);
   }
 }

@@ -1,3 +1,27 @@
+.bird {
+  position: relative;
+
+  &__placeholder {
+    display: none;
+  }
+
+  &.active &__placeholder {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #edf5ee;
+    z-index: 10;
+    border-radius: 2rem;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 3rem 2rem;
+  }
+}
+
 .bird__wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -32,9 +56,13 @@
 }
 
 .bird__classification {
+  min-height: 75px;
   grid-column: span 1;
   justify-self: center;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bird__kind {
@@ -45,5 +73,5 @@
 
 .bird__player {
   grid-column: span 3;
-  align-self: flex-end;
+  align-self: center;
 }

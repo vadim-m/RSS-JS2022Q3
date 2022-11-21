@@ -5,22 +5,10 @@ const loseSound = new Audio(loseFile);
 const winSound = new Audio(winFile);
 
 export function playSound(audio) {
-  if (audio === "lose") {
+  if (audio === "bad") {
     audio = loseSound;
-  } else if (audio === "win") {
+  } else if (audio === "good") {
     audio = winSound;
   }
-
-  // HTML5 autoplay error hack
-  let resp = audio.play();
-
-  if (resp !== undefined) {
-    resp
-      .then((_) => {
-        // play
-      })
-      .catch((error) => {
-        //show error
-      });
-  }
+  audio.play();
 }

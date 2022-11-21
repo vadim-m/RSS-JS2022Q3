@@ -11,8 +11,15 @@ const gameOptionsList = document.querySelector(".options__list");
 const gameOptionsBtns = document.getElementsByClassName("options__btn");
 const gameNextBtn = document.querySelector(".gameplay__btn-next");
 
+const birdInfo = document.querySelector(".bird");
+const birdInfoImage = document.querySelector(".bird__img");
+const birdInfoDesc = document.querySelector(".bird__description");
+const birdInfoKind = document.querySelector(".bird__kind");
+const birdInfoGenus = document.querySelector(".bird__genus");
+
 // variables for start game
 let gameStage = 0;
+let dataBirds = [];
 export let gameCorrectId;
 // ! можно потом его передавать в функцию проверки
 let gameScore = 0;
@@ -31,16 +38,23 @@ function fillStage(question) {
   const correctAnwer = question[correctAnswerInd];
   gameCorrectId = correctAnwer.id;
   fillGameplay(correctAnwer);
-  console.log(question[correctAnswerInd], gameCorrectId);
 }
 
 function fillGameplay(currentAnwer) {
-  // !
   gameSecretImage.src = currentAnwer.image;
-  // !
   gameSecretKind.textContent = currentAnwer.name;
   gameSecretGenus.textContent = currentAnwer.species;
   setAudioSrc(currentAnwer.audio);
+}
+
+function fillBirdInfo(birdId) {
+  const bird = dataBirds[gameStage].find((item) => item.id === +birdId);
+
+  birdInfoImage.src = bird.image;
+  birdInfoDesc.textContent = bird.description;
+  birdInfoKind.textContent = bird.name;
+  birdInfoGenus.textContent = bird.species;
+  enableBirdInfoVisibility();
 }
 
 function renderOptions(data) {
@@ -63,15 +77,19 @@ export function changeDisabledNextBtn() {
 }
 
 export function changeKindVisibility() {
-  gameSecretKind.classList.remove("active");
+  gameSecretKind.classList.toggle("active");
 }
 
 export function changeGenusVisibility() {
-  gameSecretGenus.classList.remove("active");
+  gameSecretGenus.classList.toggle("active");
 }
 
 export function changeImageVisibility() {
-  gameSecretImageWrap.classList.remove("active");
+  gameSecretImageWrap.classList.toggle("active");
+}
+
+export function enableBirdInfoVisibility() {
+  birdInfo.classList.remove("active");
 }
 
 function addHandlerOptionsBtns() {
@@ -80,13 +98,14 @@ function addHandlerOptionsBtns() {
       e.preventDefault();
       const answerId = e.target.dataset.id;
       checkAnswer(e.target, answerId);
+      fillBirdInfo(answerId);
       // ! fill bird info
     });
   }
 }
 
 export function start() {
-  const dataBirds = getData();
+  dataBirds = getData();
   const question = getQuestion(gameStage, dataBirds);
 
   fillStage(question);
