@@ -1,6 +1,6 @@
 const scoreEl = document.querySelector(".score__number");
 
-let gameScore = 10;
+let gameScore = 0;
 let stageScore = 5;
 
 export function getStageScore() {
@@ -17,6 +17,10 @@ export function resetStageScore() {
 
 export function increaseGameStore(num) {
   gameScore += num;
+}
+
+export function resetGameStore() {
+  gameScore = 0;
 }
 
 export function renderScore() {

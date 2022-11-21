@@ -1,8 +1,8 @@
 import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
 import { setAudioSrc } from "./main-player";
-import { checkAnswer } from "./check-answer";
-import { renderScore } from "./score";
+import { checkAnswer, changeIsStagePlaying } from "./check-answer";
+import { renderScore, resetStageScore, resetGameStore } from "./score";
 
 const gameSecretImageWrap = document.querySelector(".gameplay__pic");
 const gameSecretImage = document.querySelector(".gameplay__img");
@@ -19,15 +19,15 @@ const birdInfoKind = document.querySelector(".bird__kind");
 const birdInfoGenus = document.querySelector(".bird__genus");
 
 // variables for start game
-let gameStage = 0;
+export let gameStage = 0;
 let dataBirds = [];
 export let gameCorrectId;
-// ! можно потом его передавать в функцию проверки
-let gameScore = 0;
 
-function encreaseStageCount() {
-  stage++;
+export function encreaseStageCount() {
+  gameStage++;
 }
+
+gameNextBtn.addEventListener("click", startNewStage);
 
 function getQuestion(index, data) {
   const question = data[index];
@@ -55,7 +55,7 @@ function fillBirdInfo(birdId) {
   birdInfoDesc.textContent = bird.description;
   birdInfoKind.textContent = bird.name;
   birdInfoGenus.textContent = bird.species;
-  enableBirdInfoVisibility();
+  showBirdInfoVisibility();
 }
 
 function renderOptions(data) {
@@ -89,8 +89,22 @@ export function changeImageVisibility() {
   gameSecretImageWrap.classList.toggle("active");
 }
 
-export function enableBirdInfoVisibility() {
+function showBirdInfoVisibility() {
   birdInfo.classList.remove("active");
+}
+
+function hideBirdInfoVisibility() {
+  birdInfo.classList.add("active");
+}
+
+function newStagePreparation() {
+  changeKindVisibility();
+  changeGenusVisibility();
+  changeImageVisibility();
+  hideBirdInfoVisibility();
+  changeIsStagePlaying();
+  changeDisabledNextBtn();
+  resetStageScore();
 }
 
 function addHandlerOptionsBtns() {
@@ -100,12 +114,32 @@ function addHandlerOptionsBtns() {
       const answerId = e.target.dataset.id;
       checkAnswer(e.target, answerId);
       fillBirdInfo(answerId);
-      // ! fill bird info
     });
   }
 }
 
+export function startNewStage() {
+  if (gameStage === 6) {
+    alert("end");
+    showResultSection();
+    newStagePreparation();
+    resetGameStore();
+
+    return;
+  }
+
+  const question = getQuestion(gameStage, dataBirds);
+
+  newStagePreparation();
+
+  fillStage(question);
+  renderOptions(question);
+  addHandlerOptionsBtns();
+  renderScore();
+}
+
 export function start() {
+  gameStage = 0;
   dataBirds = getData();
   const question = getQuestion(gameStage, dataBirds);
 

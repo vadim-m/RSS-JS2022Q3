@@ -4,6 +4,7 @@ import {
   changeKindVisibility,
   changeGenusVisibility,
   changeImageVisibility,
+  encreaseStageCount,
 } from "./start-game";
 import { stopMusic } from "./main-player";
 import { playSound } from "./options-sound-player";
@@ -11,8 +12,7 @@ import { decreaseStageScore, getStageScore, increaseGameStore } from "./score";
 
 let isStagePlaying = true;
 
-// ! for end game
-function changeIsStagePlaying() {
+export function changeIsStagePlaying() {
   isStagePlaying = !isStagePlaying;
 }
 
@@ -38,6 +38,7 @@ export function checkAnswer(target, id) {
       playSound("good");
       const stageScore = getStageScore();
       increaseGameStore(stageScore);
+      encreaseStageCount();
     } else {
       addModifier(target, "bad");
       playSound("bad");
