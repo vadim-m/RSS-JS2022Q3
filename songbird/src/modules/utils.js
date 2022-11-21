@@ -3,5 +3,10 @@ export function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// ! addActive
-// ! removeActive
+export function addActiveClass(el) {
+  el.classList.add("active");
+}
+
+export function removeActiveClass(el) {
+  el.classList.remove("active");
+}

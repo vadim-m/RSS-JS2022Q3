@@ -1,9 +1,10 @@
 import "./index.html";
 import "./index.scss";
+import "./modules/move-sections";
 // !
 import { fillTextContent } from "./modules/change-interface-language";
 // !
-import "./modules/move-sections";
-import "./modules/start-game";
+import { gamePlayerPlayBtn } from "./modules/main-player";
 
+// ! наверно всё в инти
 fillTextContent();

@@ -62,7 +62,7 @@
     background-image: url("./img/icons/play.svg");
   }
 
-  &--pause {
+  &--play.active {
     background-image: url("./img/icons/pause.svg");
   }
 

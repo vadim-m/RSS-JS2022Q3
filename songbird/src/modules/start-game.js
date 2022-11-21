@@ -1,11 +1,10 @@
 import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
+import { setAudioSrc } from "./main-player";
 
 const gameSecretImage = document.querySelector(".gameplay__img");
 const gameSecretTitle = document.querySelector(".gameplay__kind");
 const gameSecretGenus = document.querySelector(".gameplay__genus");
-const gamePlayerPlayBtn = document.querySelector(".player__btn--pause");
-const gamePlayerPlayMute = document.querySelector(".player__btn--volume");
 
 // variables for start game
 let gameStage = 0;
@@ -33,6 +32,7 @@ function fillGameplay(currentAnwer) {
   gameSecretImage.src = currentAnwer.image;
   gameSecretTitle.textContent = currentAnwer.name;
   gameSecretGenus.textContent = currentAnwer.species;
+  setAudioSrc(currentAnwer.audio);
 }
 
 export function start() {
