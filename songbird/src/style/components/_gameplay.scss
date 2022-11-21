@@ -9,6 +9,7 @@
   }
 
   &__classification {
+    min-width: 10rem;
     grid-column: span 7;
     align-self: end;
     justify-self: center;
@@ -49,8 +50,45 @@
 }
 
 .gameplay__kind {
+  position: relative;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.active.gameplay__kind::after {
+  content: "############################";
+  position: absolute;
+  line-height: 1.7rem;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: red;
+  background-color: var(--green);
+  backdrop-filter: blur(3px);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gameplay__genus {
+  position: relative;
+  font-weight: 300;
+}
+
+.active.gameplay__genus::after {
+  content: "############################";
+  position: absolute;
+  font-weight: 700;
+  line-height: 1.7rem;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: red;
+  background-color: var(--green);
+  backdrop-filter: blur(3px);
+  border-radius: 2rem;
+  overflow: hidden;
 }
 
 .gameplay__next {
