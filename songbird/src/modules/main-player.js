@@ -7,12 +7,18 @@ export const gamePlayerPlayMute = document.querySelector(
 
 const questionAudio = new Audio();
 
-gamePlayerPlayBtn.addEventListener("click", () => {
+gamePlayerPlayBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
   if (questionAudio.paused) {
     playMusic();
   } else {
     pauseMusic();
   }
+});
+
+questionAudio.addEventListener("ended", (e) => {
+  stopMusic();
 });
 
 function playMusic() {
@@ -25,9 +31,10 @@ function pauseMusic() {
   removeActiveClass(gamePlayerPlayBtn);
 }
 
-function stopMusic() {
+export function stopMusic() {
   questionAudio.pause();
   questionAudio.currentTime = 0;
+  removeActiveClass(gamePlayerPlayBtn);
 }
 
 export function setAudioSrc(url) {

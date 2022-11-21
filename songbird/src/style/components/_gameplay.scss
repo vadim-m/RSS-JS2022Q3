@@ -36,8 +36,23 @@
 
 .gameplay__pic {
   position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   padding-top: 75%;
+
+  &.active {
+    background-image: url(./img/birds/placeholder.webp);
+  }
+
+  &.active .gameplay__img {
+    z-index: -5;
+  }
+
+  .gameplay__img {
+    z-index: 0;
+  }
 }
 
 .gameplay__img {

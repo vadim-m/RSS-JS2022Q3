@@ -1,16 +1,19 @@
 import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
 import { setAudioSrc } from "./main-player";
+import { checkAnswer } from "./check-answer";
 
+const gameSecretImageWrap = document.querySelector(".gameplay__pic");
 const gameSecretImage = document.querySelector(".gameplay__img");
-const gameSecretTitle = document.querySelector(".gameplay__kind");
+const gameSecretKind = document.querySelector(".gameplay__kind");
 const gameSecretGenus = document.querySelector(".gameplay__genus");
 const gameOptionsList = document.querySelector(".options__list");
 const gameOptionsBtns = document.getElementsByClassName("options__btn");
+const gameNextBtn = document.querySelector(".gameplay__btn-next");
 
 // variables for start game
 let gameStage = 0;
-let gameCorrectId;
+export let gameCorrectId;
 // ! можно потом его передавать в функцию проверки
 let gameScore = 0;
 
@@ -35,14 +38,14 @@ function fillGameplay(currentAnwer) {
   // !
   gameSecretImage.src = currentAnwer.image;
   // !
-  gameSecretTitle.textContent = currentAnwer.name;
+  gameSecretKind.textContent = currentAnwer.name;
   gameSecretGenus.textContent = currentAnwer.species;
   setAudioSrc(currentAnwer.audio);
 }
 
 function renderOptions(data) {
   gameOptionsList.innerHTML = "";
-  const optionsItems = data.map(createOptionsItem);
+  const optionsItems = data.reverse().map(createOptionsItem);
   gameOptionsList.append(...optionsItems);
 }
 
@@ -55,10 +58,38 @@ function createOptionsItem(data) {
   return item;
 }
 
+export function changeDisabledNextBtn() {
+  gameNextBtn.disabled = !gameNextBtn.disabled;
+}
+
+export function changeKindVisibility() {
+  gameSecretKind.classList.remove("active");
+}
+
+export function changeGenusVisibility() {
+  gameSecretGenus.classList.remove("active");
+}
+
+export function changeImageVisibility() {
+  gameSecretImageWrap.classList.remove("active");
+}
+
+function addHandlerOptionsBtns() {
+  for (let i = 0; i < gameOptionsBtns.length; i++) {
+    gameOptionsBtns[i].addEventListener("click", (e) => {
+      e.preventDefault();
+      const answerId = e.target.dataset.id;
+      checkAnswer(e.target, answerId);
+      // ! fill bird info
+    });
+  }
+}
+
 export function start() {
   const dataBirds = getData();
   const question = getQuestion(gameStage, dataBirds);
 
   fillStage(question);
   renderOptions(question);
+  addHandlerOptionsBtns();
 }
