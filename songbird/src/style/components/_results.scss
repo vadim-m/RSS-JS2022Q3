@@ -8,10 +8,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: left 1s linear;
+  transition: left 0.45s ease-in-out;
+  transition-delay: 0;
 
   &.active {
     left: 0;
+    transition-delay: 0.25s;
   }
 
   &__container {
