@@ -6,6 +6,7 @@ import {
   changeImageVisibility,
 } from "./start-game";
 import { stopMusic } from "./main-player";
+import { playSound } from "./options-sound-player";
 
 let isStagePlaying = true;
 
@@ -36,8 +37,10 @@ export function checkAnswer(target, id) {
       changeKindVisibility();
       changeGenusVisibility();
       changeImageVisibility();
+      playSound("win");
     } else {
       addModifier(target, "bad");
+      playSound("lose");
     }
     console.log(gameCorrectId, +id, target);
   }
