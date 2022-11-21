@@ -2,6 +2,7 @@ import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
 import { setAudioSrc } from "./main-player";
 import { checkAnswer } from "./check-answer";
+import { renderScore } from "./score";
 
 const gameSecretImageWrap = document.querySelector(".gameplay__pic");
 const gameSecretImage = document.querySelector(".gameplay__img");
@@ -111,4 +112,5 @@ export function start() {
   fillStage(question);
   renderOptions(question);
   addHandlerOptionsBtns();
+  renderScore();
 }

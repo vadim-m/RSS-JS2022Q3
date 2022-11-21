@@ -7,6 +7,7 @@ import {
 } from "./start-game";
 import { stopMusic } from "./main-player";
 import { playSound } from "./options-sound-player";
+import { decreaseStageScore, getStageScore, increaseGameStore } from "./score";
 
 let isStagePlaying = true;
 
@@ -35,9 +36,12 @@ export function checkAnswer(target, id) {
       changeImageVisibility();
       addModifier(target, "good");
       playSound("good");
+      const stageScore = getStageScore();
+      increaseGameStore(stageScore);
     } else {
       addModifier(target, "bad");
       playSound("bad");
+      decreaseStageScore();
     }
   }
 }
