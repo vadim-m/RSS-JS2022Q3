@@ -65,15 +65,15 @@
     background-image: url("./img/icons/pause.svg");
   }
 
-  &--next {
-    background-image: url("./img/icons/next.svg");
-  }
-
   &--volume {
     background-image: url("./img/icons/volume.svg");
     flex-shrink: 0;
 
     margin-right: 0.5rem;
+  }
+
+  &--volume.active {
+    background-image: url("./img/icons/mute.svg");
   }
 }
 
@@ -131,6 +131,16 @@
 .player__time {
   font-size: 14px;
   font-weight: 400;
+
+  &--passed {
+    display: inline-block;
+    width: 4ch;
+  }
+
+  &--total {
+    display: inline-block;
+    width: 4ch;
+  }
 }
 
 .player__volume-wrap {
