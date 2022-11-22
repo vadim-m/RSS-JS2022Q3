@@ -11,10 +11,9 @@
 
   &__container {
     display: grid;
-    grid-template-columns: 2rem repeat(5, 1fr);
+    grid-template-columns: 1.5rem repeat(5, 1fr);
     gap: 0.5rem;
     background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(6px);
     border-radius: 2em;
 
     padding: 0.5rem 1rem;
@@ -54,8 +53,8 @@
   transition: opacity 0.2s ease;
 
   &:hover,
-  &:focus {
-    opacity: 0.45;
+  &:focus-visible {
+    opacity: 0.25;
   }
 
   &--play {
@@ -113,7 +112,7 @@
   }
 
   &:hover::-webkit-slider-runnable-track,
-  &:focus::-webkit-slider-runnable-track {
+  &:focus-visible::-webkit-slider-runnable-track {
     background-color: #757575;
   }
 
@@ -177,7 +176,7 @@
   }
 
   &:hover::-webkit-slider-runnable-track,
-  &:focus::-webkit-slider-runnable-track {
+  &:focus-visible::-webkit-slider-runnable-track {
     background-color: #757575;
   }
 

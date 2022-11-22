@@ -5,7 +5,7 @@ import {
   changeGenusVisibility,
   changeImageVisibility,
 } from "./start-game";
-import { stopMusic } from "./main-player";
+import { stopCurrentAudio } from "./main-player";
 import { playSound } from "./options-sound-player";
 import { decreaseStageScore, getStageScore, increaseGameStore } from "./score";
 
@@ -28,7 +28,7 @@ export function checkAnswer(target, id) {
   if (isStagePlaying) {
     if (checkId(id)) {
       changeIsStagePlaying();
-      stopMusic();
+      stopCurrentAudio();
       changeDisabledNextBtn();
       changeKindVisibility();
       changeGenusVisibility();

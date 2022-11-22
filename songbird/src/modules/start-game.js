@@ -1,6 +1,6 @@
 import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
-import { setAudioSrc } from "./main-player";
+import { setAudioSrc, stopCurrentAudio } from "./main-player";
 import { checkAnswer, changeIsStagePlaying } from "./check-answer";
 import { renderScore, resetStageScore, resetGameStore } from "./score";
 import { markActiveStage } from "./mark-stage";
@@ -15,6 +15,7 @@ const gameNextBtn = document.querySelector(".gameplay__btn-next");
 
 const birdInfo = document.querySelector(".bird");
 const birdInfoImage = document.querySelector(".bird__img");
+const birdInfoAudio = document.querySelector(".bird__audio");
 const birdInfoDesc = document.querySelector(".bird__description");
 const birdInfoKind = document.querySelector(".bird__kind");
 const birdInfoGenus = document.querySelector(".bird__genus");
@@ -29,6 +30,18 @@ function increaseStageCount() {
 }
 
 gameNextBtn.addEventListener("click", startNewStage);
+birdInfoAudio.addEventListener("play", stopCurrentAudio);
+
+function addHandlerOptionsBtns() {
+  for (let i = 0; i < gameOptionsBtns.length; i++) {
+    gameOptionsBtns[i].addEventListener("click", (e) => {
+      e.preventDefault();
+      const answerId = e.target.dataset.id;
+      checkAnswer(e.target, answerId);
+      fillBirdInfo(answerId);
+    });
+  }
+}
 
 function getQuestion(index, data) {
   const question = data[index];
@@ -56,7 +69,13 @@ function fillBirdInfo(birdId) {
   birdInfoDesc.textContent = bird.description;
   birdInfoKind.textContent = bird.name;
   birdInfoGenus.textContent = bird.species;
+  birdInfoGenus.textContent = bird.species;
+  birdInfoAudio.src = bird.audio;
   showBirdInfoVisibility();
+}
+
+export function pauseBirdInfoAudio() {
+  birdInfoAudio.pause();
 }
 
 function renderOptions(data) {
@@ -103,20 +122,11 @@ function newStagePreparation() {
   changeGenusVisibility();
   changeImageVisibility();
   hideBirdInfoVisibility();
+  stopCurrentAudio();
+  pauseBirdInfoAudio();
   changeIsStagePlaying();
   changeDisabledNextBtn();
   resetStageScore();
-}
-
-function addHandlerOptionsBtns() {
-  for (let i = 0; i < gameOptionsBtns.length; i++) {
-    gameOptionsBtns[i].addEventListener("click", (e) => {
-      e.preventDefault();
-      const answerId = e.target.dataset.id;
-      checkAnswer(e.target, answerId);
-      fillBirdInfo(answerId);
-    });
-  }
 }
 
 export function startNewStage() {

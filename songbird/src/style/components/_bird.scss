@@ -74,4 +74,9 @@
 .bird__player {
   grid-column: span 3;
   align-self: center;
+  border-radius: 2rem;
+}
+
+.bird__audio {
+  width: 100%;
 }

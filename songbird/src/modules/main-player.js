@@ -1,4 +1,5 @@
 import { addActiveClass, removeActiveClass } from "./utils";
+import { pauseBirdInfoAudio } from "./start-game";
 
 export const gamePlayerPlayBtn = document.querySelector(".player__btn--play");
 export const gamePlayerPlayMute = document.querySelector(
@@ -18,10 +19,11 @@ gamePlayerPlayBtn.addEventListener("click", (e) => {
 });
 
 questionAudio.addEventListener("ended", (e) => {
-  stopMusic();
+  stopCurrentAudio();
 });
 
 function playMusic() {
+  pauseBirdInfoAudio();
   questionAudio.play();
   addActiveClass(gamePlayerPlayBtn);
 }
@@ -31,7 +33,7 @@ function pauseMusic() {
   removeActiveClass(gamePlayerPlayBtn);
 }
 
-export function stopMusic() {
+export function stopCurrentAudio() {
   questionAudio.pause();
   questionAudio.currentTime = 0;
   removeActiveClass(gamePlayerPlayBtn);
