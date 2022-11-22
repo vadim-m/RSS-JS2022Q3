@@ -11,6 +11,6 @@ export function playSound(audio) {
     audio = winSound;
   }
   // ! set 0.4
-  audio.volume = 0.1;
+  audio.volume = 0.5;
   audio.play();
 }

@@ -20,13 +20,19 @@ function addModifier(el, modifier) {
   el.classList.add(`${currentClass}--${modifier}`);
 }
 
-function checkId(id) {
+function checkVictory(id) {
   return +id === gameCorrectId;
+}
+
+function checkedClicked(option) {
+  let isClicked = option.className.includes("bad");
+
+  return isClicked;
 }
 
 export function checkAnswer(target, id) {
   if (isStagePlaying) {
-    if (checkId(id)) {
+    if (checkVictory(id)) {
       changeIsStagePlaying();
       stopCurrentAudio();
       changeDisabledNextBtn();
@@ -38,9 +44,11 @@ export function checkAnswer(target, id) {
       const stageScore = getStageScore();
       increaseGameStore(stageScore);
     } else {
-      addModifier(target, "bad");
+      if (!checkedClicked(target)) {
+        addModifier(target, "bad");
+        decreaseStageScore();
+      }
       playSound("bad");
-      decreaseStageScore();
     }
   }
 }

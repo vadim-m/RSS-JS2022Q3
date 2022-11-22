@@ -8,7 +8,9 @@ export function getStageScore() {
 }
 
 export function decreaseStageScore() {
+  console.log(stageScore);
   stageScore--;
+  console.log(stageScore);
 }
 
 export function resetStageScore() {
