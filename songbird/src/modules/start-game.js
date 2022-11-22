@@ -22,8 +22,8 @@ const birdInfoGenus = document.querySelector(".bird__genus");
 
 // variables for start game
 export let gameStage = 0;
-let dataBirds = [];
 export let gameCorrectId;
+let dataBirds = [];
 
 function increaseStageCount() {
   gameStage++;
@@ -132,9 +132,11 @@ function newStagePreparation() {
 export function startNewStage() {
   increaseStageCount();
 
+  // ! 6 !
   if (gameStage === 6) {
     alert("end");
     showResultSection();
+    // !
     newStagePreparation();
     resetGameStore();
 

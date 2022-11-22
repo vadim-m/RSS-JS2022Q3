@@ -7,7 +7,12 @@ import {
 } from "./start-game";
 import { stopCurrentAudio } from "./main-player";
 import { playSound } from "./options-sound-player";
-import { decreaseStageScore, getStageScore, increaseGameStore } from "./score";
+import {
+  decreaseStageScore,
+  getStageScore,
+  increaseGameStore,
+  renderScore,
+} from "./score";
 
 let isStagePlaying = true;
 
@@ -43,6 +48,7 @@ export function checkAnswer(target, id) {
       playSound("good");
       const stageScore = getStageScore();
       increaseGameStore(stageScore);
+      renderScore();
     } else {
       if (!checkedClicked(target)) {
         addModifier(target, "bad");
