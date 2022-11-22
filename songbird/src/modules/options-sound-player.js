@@ -10,5 +10,7 @@ export function playSound(audio) {
   } else if (audio === "good") {
     audio = winSound;
   }
+  // ! set 0.4
+  audio.volume = 0.1;
   audio.play();
 }

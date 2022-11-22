@@ -28,17 +28,17 @@
       background-color: var(--white);
       transition: background-color 1s linear;
     }
-
-    &--active::after {
-      position: absolute;
-      top: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 6px;
-      background-color: var(--yellow);
-      border-radius: 3px;
-      transition: background-color 1s linear;
-    }
   }
+}
+
+.active.stage__item::after {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 6px;
+  background-color: var(--yellow);
+  border-radius: 3px;
+  transition: background-color 1s linear;
 }

@@ -3,6 +3,7 @@ import { getData } from "./get-data";
 import { setAudioSrc } from "./main-player";
 import { checkAnswer, changeIsStagePlaying } from "./check-answer";
 import { renderScore, resetStageScore, resetGameStore } from "./score";
+import { markActiveStage } from "./mark-stage";
 
 const gameSecretImageWrap = document.querySelector(".gameplay__pic");
 const gameSecretImage = document.querySelector(".gameplay__img");
@@ -136,6 +137,7 @@ export function startNewStage() {
   renderOptions(question);
   addHandlerOptionsBtns();
   renderScore();
+  markActiveStage();
 }
 
 export function start() {
@@ -147,4 +149,5 @@ export function start() {
   renderOptions(question);
   addHandlerOptionsBtns();
   renderScore();
+  markActiveStage();
 }
