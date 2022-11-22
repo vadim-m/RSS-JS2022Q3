@@ -1,4 +1,4 @@
-.results {
+.result {
   position: absolute;
   width: 100%;
   top: 0;
@@ -21,14 +21,14 @@
   }
 }
 
-.results__wrapper {
+.result__wrapper {
   background-color: var(--white);
   border: 1px solid var(--green);
   border-radius: 3.2rem;
   overflow: hidden;
 }
 
-.results__header {
+.result__header {
   width: 100%;
   background-color: var(--green);
   border-radius: 3rem 3rem 3rem 0;
@@ -36,20 +36,24 @@
   padding: 1.5rem;
 }
 
-.results__logo {
+.result__logo {
   width: 8rem;
   height: 8rem;
   background-size: 75%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("./img/icons/medal-gold.png");
+  background-image: url("./img/icons/medal.png");
   background-color: var(--white);
   border-radius: 2rem;
 
   margin: 0 auto 1rem;
+
+  &.active {
+    background-image: url("./img/icons/medal-gold.png");
+  }
 }
 
-.results__title {
+.result__title {
   color: var(--white);
   font-size: 2rem;
   font-weight: 700;
@@ -71,7 +75,7 @@
   }
 }
 
-.results__score {
+.result__score {
   color: var(--white);
   font-size: 2rem;
   font-weight: 700;
@@ -80,12 +84,12 @@
   text-align: center;
 }
 
-.results__content {
+.result__content {
   background-color: var(--green);
   border-radius: 0 0 3rem 3rem;
 }
 
-.results__text {
+.result__text {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
@@ -95,11 +99,16 @@
   padding: 2rem 2rem 1rem;
 }
 
-.results__message {
+.result__victory {
+  display: none;
+
   margin-bottom: 0.5rem;
+  &.active {
+    display: block;
+  }
 }
 
-.results__btns {
+.result__btns {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,7 +117,7 @@
   padding: 1rem 2rem 2rem;
 }
 
-.results__btn {
+.result__btn {
   width: 14rem;
   height: 4rem;
   font-size: 1.4rem;

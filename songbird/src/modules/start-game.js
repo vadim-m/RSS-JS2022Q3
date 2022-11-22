@@ -2,8 +2,15 @@ import { getRndInteger } from "./utils";
 import { getData } from "./get-data";
 import { setAudioSrc, stopCurrentAudio } from "./main-player";
 import { checkAnswer, changeIsStagePlaying } from "./check-answer";
-import { renderScore, resetStageScore, resetGameStore } from "./score";
+import {
+  renderScore,
+  resetStageScore,
+  resetGameScore,
+  getGameScore,
+} from "./score";
 import { markActiveStage } from "./mark-stage";
+import { fillResultSection } from "./fill-game-result";
+import birdsData from "../data/birds";
 
 const gameSecretImageWrap = document.querySelector(".gameplay__pic");
 const gameSecretImage = document.querySelector(".gameplay__img");
@@ -52,6 +59,7 @@ function fillStage(question) {
   const correctAnswerInd = getRndInteger(0, question.length - 1);
   const correctAnwer = question[correctAnswerInd];
   gameCorrectId = correctAnwer.id;
+  console.log(gameCorrectId);
   fillGameplay(correctAnwer);
 }
 
@@ -132,13 +140,8 @@ function newStagePreparation() {
 export function startNewStage() {
   increaseStageCount();
 
-  // ! 6 !
-  if (gameStage === 6) {
-    alert("end");
-    showResultSection();
-    // !
-    newStagePreparation();
-    resetGameStore();
+  if (gameStage === dataBirds.length) {
+    end();
 
     return;
   }
@@ -152,6 +155,16 @@ export function startNewStage() {
   addHandlerOptionsBtns();
   renderScore();
   markActiveStage();
+}
+
+function end() {
+  const score = getGameScore();
+  fillResultSection(score, birdsData.length);
+  showResultSection();
+  setTimeout(() => {
+    newStagePreparation();
+    resetGameScore();
+  }, 500);
 }
 
 export function start() {

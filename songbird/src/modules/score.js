@@ -7,10 +7,12 @@ export function getStageScore() {
   return stageScore;
 }
 
+export function getGameScore() {
+  return gameScore;
+}
+
 export function decreaseStageScore() {
-  console.log(stageScore);
   stageScore--;
-  console.log(stageScore);
 }
 
 export function resetStageScore() {
@@ -21,7 +23,7 @@ export function increaseGameStore(num) {
   gameScore += num;
 }
 
-export function resetGameStore() {
+export function resetGameScore() {
   gameScore = 0;
 }
 
