@@ -1,0 +1,125 @@
+.results {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -200vw;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.45s ease-in-out;
+  transition-delay: 0;
+
+  &.active {
+    left: 0;
+    transition-delay: 0.25s;
+  }
+
+  &__container {
+    width: initial;
+  }
+}
+
+.results__wrapper {
+  background-color: var(--white);
+  border: 1px solid var(--green);
+  border-radius: 3.2rem;
+  overflow: hidden;
+}
+
+.results__header {
+  width: 100%;
+  background-color: var(--green);
+  border-radius: 3rem 3rem 3rem 0;
+
+  padding: 1.5rem;
+}
+
+.results__logo {
+  width: 8rem;
+  height: 8rem;
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./img/icons/competition.png");
+  background-color: var(--white);
+  border-radius: 2rem;
+
+  margin: 0 auto;
+}
+
+.results__content {
+  background-color: var(--green);
+  border-radius: 0 0 3rem 3rem;
+}
+
+.results__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 3rem 0 0 0;
+  text-align: center;
+
+  padding: 2rem 2rem 0;
+}
+
+.results__item {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background-color: var(--white);
+  border: 2px solid var(--green);
+  border-radius: 3rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &:first-child {
+    background-color: #fee55a;
+  }
+
+  &:nth-child(2) {
+    background-color: #dfebfa;
+  }
+
+  &:nth-child(3) {
+    background-color: #ffa85d;
+  }
+}
+
+.results__btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+
+  padding: 1rem 2rem 2rem;
+}
+
+.results__btn {
+  width: 14rem;
+  height: 4rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.6px;
+  background-color: transparent;
+  border: 2px solid var(--green);
+  border-radius: 3rem;
+  transition: background-color 0.2s ease-in-out;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--green);
+  }
+}

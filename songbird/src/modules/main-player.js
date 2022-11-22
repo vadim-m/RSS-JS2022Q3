@@ -72,13 +72,11 @@ function updateAudioProgress() {
   gamePlayerTimeTotal.textContent = `${minutesDuration}:${
     secondsDuration < 10 ? `0${secondsDuration}` : secondsDuration
   }`;
-  // gamePlayerTimeTotal =
 }
 
 function updatePlayingAudioInfo() {
   const maxValue = gamePlayerProgress.max;
   const progress = gamePlayerProgress.value;
-  console.log(progress);
   questionAudio.currentTime = (progress / maxValue) * questionAudio.duration;
 }
 
