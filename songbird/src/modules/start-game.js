@@ -7,6 +7,7 @@ import {
   resetStageScore,
   resetGameScore,
   getGameScore,
+  addGameScoreToLocal,
 } from "./score";
 import { markActiveStage } from "./mark-stage";
 import { fillResultSection } from "./fill-game-result";
@@ -159,6 +160,7 @@ export function startNewStage() {
 
 function end() {
   const score = getGameScore();
+  addGameScoreToLocal(score);
   fillResultSection(score, birdsData.length);
   showResultSection();
   setTimeout(() => {

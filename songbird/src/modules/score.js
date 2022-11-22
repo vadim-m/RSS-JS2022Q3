@@ -30,3 +30,28 @@ export function resetGameScore() {
 export function renderScore() {
   scoreEl.textContent = gameScore;
 }
+
+const gameScoreFromLocaleStorage = JSON.parse(
+  localStorage.getItem("gameScore")
+);
+const gameScoreData = gameScoreFromLocaleStorage
+  ? gameScoreFromLocaleStorage
+  : ["-- // --"];
+
+export function addGameScoreToLocal(score) {
+  if (typeof gameScoreData[0] === "string") {
+    gameScoreData.shift();
+  }
+
+  gameScoreData.push(score);
+  gameScoreData.sort(function (a, b) {
+    return b - a;
+  });
+
+  const maxScoresCount = 5;
+  if (gameScoreData.length > maxScoresCount) {
+    gameScoreData.splice(maxScoresCount, 1);
+  }
+
+  localStorage.setItem("gameScore", JSON.stringify(gameScoreData));
+}

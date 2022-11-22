@@ -1,4 +1,5 @@
 import { start } from "./start-game";
+import { fillResultsSection } from "./fill-game-result";
 
 window.showStarpageSection = function () {
   document.querySelector(".startpage").classList.add("active");
@@ -26,5 +27,5 @@ window.showResultsSection = function () {
   document.querySelector(".game").classList.remove("active");
   document.querySelector(".startpage").classList.remove("active");
   document.querySelector(".result").classList.remove("active");
-  // ! renderResults();
+  fillResultsSection();
 };
