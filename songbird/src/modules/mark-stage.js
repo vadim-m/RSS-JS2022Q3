@@ -5,8 +5,8 @@ const stages = document.querySelectorAll(".stage__item");
 
 export function markActiveStage() {
   stages.forEach((item) => {
-    item.classList.remove("active");
+    removeActiveClass(item);
   });
 
-  stages[gameStage].classList.add("active");
+  addActiveClass(stages[gameStage]);
 }
