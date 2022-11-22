@@ -24,7 +24,7 @@ export let gameStage = 0;
 let dataBirds = [];
 export let gameCorrectId;
 
-export function encreaseStageCount() {
+function increaseStageCount() {
   gameStage++;
 }
 
@@ -120,6 +120,8 @@ function addHandlerOptionsBtns() {
 }
 
 export function startNewStage() {
+  increaseStageCount();
+
   if (gameStage === 6) {
     alert("end");
     showResultSection();

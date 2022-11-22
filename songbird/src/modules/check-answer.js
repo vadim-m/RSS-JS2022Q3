@@ -4,7 +4,6 @@ import {
   changeKindVisibility,
   changeGenusVisibility,
   changeImageVisibility,
-  encreaseStageCount,
 } from "./start-game";
 import { stopMusic } from "./main-player";
 import { playSound } from "./options-sound-player";
@@ -38,7 +37,6 @@ export function checkAnswer(target, id) {
       playSound("good");
       const stageScore = getStageScore();
       increaseGameStore(stageScore);
-      encreaseStageCount();
     } else {
       addModifier(target, "bad");
       playSound("bad");
