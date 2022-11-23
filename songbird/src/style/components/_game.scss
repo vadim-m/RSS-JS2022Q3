@@ -32,6 +32,10 @@
   overflow: hidden;
 
   margin-bottom: 1.5rem;
+
+  @include medium {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .game__questions {

@@ -11,6 +11,14 @@
     &:not(:last-child) {
       margin-bottom: 0.5rem;
     }
+
+    @include medium {
+      min-height: 42px;
+    }
+
+    @include medium {
+      min-height: 30px;
+    }
   }
 
   &__btn {

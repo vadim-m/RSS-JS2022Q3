@@ -1,6 +1,14 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
+
+  @include medium {
+    font-size: 88.888%;
+  }
+
+  @include tablets {
+    font-size: 87.5%;
+  }
 }
 
 *,
@@ -100,4 +108,8 @@ body {
   flex-grow: 1;
 
   padding: 1.5rem 0;
+
+  @include medium {
+    padding: 1.5rem 0 0;
+  }
 }

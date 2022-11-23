@@ -6,6 +6,15 @@
   &__photo {
     grid-column: span 3;
     grid-row: span 2;
+
+    @include tablets {
+      grid-column: span 4;
+      grid-row: initial;
+    }
+
+    @include phones {
+      grid-column: span 5;
+    }
   }
 
   &__classification {
@@ -16,16 +25,40 @@
     text-align: center;
 
     padding: 0.5rem 0;
+
+    @include tablets {
+      grid-column: span 5;
+      align-self: center;
+    }
+
+    @include phones {
+      grid-column: span 7;
+    }
   }
 
   &__next {
+    line-height: 0;
     grid-column: span 2;
     grid-row: span 2;
+
+    @include tablets {
+      grid-row: initial;
+      grid-column: span 3;
+    }
+
+    @include phones {
+      grid-column: span 12;
+      grid-row: 3 / 4;
+    }
   }
 
   &__player {
     grid-column: span 7;
     align-self: flex-end;
+
+    @include tablets {
+      grid-column: span 12;
+    }
   }
 }
 
@@ -118,6 +151,12 @@
   background-size: 50%;
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
+
+  @include phones {
+    background-size: 10%;
+    border-radius: 2rem;
+    padding-top: 3rem;
+  }
 
   &:hover,
   &:focus {
