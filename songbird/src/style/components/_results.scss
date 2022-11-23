@@ -12,6 +12,7 @@
   transition-delay: 0;
 
   &.active {
+    position: relative;
     left: 0;
     transition-delay: 0.25s;
   }

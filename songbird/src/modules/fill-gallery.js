@@ -6,9 +6,12 @@ export function fillGallerySection() {
   const birdsData = getData().flat();
   gallery.innerHTML = "";
   for (let bird in birdsData) {
-    console.log(birdsData[bird]);
     createGalleryItem("li", "gallery__item", birdsData[bird]);
   }
+}
+
+export function clearGallerySection() {
+  gallery.innerHTML = "";
 }
 
 function createGalleryItem(tag, ccsClass, item) {
