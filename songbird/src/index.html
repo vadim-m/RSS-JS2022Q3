@@ -17,7 +17,7 @@
 
     <main class="content">
 
-      <section class="section startpage">
+      <section class="section startpage active">
         <div class="container startpage__container">
           <div class="startpage__content">
             <header class="startpage__header">
@@ -29,7 +29,7 @@
                 <button class="startpage__btn startpage__btn--game" onclick="showGameSection()">Игра</button>
                 <button class="startpage__btn startpage__btn--results"
                   onclick="showResultsSection()">Результаты</button>
-                <button class="startpage__btn startpage__btn--gallery">Галерея</button>
+                <button class="startpage__btn startpage__btn--gallery" onclick="showGallerySection()">Галерея</button>
               </div>
               <footer class="startpage__footer">
                 <div class="startpage__language">
@@ -146,8 +146,8 @@
                     <div class="bird__genus">Corvus corax</div>
                   </div>
                   <div class="bird__player">
-                    <audio class="bird__audio html-audio" controls disablepictureinpicture
-                      controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
+                    <audio class="bird__audio html-audio" controls controlslist="nodownload noplaybackrate"
+                      src="./media/win.mp3"></audio>
                   </div>
                 </div>
               </div>
@@ -205,110 +205,10 @@
         </div>
       </section>
 
-      <section class="section gallery active">
+      <section class="section gallery">
         <h2 class="gallery__title visually-hidden">Gallery</h2>
         <div class="container gallery__container">
           <ul class="gallery__content">
-            <li class="gallery__item">
-              <div class="gallery__photo">
-                <img class="gallery__img" src="./img/birds/bird1.jpg">
-              </div>
-              <div class="gallery__info">
-                <div class="gallery__classification">
-                  <h4 class="gallery__kind">Ворон</h4>
-                  <div class="gallery__genus">Corvus corax</div>
-                </div>
-                <div class="gallery__description">
-                  Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                  Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны
-                  улетят от Тауэра, монархия рухнет.
-                </div>
-                <div class="gallery__player">
-                  <audio class="gallery__audio html-audio" controls="" disablepictureinpicture=""
-                    controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
-                </div>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <div class="gallery__photo">
-                <img class="gallery__img" src="./img/birds/bird1.jpg">
-              </div>
-              <div class="gallery__info">
-                <div class="gallery__classification">
-                  <h4 class="gallery__kind">Ворон</h4>
-                  <div class="gallery__genus">Corvus corax</div>
-                </div>
-                <div class="gallery__description">
-                  Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                  Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны
-                  улетят от Тауэра, монархия рухнет.
-                </div>
-                <div class="gallery__player">
-                  <audio class="gallery__audio html-audio" controls="" disablepictureinpicture=""
-                    controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
-                </div>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <div class="gallery__photo">
-                <img class="gallery__img" src="./img/birds/bird1.jpg">
-              </div>
-              <div class="gallery__info">
-                <div class="gallery__classification">
-                  <h4 class="gallery__kind">Ворон</h4>
-                  <div class="gallery__genus">Corvus corax</div>
-                </div>
-                <div class="gallery__description">
-                  Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                  Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны
-                  улетят от Тауэра, монархия рухнет.
-                </div>
-                <div class="gallery__player">
-                  <audio class="gallery__audio html-audio" controls="" disablepictureinpicture=""
-                    controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
-                </div>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <div class="gallery__photo">
-                <img class="gallery__img" src="./img/birds/bird1.jpg">
-              </div>
-              <div class="gallery__info">
-                <div class="gallery__classification">
-                  <h4 class="gallery__kind">Ворон</h4>
-                  <div class="gallery__genus">Corvus corax</div>
-                </div>
-                <div class="gallery__description">
-                  Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                  Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны
-                  улетят от Тауэра, монархия рухнет.
-                </div>
-                <div class="gallery__player">
-                  <audio class="gallery__audio html-audio" controls="" disablepictureinpicture=""
-                    controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
-                </div>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <div class="gallery__photo">
-                <img class="gallery__img" src="./img/birds/bird1.jpg">
-              </div>
-              <div class="gallery__info">
-                <div class="gallery__classification">
-                  <h4 class="gallery__kind">Ворон</h4>
-                  <div class="gallery__genus">Corvus corax</div>
-                </div>
-                <div class="gallery__description">
-                  Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-                  Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны
-                  улетят от Тауэра, монархия рухнет.
-                </div>
-                <div class="gallery__player">
-                  <audio class="gallery__audio html-audio" controls="" disablepictureinpicture=""
-                    controlslist="nodownload noplaybackrate" src="./media/win.mp3"></audio>
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </section>

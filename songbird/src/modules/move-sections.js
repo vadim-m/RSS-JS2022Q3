@@ -1,5 +1,6 @@
 import { start } from "./start-game";
 import { fillResultsSection } from "./fill-game-result";
+import { fillGallerySection } from "./fill-gallery";
 
 window.showStarpageSection = function () {
   document.querySelector(".startpage").classList.add("active");
@@ -28,4 +29,13 @@ window.showResultsSection = function () {
   document.querySelector(".startpage").classList.remove("active");
   document.querySelector(".result").classList.remove("active");
   fillResultsSection();
+};
+
+window.showGallerySection = function () {
+  document.querySelector(".gallery").classList.add("active");
+  document.querySelector(".game").classList.remove("active");
+  document.querySelector(".startpage").classList.remove("active");
+  document.querySelector(".result").classList.remove("active");
+  document.querySelector(".results").classList.remove("active");
+  fillGallerySection();
 };

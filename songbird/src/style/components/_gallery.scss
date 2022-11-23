@@ -1,5 +1,5 @@
 .gallery {
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 0;
   left: -200vw;
@@ -35,6 +35,12 @@
   border-radius: 1rem;
 
   &:hover .gallery__info {
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    bottom: 0;
+  }
+
+  &:focus-within .gallery__info {
     background-color: rgba(0, 0, 0, 0.7);
     left: 0;
     bottom: 0;
