@@ -39,7 +39,7 @@ export type callbackFn<T> = (data: T) => void;
 
 export interface IRespObj  {
   endpoint: string;
-  options: RespOptions;
+  options?: RespOptions;
 };
 
 export interface IRespStatus { 
