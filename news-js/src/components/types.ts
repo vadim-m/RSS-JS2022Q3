@@ -1,54 +1,54 @@
 export interface INewsData {
-  author: string | null;
-  content: string;
-  description: string;
-  publishedAt: string;
-  source: { id: string; name: string };
-  title: string;
-  url: string;
-  urlToImage: string;
+    author: string | null;
+    content: string;
+    description: string;
+    publishedAt: string;
+    source: { id: string; name: string };
+    title: string;
+    url: string;
+    urlToImage: string;
 }
 
 export interface INewsResp {
-  status: string;
-  articles: INewsData[];
+    status: string;
+    articles: INewsData[];
 }
 
 export interface ISourceData {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  language: string;
+    id: string;
+    name: string;
+    description: string;
+    category: string;
+    language: string;
 }
 
 export interface ISourceResp {
-  status: string;
-  sources: ISourceData[];
+    status: string;
+    sources: ISourceData[];
 }
 
-export type URLOptions =  {
-  [key: string]: string;
+export type URLOptions = {
+    [key: string]: string;
 };
 
-export type RespOptions =  {
-  [key: string]: string;
+export type RespOptions = {
+    [key: string]: string;
 };
 
 export type callbackFn<T> = (data: T) => void;
 
-export interface IRespObj  {
-  endpoint: string;
-  options?: RespOptions;
-};
+export interface IRespObj {
+    endpoint: string;
+    options?: RespOptions;
+}
 
-export interface IRespStatus { 
-  ok: string;
-  status : number; 
-  statusText: string;
-};
+export interface IRespStatus {
+    ok: string;
+    status: number;
+    statusText: string;
+}
 
-export enum RespStatus {
-   "unauthorized" = 401,
-   "notFound" = 404
+export const enum RespStatus {
+    'unauthorized' = 401,
+    'notFound' = 404,
 }

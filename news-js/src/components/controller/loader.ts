@@ -1,17 +1,17 @@
-import { URLOptions,IRespObj, callbackFn, RespStatus } from '../types'
+import { URLOptions, IRespObj, callbackFn, RespStatus } from '../types';
 
 class Loader {
     private baseLink: string;
     private options: URLOptions;
 
-   constructor(baseLink: string, options: URLOptions) {
+    constructor(baseLink: string, options: URLOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp<T>(
         { endpoint, options = {} }: IRespObj,
-        callback: callbackFn<T>  = () => {
+        callback: callbackFn<T> = () => {
             console.error('No callback for GET response');
         }
     ) {

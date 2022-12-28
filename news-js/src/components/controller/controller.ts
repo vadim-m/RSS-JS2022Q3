@@ -1,5 +1,5 @@
 import AppLoader from './appLoader';
-import { callbackFn } from '../types'
+import { callbackFn } from '../types';
 
 class AppController extends AppLoader {
     getSources<ISourceData>(callback: callbackFn<ISourceData>) {

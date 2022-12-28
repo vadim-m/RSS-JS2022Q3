@@ -1,7 +1,7 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { INewsResp } from '../types'
-import { ISourceResp } from '../types'
+import { INewsResp } from '../types';
+import { ISourceResp } from '../types';
 
 class AppView {
     public news: News;
