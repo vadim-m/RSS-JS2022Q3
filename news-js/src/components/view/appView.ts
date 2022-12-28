@@ -3,7 +3,7 @@ import Sources from './sources/sources';
 import { INewsResp } from '../types'
 import { ISourceResp } from '../types'
 
-export class AppView {
+class AppView {
     public news: News;
     public sources: Sources;
 
@@ -22,3 +22,5 @@ export class AppView {
         this.sources.draw(values);
     }
 }
+
+export default AppView;
