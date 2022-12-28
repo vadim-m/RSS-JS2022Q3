@@ -9,11 +9,21 @@ export interface INewsData {
   urlToImage: string;
 }
 
+export interface INewsResp {
+  status: string;
+  articles: INewsData[];
+}
+
 export interface ISourceData {
   id: string;
   name: string;
   description: string;
   category: string;
   language: string;
+}
+
+export interface ISourceResp {
+  status: string;
+  sources: ISourceData[];
 }
 
