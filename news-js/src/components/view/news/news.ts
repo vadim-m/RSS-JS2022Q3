@@ -1,15 +1,5 @@
 import './news.css';
-
-interface INewsData {
-    author: string | null;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: { id: string; name: string };
-    title: string;
-    url: string;
-    urlToImage: string;
-}
+import { INewsData } from '../../types'
 
 class News {
     draw(data: INewsData[]): void {
@@ -19,68 +9,31 @@ class News {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
 
-        if (!(newsItemTemp instanceof HTMLTemplateElement)) {
-            throw new Error('Could not newsItemTemp element.');
+        if (newsItemTemp instanceof HTMLTemplateElement) {
+            news.forEach((item: INewsData, idx: number): void => {
+                const newsClone = <HTMLTemplateElement>newsItemTemp.content.cloneNode(true);
+
+                if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__meta-photo')).style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__meta-author')).textContent = item.author || item.source.name;
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__meta-date')).textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__description-title')).textContent = item.title;
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__description-source')).textContent = item.source.name;
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__description-content')).textContent = item.description;
+
+                (<HTMLTemplateElement>newsClone.querySelector('.news__description-content')).setAttribute('href', item.url);
+
+                fragment.append(newsClone);
+            });
         }
 
-        news.forEach((item: INewsData, idx: number): void => {
-            const newsClone: HTMLTemplateElement | null = <HTMLTemplateElement>newsItemTemp.content.cloneNode(true);
-
-            if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
-
-            const newsCloneMetaPhoto: HTMLTemplateElement | null = newsClone.querySelector('.news__meta-photo');
-            if (!newsCloneMetaPhoto) {
-                throw new Error('Could not newsCloneMetaPhoto element.');
-            }
-            newsCloneMetaPhoto.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
-
-            const newsCloneMetaAuthor: HTMLTemplateElement | null = newsClone.querySelector('.news__meta-author');
-            if (!newsCloneMetaAuthor) {
-                throw new Error('Could not newsCloneMetaAuthor element.');
-            }
-            newsCloneMetaAuthor.textContent = item.author || item.source.name;
-
-            const newsCloneMetaDate: HTMLTemplateElement | null = newsClone.querySelector('.news__meta-date');
-            if (!newsCloneMetaDate) {
-                throw new Error('Could not newsCloneMetaDate element.');
-            }
-            newsCloneMetaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
-
-            const newsCloneDescTitle: HTMLTemplateElement | null = newsClone.querySelector('.news__description-title');
-            if (!newsCloneDescTitle) {
-                throw new Error('Could not newsCloneDescTitle element.');
-            }
-            newsCloneDescTitle.textContent = item.title;
-
-            const newsCloneDescSource: HTMLTemplateElement | null = newsClone.querySelector(
-                '.news__description-source'
-            );
-            if (!newsCloneDescSource) {
-                throw new Error('Could not newsCloneDescSource element.');
-            }
-            newsCloneDescSource.textContent = item.source.name;
-
-            const newsCloneDescContent: HTMLTemplateElement | null = newsClone.querySelector(
-                '.news__description-content'
-            );
-            if (!newsCloneDescContent) {
-                throw new Error('Could not newsCloneDescContent element.');
-            }
-            newsCloneDescContent.textContent = item.description;
-
-            const newsCloneLink: HTMLTemplateElement | null = newsClone.querySelector('.news__description-content');
-            if (!newsCloneLink) {
-                throw new Error('Could not newsnewsCloneLinkCloneDescContent element.');
-            }
-            newsCloneLink.setAttribute('href', item.url);
-
-            fragment.append(newsClone);
-        });
-
-        const newsEl: HTMLTemplateElement | null = document.querySelector('.news');
-        if (!newsEl) {
-            throw new Error('Could not newsEl element.');
-        }
+        const newsEl = <HTMLTemplateElement>document.querySelector('.news');
         newsEl.innerHTML = '';
         document.querySelector('.news')?.appendChild(fragment);
     }
