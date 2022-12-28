@@ -27,3 +27,28 @@ export interface ISourceResp {
   sources: ISourceData[];
 }
 
+export type URLOptions =  {
+  [key: string]: string;
+};
+
+export type RespOptions =  {
+  [key: string]: string;
+};
+
+export type callbackFn<T> = (data: T) => void;
+
+export interface IRespObj  {
+  endpoint: string;
+  options: RespOptions;
+};
+
+export interface IRespStatus { 
+  ok: string;
+  status : number; 
+  statusText: string;
+};
+
+export enum RespStatus {
+   "unauthorized" = 401,
+   "notFound" = 404
+}
