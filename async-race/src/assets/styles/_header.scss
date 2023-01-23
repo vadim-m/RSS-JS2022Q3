@@ -1,0 +1,27 @@
+.header {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba($color: #565656, $alpha: 0.6);
+    border-radius: 1rem;
+
+    padding: 0.5rem 0;
+  }
+
+  &__btn_active {
+    animation: myBgColor 4s ease 0s infinite normal forwards;
+  }
+}
+
+@keyframes myBgColor {
+  0%,
+  50%,
+  100% {
+    background-color: rgba(216, 251, 158, 0.3);
+  }
+
+  25%,
+  75% {
+    background-color: rgba(38, 38, 39, 0.6);
+  }
+}
