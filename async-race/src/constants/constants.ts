@@ -15,6 +15,3 @@ export const enum ItemsPerPage {
   garage = 7,
   winners = 10,
 }
-
-// import { getCars } from '../helpers/api';
-// export const { cars, carsCount } = await getCars();

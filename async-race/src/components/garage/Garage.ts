@@ -1,4 +1,4 @@
-import { getCars } from '../../helpers/api';
+import { createCar, getCars } from '../../helpers/api';
 import { ICar } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
@@ -22,11 +22,28 @@ class Garage extends Component {
   }
 
   async addListeners() {
-    const createBtn = this.container.querySelector('#create');
-    createBtn?.addEventListener('click', (e) => {
+    const createForm = this.container.querySelector('#create');
+    // const updateForm = this.container.querySelector('#update');
+
+    createForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      this.reRender();
+      const form = <HTMLFormElement>e.target;
+      const input = form.input.value as string;
+      const color = form.color.value as string;
+      if (input && color) {
+        const body = { name: input, color: color };
+        await createCar(body);
+        this.reRender();
+      }
     });
+
+    // updateForm?.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   const form = <HTMLFormElement>e.target;
+    //   console.log(form.name);
+
+    //   this.reRender();
+    // });
   }
 
   getCarItems() {
@@ -40,16 +57,16 @@ class Garage extends Component {
       <div class="garage__manipulation">
         <div class="garage__manipulation-icon"></div>
         <div class="garage__manipulation-controls">
-          <div class="garage__control">
-            <input class="garage__input" type="text">
-            <input class="garage__input" type="color" value="#2962e3">
-            <button class=" garage__btn btn" type="button" id="create">Create</button>
-          </div>
-          <div class="garage__control">
-            <input class="garage__input" type="text" disabled>
-            <input class="garage__input" type="color" disabled>
-            <button class="garage__btn btn" type="button" disabled id="update">Customize</button>
-          </div>
+          <form class="garage__control" id="create">
+            <input class="garage__input" type="text" name="input">
+            <input class="garage__input" type="color" name="color" value="#2962e3">
+            <button class=" garage__btn btn" name="btn" type="submit">Create</button>
+          </form>
+          <form class="garage__control" id="update">
+            <input class="garage__input" type="text" name="name" disabled>
+            <input class="garage__input" type="color" name="color" disabled>
+            <button class="garage__btn btn" type="submit" name="btn" disabled>Customize</button>
+          </form>
         </div>
       </div>
       <h1 class="garage__title">Cars in garage (${this.carsCount})</h1>
