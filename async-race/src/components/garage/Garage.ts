@@ -1,4 +1,4 @@
-import { createCar, getCars } from '../../helpers/api';
+import { createCar, deleteCar, getCars } from '../../helpers/api';
 import { ICar } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
@@ -24,6 +24,7 @@ class Garage extends Component {
   async addListeners() {
     const createForm = this.container.querySelector('#create');
     // const updateForm = this.container.querySelector('#update');
+    const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
 
     createForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -35,6 +36,18 @@ class Garage extends Component {
         await createCar(body);
         this.reRender();
       }
+    });
+
+    deleteCarBtns.forEach((el) => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetBtn = <HTMLButtonElement>e.target;
+        const id = targetBtn.dataset.id;
+        if (id) {
+          await deleteCar(+id);
+          this.reRender();
+        }
+      });
     });
 
     // updateForm?.addEventListener('submit', (e) => {
