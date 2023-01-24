@@ -1,4 +1,4 @@
-import { createCar, deleteCar, getCars } from '../../helpers/api';
+import { createCar, deleteCar, getCars, updateCar } from '../../helpers/api';
 import { ICar } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
@@ -22,18 +22,30 @@ class Garage extends Component {
   }
 
   async addListeners() {
-    const createForm = this.container.querySelector('#create');
-    // const updateForm = this.container.querySelector('#update');
+    const createForm = this.container.querySelector('#create') as HTMLFormElement;
+    const updateForm = this.container.querySelector('#update') as HTMLFormElement;
     const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
+    const customizeCarBtns = this.container.querySelectorAll('.car__btn_custom');
 
     createForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const form = <HTMLFormElement>e.target;
-      const input = form.input.value as string;
-      const color = form.color.value as string;
+      const input = createForm.input.value as string;
+      const color = createForm.color.value as string;
       if (input && color) {
         const body = { name: input, color: color };
         await createCar(body);
+        this.reRender();
+      }
+    });
+
+    updateForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = updateForm.dataset.id;
+      const input = updateForm.input.value as string;
+      const color = updateForm.color.value as string;
+      if (input && color && id) {
+        const body = { name: input, color: color };
+        await updateCar(+id, body);
         this.reRender();
       }
     });
@@ -47,6 +59,24 @@ class Garage extends Component {
           await deleteCar(+id);
           this.reRender();
         }
+      });
+    });
+
+    customizeCarBtns.forEach((el) => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetBtn = <HTMLButtonElement>e.target;
+        targetBtn.style.color = '#7afeff';
+        const id = targetBtn.dataset.id;
+
+        createForm.input.disabled = true;
+        createForm.color.disabled = true;
+        createForm.btn.disabled = true;
+
+        updateForm.dataset.id = id;
+        updateForm.input.disabled = false;
+        updateForm.color.disabled = false;
+        updateForm.btn.disabled = false;
       });
     });
 
@@ -76,7 +106,7 @@ class Garage extends Component {
             <button class=" garage__btn btn" name="btn" type="submit">Create</button>
           </form>
           <form class="garage__control" id="update">
-            <input class="garage__input" type="text" name="name" disabled>
+            <input class="garage__input" type="text" name="input" disabled>
             <input class="garage__input" type="color" name="color" disabled>
             <button class="garage__btn btn" type="submit" name="btn" disabled>Customize</button>
           </form>
