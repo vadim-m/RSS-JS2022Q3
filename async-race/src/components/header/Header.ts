@@ -13,7 +13,7 @@ class Header extends Component {
     return htmlTemplate;
   }
 
-  addListeners() {
+  async addListeners() {
     const buttons = this.container.querySelectorAll('.header__btn');
     const sections = document.querySelectorAll('section');
 
@@ -33,7 +33,7 @@ class Header extends Component {
     });
   }
 
-  render() {
+  async render() {
     const htmlTemplate = this.getElementTemplate();
     this.container.innerHTML = htmlTemplate;
 

@@ -15,14 +15,15 @@ class Page {
     this.footer = new Footer('footer', 'footer');
   }
 
-  lister() {
-    this.header.addListeners();
+  async listen() {
+    await this.header.addListeners();
+    await this.main.addListeners();
   }
 
-  render() {
-    document.body.append(this.header.render());
-    document.body.append(this.main.render());
-    document.body.append(this.footer.render());
+  async render() {
+    document.body.append(await this.header.render());
+    document.body.append(await this.main.render());
+    document.body.append(await this.footer.render());
   }
 }
 

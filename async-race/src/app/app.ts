@@ -3,9 +3,9 @@ import Page from '../pages/Page';
 class App {
   private page = new Page();
 
-  run() {
-    this.page.render();
-    this.page.lister();
+  async run() {
+    await this.page.render();
+    await this.page.listen();
   }
 }
 

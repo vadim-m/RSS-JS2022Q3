@@ -14,7 +14,7 @@ class Footer extends Component {
     return htmlTemplate;
   }
 
-  render() {
+  async render() {
     const htmlTemplate = this.getElementTemplate();
     this.container.innerHTML = htmlTemplate;
 

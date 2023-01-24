@@ -6,7 +6,7 @@ abstract class Component {
     this.container.className = className;
   }
 
-  render() {
+  async render() {
     return this.container;
   }
 }
