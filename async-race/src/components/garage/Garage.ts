@@ -1,7 +1,7 @@
 import { currentAnimation } from '../../constants/constants';
 import { createCar, deleteCar, drive, getCars, startEngine, stopEngine, updateCar } from '../../helpers/api';
 import { animateMovement, getDistanceBetweenElements } from '../../helpers/driving';
-import { ICar } from '../../interfaces/interfaces';
+import { ICar, IDrivePromise, IPromise } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
 
@@ -26,6 +26,8 @@ class Garage extends Component {
   async addListeners() {
     const createForm = this.container.querySelector('#create') as HTMLFormElement;
     const updateForm = this.container.querySelector('#update') as HTMLFormElement;
+    const raceBtn = this.container.querySelector('.garage__icon-race') as HTMLButtonElement;
+    const resetBtn = this.container.querySelector('.garage__icon-reset') as HTMLButtonElement;
     const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
     const customizeCarBtns = this.container.querySelectorAll('.car__btn_custom');
     const startCarBtns = this.container.querySelectorAll('.car__btn_start');
@@ -105,9 +107,47 @@ class Garage extends Component {
         }
       });
     });
+
+    raceBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      raceBtn.disabled = true;
+      let promiseArr: Promise<IDrivePromise>[] = [];
+      promiseArr = this.cars.map((car) => this.startMoving(car.id));
+      const ids = this.cars.map((car: ICar) => car.id);
+      try {
+        const winner = await this.raceAll(promiseArr, ids);
+        console.log(winner.name, winner.time);
+        resetBtn.disabled = false;
+      } catch (err) {
+        console.log('All engines were broken.');
+        resetBtn.disabled = false;
+      }
+    });
+
+    resetBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      this.cars.map((car) => this.stopMoving(car.id));
+      resetBtn.disabled = true;
+      setTimeout(() => {
+        raceBtn.disabled = false;
+      }, 1200);
+    });
   }
 
-  startMoving = async (carId: number) => {
+  async raceAll(promises: Promise<IDrivePromise>[], ids: number[]): Promise<IPromise> {
+    const { success, carId, time } = await Promise.any(promises);
+
+    if (!success) {
+      const failIndex = ids.findIndex((i) => i === carId);
+      const restPromises = [...promises.slice(0, failIndex), ...promises.slice(failIndex + 1, promises.length)];
+      const restIds = [...ids.slice(0, failIndex), ...ids.slice(failIndex + 1, ids.length)];
+      return this.raceAll(restPromises, restIds);
+    }
+
+    return { ...this.cars.find((car: ICar) => car.id === carId), time: (+time / 1000).toFixed(3) };
+  }
+
+  async startMoving(carId: number): Promise<IDrivePromise> {
     const startButton = document.getElementById(`btn-start-${carId}`) as HTMLButtonElement;
     const stopButton = document.getElementById(`btn-stop-${carId}`) as HTMLButtonElement;
     startButton.disabled = true;
@@ -126,9 +166,9 @@ class Garage extends Component {
     }
 
     return { success, carId, time };
-  };
+  }
 
-  stopMoving = async (carId: number) => {
+  async stopMoving(carId: number) {
     const stopButton = document.getElementById(`btn-stop-${carId}`) as HTMLButtonElement;
     stopButton.disabled = true;
     await stopEngine(carId);
@@ -141,7 +181,7 @@ class Garage extends Component {
     if (currentAnimation[carId]) {
       window.cancelAnimationFrame(currentAnimation[carId].id as number);
     }
-  };
+  }
 
   getCarItems() {
     const carList = this.cars.map((el: ICar) => new Car(el.name, el.color, el.id).render()).join('');
@@ -152,7 +192,7 @@ class Garage extends Component {
   getElementTemplate() {
     const htmlTemplate = `
       <div class="garage__manipulation">
-        <div class="garage__manipulation-icon"></div>
+        <div class="garage__icon"></div>
         <div class="garage__manipulation-controls">
           <form class="garage__control" id="create">
             <input class="garage__input" type="text" name="input">
@@ -165,6 +205,8 @@ class Garage extends Component {
             <button class="garage__btn btn" type="submit" name="btn" disabled>Customize</button>
           </form>
         </div>
+        <button class="garage__icon garage__icon-race btn"></button>
+        <button class="garage__icon garage__icon-reset btn" disabled></button>
       </div>
       <h1 class="garage__title">Cars in garage (${this.carsCount})</h1>
       <ul class="garage__list">

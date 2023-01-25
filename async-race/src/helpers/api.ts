@@ -52,6 +52,7 @@ export const stopEngine = async (id: number) =>
 
 export const drive = async (id: number) => {
   const result = await fetch(`${pathURL.engine}?id=${id}&status=drive`, { method: 'PATCH' }).catch();
+
   return result.status !== 200 ? { success: false } : { ...(await result.json()) };
 };
 
