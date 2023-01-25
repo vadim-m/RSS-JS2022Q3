@@ -8,3 +8,7 @@ export interface INewCar {
   name: string;
   color: string;
 }
+
+export interface IAnimationState {
+  id?: number;
+}

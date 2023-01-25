@@ -44,16 +44,16 @@ export const getCars = async (page = 1, itemsCount = ItemsPerPage.garage) => {
   };
 };
 
-// export const startEngine = async (id: number) =>
-//   (await fetch(`${pathURL.engine}?id=${id}&status=started`, { method: 'PATCH' })).json();
+export const startEngine = async (id: number) =>
+  (await fetch(`${pathURL.engine}?id=${id}&status=started`, { method: 'PATCH' })).json();
 
-// export const stopEngine = async (id: number) =>
-//   (await fetch(`${pathURL.engine}?id=${id}&status=stopped`, { method: 'PATCH' })).json();
+export const stopEngine = async (id: number) =>
+  (await fetch(`${pathURL.engine}?id=${id}&status=stopped`, { method: 'PATCH' })).json();
 
-// export const dance = async (id: number) => {
-//   const result = await fetch(`${pathURL.engine}?id=${id}&status=drive`, { method: 'PATCH' }).catch();
-//   return result.status !== 200 ? { success: false } : { ...(await result.json()) };
-// };
+export const drive = async (id: number) => {
+  const result = await fetch(`${pathURL.engine}?id=${id}&status=drive`, { method: 'PATCH' }).catch();
+  return result.status !== 200 ? { success: false } : { ...(await result.json()) };
+};
 
 // const getSortOrder = (sort: number, order: number) => {
 //   if (sort && order) {

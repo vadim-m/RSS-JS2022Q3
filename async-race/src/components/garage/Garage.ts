@@ -1,4 +1,6 @@
-import { createCar, deleteCar, getCars, updateCar } from '../../helpers/api';
+import { currentAnimation } from '../../constants/constants';
+import { createCar, deleteCar, drive, getCars, startEngine, stopEngine, updateCar } from '../../helpers/api';
+import { animateMovement, getDistanceBetweenElements } from '../../helpers/driving';
 import { ICar } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
@@ -26,6 +28,8 @@ class Garage extends Component {
     const updateForm = this.container.querySelector('#update') as HTMLFormElement;
     const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
     const customizeCarBtns = this.container.querySelectorAll('.car__btn_custom');
+    const startCarBtns = this.container.querySelectorAll('.car__btn_start');
+    const stopCarBtns = this.container.querySelectorAll('.car__btn_stop');
 
     createForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -80,14 +84,60 @@ class Garage extends Component {
       });
     });
 
-    // updateForm?.addEventListener('submit', (e) => {
-    //   e.preventDefault();
-    //   const form = <HTMLFormElement>e.target;
-    //   console.log(form.name);
+    startCarBtns.forEach((el) => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetBtn = <HTMLButtonElement>e.target;
+        const id = targetBtn.dataset.id;
+        if (id) {
+          this.startMoving(+id);
+        }
+      });
+    });
 
-    //   this.reRender();
-    // });
+    stopCarBtns.forEach((el) => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetBtn = <HTMLButtonElement>e.target;
+        const id = targetBtn.dataset.id;
+        if (id) {
+          this.stopMoving(+id);
+        }
+      });
+    });
   }
+
+  startMoving = async (id: number) => {
+    const startButton = document.getElementById(`btn-start-${id}`) as HTMLButtonElement;
+    const stopButton = document.getElementById(`btn-stop-${id}`) as HTMLButtonElement;
+    startButton.disabled = true;
+    const { velocity, distance } = await startEngine(id);
+    stopButton.disabled = false;
+    const time = Math.round(distance / velocity);
+
+    const car = document.getElementById(`car-${id}`) as HTMLElement;
+    const finish = document.getElementById(`finish-${id}`) as HTMLElement;
+    const distanceBetweenPoints = Math.floor(getDistanceBetweenElements(car, finish)) - 38;
+    currentAnimation.id = animateMovement(car, distanceBetweenPoints, time);
+
+    const { success } = await drive(id);
+    if (!success) window.cancelAnimationFrame(currentAnimation.id.id as number);
+
+    return { success, id, time };
+  };
+
+  stopMoving = async (id: number) => {
+    const stopButton = document.getElementById(`btn-stop-${id}`) as HTMLButtonElement;
+    stopButton.disabled = true;
+    await stopEngine(id);
+    const startButton = document.getElementById(`btn-start-${id}`) as HTMLButtonElement;
+    startButton.disabled = false;
+
+    const car = document.getElementById(`car-${id}`) as HTMLElement;
+    car.style.transform = 'translateX(0)';
+
+    if (currentAnimation.id) window.cancelAnimationFrame(currentAnimation.id.id as number);
+  };
 
   getCarItems() {
     const carList = this.cars.map((el: ICar) => new Car(el.name, el.color, el.id).render()).join('');

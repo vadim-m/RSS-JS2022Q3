@@ -49,6 +49,12 @@
 
     margin-left: 0.5rem;
   }
+
+  &__finish {
+    display: inline-block;
+    width: 0.5rem;
+    border-right: 2px dashed #d8fb9e;
+  }
 }
 
 .car__btn {
