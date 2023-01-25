@@ -56,8 +56,8 @@ export const drive = async (id: number) => {
   return result.status !== 200 ? { success: false } : { ...(await result.json()) };
 };
 
-export const getWinners = async (page = 1, limit = ItemsPerPage.winners, sort = 'wins') => {
-  const response = await fetch(`${pathURL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}`);
+export const getWinners = async (page = 1, limit = ItemsPerPage.winners, sort = 'wins', order = 'DESC') => {
+  const response = await fetch(`${pathURL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
   const items = await response.json();
   const count: string = response.headers.get('X-Total-Count') ?? '0';
 
@@ -65,4 +65,64 @@ export const getWinners = async (page = 1, limit = ItemsPerPage.winners, sort = 
     items: await Promise.all(items.map(async (winner: IWinner) => ({ ...winner, car: await getCar(winner.id) }))),
     count,
   };
+};
+
+export const getWinner = async (id: number) => {
+  try {
+    const response = await fetch(`${pathURL.winners}/${id}`);
+    return await response.json();
+  } catch {
+    throw new Error('Ошибка');
+  }
+};
+
+export const getWinnerStatus = async (id: number) => {
+  const response = await fetch(`${pathURL.winners}/${id}`);
+  return response.status;
+};
+
+export const deleteWinner = async (id: number) => {
+  const response = await fetch(`${pathURL.winners}/${id}`, { method: 'DELETE' });
+  return response.json();
+};
+
+export const createWinner = async (body: IWinner) => {
+  const response = await fetch(pathURL.winners, {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.json();
+};
+
+export const updateWinner = async (id: number, body: IWinner) => {
+  const response = await fetch(`${pathURL.winners}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.json();
+};
+
+export const saveWinner = async (id: number, time: number) => {
+  const winnerStatus = await getWinnerStatus(id);
+
+  if (winnerStatus === 404) {
+    await createWinner({
+      id,
+      wins: 1,
+      time,
+    });
+  } else {
+    const winner = await getWinner(id);
+    await updateWinner(id, {
+      id,
+      wins: +winner.wins + 1,
+      time: time < +winner.time ? time : winner.time,
+    });
+  }
 };

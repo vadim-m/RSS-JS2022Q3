@@ -14,7 +14,7 @@ class Winner {
   private icon: IconSVG;
 
   constructor(id: number, wins: number, time: number, color?: string, name?: string) {
-    this.id = id;
+    this.id = id + 1;
     this.wins = wins;
     this.time = time;
     this.color = color ?? '#000';

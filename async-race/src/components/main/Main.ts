@@ -25,6 +25,7 @@ class Main extends Component {
 
   async addListeners() {
     await this.garage.addListeners();
+    await this.winners.addListeners();
   }
 
   async render() {

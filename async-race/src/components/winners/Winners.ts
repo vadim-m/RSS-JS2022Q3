@@ -19,13 +19,12 @@ class Winners extends Component {
     const response = await getWinners();
 
     this.winners = response.items;
-    console.log(this.winners);
     this.winnerCount = response.count;
   }
 
   getWinnerRow() {
     const carList = this.winners
-      .map((el: IWinner) => new Winner(el.id, el.wins, el.time, el.car?.color, el.car?.name).render())
+      .map((el: IWinner, indx: number) => new Winner(indx, el.wins, el.time, el.car?.color, el.car?.name).render())
       .join('');
 
     return carList;
@@ -46,6 +45,7 @@ class Winners extends Component {
           ${this.getWinnerRow()}
         </table>
       </div>
+      <button class="winners__update btn"></button>
       <div class="winners__pages">
         <button class="winners__page winners__page_prev" type="button" disabled></button>
         <span class="winners__current-page">Page #1</span>
@@ -56,12 +56,27 @@ class Winners extends Component {
     return htmlTemplate;
   }
 
+  async addListeners() {
+    const updateInfoBtn = this.container.querySelector('.winners__update') as HTMLButtonElement;
+    updateInfoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.reRender();
+    });
+  }
+
   async render() {
     await this.getGarageData();
     const htmlTemplate = this.getElementTemplate();
     this.container.innerHTML = htmlTemplate;
 
     return this.container;
+  }
+
+  async reRender() {
+    await this.getGarageData();
+    const htmlTemplate = this.getElementTemplate();
+    this.container.innerHTML = htmlTemplate;
+    this.addListeners();
   }
 }
 

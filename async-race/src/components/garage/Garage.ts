@@ -1,5 +1,15 @@
 import { currentAnimation } from '../../constants/constants';
-import { createCar, deleteCar, drive, getCars, startEngine, stopEngine, updateCar } from '../../helpers/api';
+import {
+  createCar,
+  deleteCar,
+  deleteWinner,
+  drive,
+  getCars,
+  saveWinner,
+  startEngine,
+  stopEngine,
+  updateCar,
+} from '../../helpers/api';
 import { animateMovement, getDistanceBetweenElements } from '../../helpers/driving';
 import { ICar, IDrivePromise, IPromise } from '../../interfaces/interfaces';
 import Car from '../car/Car';
@@ -32,6 +42,7 @@ class Garage extends Component {
     const customizeCarBtns = this.container.querySelectorAll('.car__btn_custom');
     const startCarBtns = this.container.querySelectorAll('.car__btn_start');
     const stopCarBtns = this.container.querySelectorAll('.car__btn_stop');
+    const resultText = this.container.querySelector('.garage__result') as HTMLSpanElement;
 
     createForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -63,6 +74,10 @@ class Garage extends Component {
         const id = targetBtn.dataset.id;
         if (id) {
           await deleteCar(+id);
+          await deleteWinner(+id);
+          const updateWinnersInfo = document.querySelector('.winners__update') as HTMLButtonElement;
+          const clickEvent = new Event('click');
+          updateWinnersInfo.dispatchEvent(clickEvent);
           this.reRender();
         }
       });
@@ -81,6 +96,7 @@ class Garage extends Component {
 
         updateForm.dataset.id = id;
         updateForm.input.disabled = false;
+        updateForm.input.value = 'nissan';
         updateForm.color.disabled = false;
         updateForm.btn.disabled = false;
       });
@@ -116,10 +132,16 @@ class Garage extends Component {
       const ids = this.cars.map((car: ICar) => car.id);
       try {
         const winner = await this.raceAll(promiseArr, ids);
-        console.log(winner.name, winner.time);
+        if (winner.id && winner.time) {
+          resultText.textContent = `Best result: ${winner.name} - ${winner.time}`;
+          await saveWinner(winner.id, +winner.time);
+        }
+        const updateWinnersInfo = document.querySelector('.winners__update') as HTMLButtonElement;
+        const clickEvent = new Event('click');
+        updateWinnersInfo.dispatchEvent(clickEvent);
         resetBtn.disabled = false;
       } catch (err) {
-        console.log('All engines were broken.');
+        alert('All engines were broken.');
         resetBtn.disabled = false;
       }
     });
@@ -129,6 +151,7 @@ class Garage extends Component {
       this.cars.map((car) => this.stopMoving(car.id));
       resetBtn.disabled = true;
       setTimeout(() => {
+        resultText.textContent = '';
         raceBtn.disabled = false;
       }, 1200);
     });
@@ -208,7 +231,7 @@ class Garage extends Component {
         <button class="garage__icon garage__icon-race btn"></button>
         <button class="garage__icon garage__icon-reset btn" disabled></button>
       </div>
-      <h1 class="garage__title">Cars in garage (${this.carsCount})</h1>
+      <h1 class="garage__title">Cars in garage (${this.carsCount}) <span class="garage__result"></span></h1>
       <ul class="garage__list">
          ${this.getCarItems()}
       </ul>
