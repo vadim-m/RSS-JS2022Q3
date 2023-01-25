@@ -9,6 +9,13 @@ export interface INewCar {
   color: string;
 }
 
+export interface IWinner {
+  car?: ICar;
+  id: number;
+  wins: number;
+  time: number;
+}
+
 export interface IAnimationState {
   id?: number;
 }

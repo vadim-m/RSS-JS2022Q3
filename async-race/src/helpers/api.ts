@@ -1,5 +1,5 @@
 import { pathURL, ItemsPerPage } from '../constants/constants';
-import { INewCar, ICar } from '../interfaces/interfaces';
+import { INewCar, ICar, IWinner } from '../interfaces/interfaces';
 
 export const getCar = async (id: number) => {
   const response = await fetch(`${pathURL.garage}/${id}`);
@@ -33,8 +33,8 @@ export const updateCar = async (id: number, body: INewCar) => {
   return response.json();
 };
 
-export const getCars = async (page = 1, itemsCount = ItemsPerPage.garage) => {
-  const response = await fetch(`${pathURL.garage}?_page=${page}&_limit=${itemsCount}`);
+export const getCars = async (page = 1, limit = ItemsPerPage.garage) => {
+  const response = await fetch(`${pathURL.garage}?_page=${page}&_limit=${limit}`);
   const cars: ICar[] = await response.json();
   const carsCount: string = response.headers.get('X-Total-Count') ?? '0';
 
@@ -56,9 +56,13 @@ export const drive = async (id: number) => {
   return result.status !== 200 ? { success: false } : { ...(await result.json()) };
 };
 
-// const getSortOrder = (sort: number, order: number) => {
-//   if (sort && order) {
-//     return `&_sort=${sort}&_order=${order}`;
-//   }
-//   return '';
-// };
+export const getWinners = async (page = 1, limit = ItemsPerPage.winners, sort = 'wins') => {
+  const response = await fetch(`${pathURL.winners}?_page=${page}&_limit=${limit}&_sort=${sort}`);
+  const items = await response.json();
+  const count: string = response.headers.get('X-Total-Count') ?? '0';
+
+  return {
+    items: await Promise.all(items.map(async (winner: IWinner) => ({ ...winner, car: await getCar(winner.id) }))),
+    count,
+  };
+};
