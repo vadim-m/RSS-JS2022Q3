@@ -6,20 +6,23 @@ import Winner from '../winner/Winner';
 class Winners extends Component {
   private winners: IWinner[];
 
-  private winnerCount: string;
+  private winnersCount: string;
+
+  private curentPage: number;
 
   constructor(tagName: string, className: string, id: string) {
     super(tagName, className);
     this.container.id = id;
     this.winners = [];
-    this.winnerCount = '0';
+    this.winnersCount = '0';
+    this.curentPage = 1;
   }
 
   async getGarageData() {
-    const response = await getWinners();
+    const response = await getWinners(this.curentPage);
 
     this.winners = response.items;
-    this.winnerCount = response.count;
+    this.winnersCount = response.count;
   }
 
   getWinnerRow() {
@@ -30,9 +33,17 @@ class Winners extends Component {
     return carList;
   }
 
+  isPrevPageBtnDisable() {
+    return this.curentPage <= 1 ? 'disabled' : '';
+  }
+
+  isNextPageBtnDisable() {
+    return this.curentPage * 10 >= +this.winnersCount ? 'disabled' : '';
+  }
+
   getElementTemplate() {
     const htmlTemplate = `
-      <h1 class="winners__title">Winners (${this.winnerCount})</h1>
+      <h1 class="winners__title">Winners (${this.winnersCount})</h1>
       <div class="winners__content"">
         <table class="winners__table">
           <tr class="winners__table-header">
@@ -47,9 +58,9 @@ class Winners extends Component {
       </div>
       <button class="winners__update btn"></button>
       <div class="winners__pages">
-        <button class="winners__page winners__page_prev" type="button" disabled></button>
-        <span class="winners__current-page">Page #1</span>
-        <button class="winners__page winners__page_next" type="button"></button>
+        <button class="winners__page winners__page_prev" type="button" ${this.isPrevPageBtnDisable()}></button>
+        <span class="winners__current-page">Page #${this.curentPage}</span>
+        <button class="winners__page winners__page_next" type="button" ${this.isNextPageBtnDisable()}></button>
       </div>
     `;
 
@@ -58,8 +69,22 @@ class Winners extends Component {
 
   async addListeners() {
     const updateInfoBtn = this.container.querySelector('.winners__update') as HTMLButtonElement;
+    const prevPageBtn = this.container.querySelector('.winners__page_prev') as HTMLButtonElement;
+    const nextPageBtn = this.container.querySelector('.winners__page_next') as HTMLButtonElement;
     updateInfoBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      this.reRender();
+    });
+
+    prevPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.curentPage--;
+      this.reRender();
+    });
+
+    nextPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.curentPage++;
       this.reRender();
     });
   }

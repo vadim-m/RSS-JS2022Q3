@@ -20,15 +20,18 @@ class Garage extends Component {
 
   private carsCount: string;
 
+  private curentPage: number;
+
   constructor(tagName: string, className: string, id: string) {
     super(tagName, className);
     this.container.id = id;
     this.cars = [];
     this.carsCount = '0';
+    this.curentPage = 1;
   }
 
   async getGarageData() {
-    const response = await getCars();
+    const response = await getCars(this.curentPage);
     this.cars = response.cars;
     this.carsCount = response.carsCount;
   }
@@ -38,6 +41,8 @@ class Garage extends Component {
     const updateForm = this.container.querySelector('#update') as HTMLFormElement;
     const raceBtn = this.container.querySelector('.garage__icon-race') as HTMLButtonElement;
     const resetBtn = this.container.querySelector('.garage__icon-reset') as HTMLButtonElement;
+    const prevPageBtn = this.container.querySelector('.garage__page_prev') as HTMLButtonElement;
+    const nextPageBtn = this.container.querySelector('.garage__page_next') as HTMLButtonElement;
     const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
     const customizeCarBtns = this.container.querySelectorAll('.car__btn_custom');
     const startCarBtns = this.container.querySelectorAll('.car__btn_start');
@@ -155,6 +160,18 @@ class Garage extends Component {
         raceBtn.disabled = false;
       }, 1200);
     });
+
+    prevPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.curentPage--;
+      this.reRender();
+    });
+
+    nextPageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.curentPage++;
+      this.reRender();
+    });
   }
 
   async raceAll(promises: Promise<IDrivePromise>[], ids: number[]): Promise<IPromise> {
@@ -212,6 +229,14 @@ class Garage extends Component {
     return carList;
   }
 
+  isPrevPageBtnDisable() {
+    return this.curentPage <= 1 ? 'disabled' : '';
+  }
+
+  isNextPageBtnDisable() {
+    return this.curentPage * 7 >= +this.carsCount ? 'disabled' : '';
+  }
+
   getElementTemplate() {
     const htmlTemplate = `
       <div class="garage__manipulation">
@@ -236,9 +261,9 @@ class Garage extends Component {
          ${this.getCarItems()}
       </ul>
       <div class="garage__pages">
-        <button class="garage__page garage__page_prev" type="button" disabled></button>
-        <span class="garage__current-page">Page #1</span>
-        <button class="garage__page garage__page_next" type="button"></button>
+        <button class="garage__page garage__page_prev" type="button" ${this.isPrevPageBtnDisable()}></button>
+        <span class="garage__current-page">Page #${this.curentPage}</span>
+        <button class="garage__page garage__page_next" type="button" ${this.isNextPageBtnDisable()}></button>
       </div>
     `;
 
