@@ -12,3 +12,7 @@ export interface INewCar {
 export interface IAnimationState {
   id?: number;
 }
+
+export interface IAnimationStore {
+  [key: string]: IAnimationState;
+}

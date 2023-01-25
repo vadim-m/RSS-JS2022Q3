@@ -1,4 +1,4 @@
-import { IAnimationState } from '../interfaces/interfaces';
+import { IAnimationStore } from '../interfaces/interfaces';
 
 export const footerLinks = {
   author: 'https://github.com/vadim-m',
@@ -17,8 +17,5 @@ export const enum ItemsPerPage {
   garage = 7,
   winners = 10,
 }
-type ID = {
-  id?: IAnimationState;
-};
 
-export const currentAnimation: ID = {};
+export const currentAnimation: IAnimationStore = {};

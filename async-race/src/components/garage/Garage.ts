@@ -107,36 +107,40 @@ class Garage extends Component {
     });
   }
 
-  startMoving = async (id: number) => {
-    const startButton = document.getElementById(`btn-start-${id}`) as HTMLButtonElement;
-    const stopButton = document.getElementById(`btn-stop-${id}`) as HTMLButtonElement;
+  startMoving = async (carId: number) => {
+    const startButton = document.getElementById(`btn-start-${carId}`) as HTMLButtonElement;
+    const stopButton = document.getElementById(`btn-stop-${carId}`) as HTMLButtonElement;
     startButton.disabled = true;
-    const { velocity, distance } = await startEngine(id);
+    const { velocity, distance } = await startEngine(carId);
     stopButton.disabled = false;
     const time = Math.round(distance / velocity);
 
-    const car = document.getElementById(`car-${id}`) as HTMLElement;
-    const finish = document.getElementById(`finish-${id}`) as HTMLElement;
+    const car = document.getElementById(`car-${carId}`) as HTMLElement;
+    const finish = document.getElementById(`finish-${carId}`) as HTMLElement;
     const distanceBetweenPoints = Math.floor(getDistanceBetweenElements(car, finish)) - 38;
-    currentAnimation.id = animateMovement(car, distanceBetweenPoints, time);
+    currentAnimation[carId] = animateMovement(car, distanceBetweenPoints, time);
 
-    const { success } = await drive(id);
-    if (!success) window.cancelAnimationFrame(currentAnimation.id.id as number);
+    const { success } = await drive(carId);
+    if (!success) {
+      window.cancelAnimationFrame(currentAnimation[carId].id as number);
+    }
 
-    return { success, id, time };
+    return { success, carId, time };
   };
 
-  stopMoving = async (id: number) => {
-    const stopButton = document.getElementById(`btn-stop-${id}`) as HTMLButtonElement;
+  stopMoving = async (carId: number) => {
+    const stopButton = document.getElementById(`btn-stop-${carId}`) as HTMLButtonElement;
     stopButton.disabled = true;
-    await stopEngine(id);
-    const startButton = document.getElementById(`btn-start-${id}`) as HTMLButtonElement;
+    await stopEngine(carId);
+    const startButton = document.getElementById(`btn-start-${carId}`) as HTMLButtonElement;
     startButton.disabled = false;
 
-    const car = document.getElementById(`car-${id}`) as HTMLElement;
+    const car = document.getElementById(`car-${carId}`) as HTMLElement;
     car.style.transform = 'translateX(0)';
 
-    if (currentAnimation.id) window.cancelAnimationFrame(currentAnimation.id.id as number);
+    if (currentAnimation[carId]) {
+      window.cancelAnimationFrame(currentAnimation[carId].id as number);
+    }
   };
 
   getCarItems() {

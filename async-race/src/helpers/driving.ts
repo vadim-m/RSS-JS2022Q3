@@ -33,6 +33,6 @@ export function animateMovement(car: HTMLElement, distance: number, animationTim
     }
   }
   state.id = window.requestAnimationFrame(step);
-
+  // console.log(state.id);
   return state;
 }
