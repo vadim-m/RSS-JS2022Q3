@@ -138,7 +138,7 @@ class Garage extends Component {
       try {
         const winner = await this.raceAll(promiseArr, ids);
         if (winner.id && winner.time) {
-          resultText.textContent = `Best result: ${winner.name} - ${winner.time}`;
+          resultText.textContent = `Best Result: ${winner.name} - ${winner.time}s`;
           await saveWinner(winner.id, +winner.time);
         }
         const updateWinnersInfo = document.querySelector('.winners__update') as HTMLButtonElement;
