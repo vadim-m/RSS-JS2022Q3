@@ -1,4 +1,4 @@
-import { currentAnimation } from '../../constants/constants';
+import { currentAnimation, RANDOM_CARS_COUNT } from '../../constants/constants';
 import {
   createCar,
   deleteCar,
@@ -11,6 +11,7 @@ import {
   updateCar,
 } from '../../helpers/api';
 import { animateMovement, getDistanceBetweenElements } from '../../helpers/driving';
+import { getRandomCar } from '../../helpers/utils';
 import { ICar, IDrivePromise, IPromise } from '../../interfaces/interfaces';
 import Car from '../car/Car';
 import Component from '../common/Component';
@@ -20,6 +21,8 @@ class Garage extends Component {
 
   private carsCount: string;
 
+  private randomCarsCount: number;
+
   private curentPage: number;
 
   constructor(tagName: string, className: string, id: string) {
@@ -28,6 +31,7 @@ class Garage extends Component {
     this.cars = [];
     this.carsCount = '0';
     this.curentPage = 1;
+    this.randomCarsCount = RANDOM_CARS_COUNT;
   }
 
   async getGarageData() {
@@ -41,6 +45,7 @@ class Garage extends Component {
     const updateForm = this.container.querySelector('#update') as HTMLFormElement;
     const raceBtn = this.container.querySelector('.garage__icon-race') as HTMLButtonElement;
     const resetBtn = this.container.querySelector('.garage__icon-reset') as HTMLButtonElement;
+    const randomBtn = this.container.querySelector('.garage__icon-random') as HTMLButtonElement;
     const prevPageBtn = this.container.querySelector('.garage__page_prev') as HTMLButtonElement;
     const nextPageBtn = this.container.querySelector('.garage__page_next') as HTMLButtonElement;
     const deleteCarBtns = this.container.querySelectorAll('.car__btn_delete');
@@ -132,6 +137,7 @@ class Garage extends Component {
     raceBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       raceBtn.disabled = true;
+      randomBtn.disabled = true;
       let promiseArr: Promise<IDrivePromise>[] = [];
       promiseArr = this.cars.map((car) => this.startMoving(car.id));
       const ids = this.cars.map((car: ICar) => car.id);
@@ -145,9 +151,11 @@ class Garage extends Component {
         const clickEvent = new Event('click');
         updateWinnersInfo.dispatchEvent(clickEvent);
         resetBtn.disabled = false;
+        randomBtn.disabled = false;
       } catch (err) {
         alert('All engines were broken.');
         resetBtn.disabled = false;
+        randomBtn.disabled = false;
       }
     });
 
@@ -161,6 +169,16 @@ class Garage extends Component {
       }, 1200);
     });
 
+    randomBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      randomBtn.disabled = true;``
+      const cars = await this.getRandomCars();
+      for (const car of cars) {
+        await createCar(car);
+      }
+      this.reRender();
+    });
+
     prevPageBtn.addEventListener('click', (e) => {
       e.preventDefault();
       this.curentPage--;
@@ -172,6 +190,10 @@ class Garage extends Component {
       this.curentPage++;
       this.reRender();
     });
+  }
+
+  async getRandomCars() {
+    return new Array(this.randomCarsCount).fill('_').map(() => getRandomCar());
   }
 
   async raceAll(promises: Promise<IDrivePromise>[], ids: number[]): Promise<IPromise> {
@@ -252,7 +274,7 @@ class Garage extends Component {
             <button class="garage__btn btn" type="submit" name="btn" disabled>Customize</button>
           </form>
         </div>
-        <button class="garage__icon garage__icon-shuffle btn"></button>
+        <button class="garage__icon garage__icon-random btn"></button>
         <button class="garage__icon garage__icon-race btn"></button>
         <button class="garage__icon garage__icon-reset btn" disabled></button>
       </div>
