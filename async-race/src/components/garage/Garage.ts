@@ -171,7 +171,7 @@ class Garage extends Component {
 
     randomBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      randomBtn.disabled = true;``
+      randomBtn.disabled = true;
       const cars = await this.getRandomCars();
       for (const car of cars) {
         await createCar(car);
