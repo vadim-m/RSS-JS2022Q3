@@ -27,7 +27,7 @@ class Winners extends Component {
 
   getWinnerRow() {
     const carList = this.winners
-      .map((el: IWinner, indx: number) => new Winner(indx, el.wins, el.time, el.car?.color, el.car?.name).render())
+      .map((w: IWinner, ind: number) => new Winner(ind, w.wins, w.time, w.car?.color, w.car?.name, w.car?.id).render())
       .join('');
 
     return carList;

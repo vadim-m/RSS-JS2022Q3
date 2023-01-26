@@ -13,7 +13,7 @@ class Car {
     this.name = name;
     this.color = color;
     this.id = id;
-    this.icon = new IconSVG(this.color);
+    this.icon = new IconSVG(this.color, this.id);
   }
 
   getElementTemplate() {

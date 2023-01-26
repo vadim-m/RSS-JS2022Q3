@@ -3,6 +3,8 @@ import IconSVG from '../iconSVG/IconSVG';
 class Winner {
   private id: number;
 
+  private carId: number;
+
   private wins: number;
 
   private time: number;
@@ -13,13 +15,14 @@ class Winner {
 
   private icon: IconSVG;
 
-  constructor(id: number, wins: number, time: number, color?: string, name?: string) {
+  constructor(id: number, wins: number, time: number, color?: string, name?: string, carId?: number) {
     this.id = id + 1;
+    this.carId = carId ?? 1;
     this.wins = wins;
     this.time = time;
     this.color = color ?? '#000';
     this.name = name ?? 'Car';
-    this.icon = new IconSVG(this.color);
+    this.icon = new IconSVG(this.color, this.carId);
   }
 
   getElementTemplate() {
