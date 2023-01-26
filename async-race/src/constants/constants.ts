@@ -20,5 +20,40 @@ export const enum ItemsPerPage {
 
 export const currentAnimation: IAnimationStore = {};
 
-export const carBrands = ['Peugeot', 'Nissan', 'Mitsubishi', 'Audi', 'Toyota', 'Honda', 'Cadillac', 'Ford', 'Infiniti', 'Pontiac', 'Hummer', 'Subaru', 'Lexus', 'Mazda', 'Acura', 'Opel'];
-export const carModels = ['206', 'Maxima', 'Lancer', 'TT', 'Crown', 'MX-5', 'Escalade', 'Mustang', 'IX35', 'GTP', 'H2', 'Impreza', 'LS400', 'Civic', 'Integra', 'Corsa'];
+export const carBrands = [
+  'Peugeot',
+  'Nissan',
+  'BMW',
+  'Audi',
+  'Toyota',
+  'Honda',
+  'Cadillac',
+  'Ford',
+  'Infiniti',
+  'Pontiac',
+  'Hummer',
+  'Subaru',
+  'Lexus',
+  'Mazda',
+  'Acura',
+  'Opel',
+];
+
+export const carModels = [
+  '206',
+  'Skyline',
+  'Lancer',
+  'TT',
+  'Crown',
+  'MX-5',
+  'Escalade',
+  'Mustang',
+  'IX35',
+  'GTP',
+  'H2',
+  'Impreza',
+  'LS400',
+  'Civic',
+  'Integra',
+  'Corsa',
+];
