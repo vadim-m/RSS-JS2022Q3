@@ -4,6 +4,10 @@ html {
   box-sizing: border-box;
   cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABBklEQVR4nLXUMU4CURAG4EUbaOQCFBTWHgEvYG9h5R3obbgApS4zFHZYW3oHA4YZSIyJsSOxBWYIQzZixITivbc7k0z7f29f3r9ZdmTMrJZ5Dgs+fdiw7gcoGgm8vNt90w3Y72RuDy1PwEjgi9f5hRvAxQp8z2TQ8QO0+BJc8Qav3QD+ua4tCXbdAP7bvtndiSdgpboSBGiJroQCnNqVSMCiuxILcGxXkgCN6EoqwKFdSTq54qR4uqzYo83g5tNGjSSAFF9JIS9OOVW4elvm52aj06C7DwD60WEhAAmuaA23pYOPASS4mApcVhb+H4AxLYftSsN/ARJ4ntvjWeXhe6BX6nd8MDtzP56Z73BOBgAAAABJRU5ErkJggg==),
     default;
+
+  @media screen and (max-width: 768px) {
+    font-size: 70%;
+  }
 }
 
 *,
@@ -109,10 +113,18 @@ section {
   background-color: rgba($color: #262627, $alpha: 0.6);
   border-radius: 1rem;
   border: 1px solid #d8fb9e;
-
-  margin-right: 0.5rem;
+  transition: background-color 0.15s ease;
 
   &:hover {
     background-color: rgba($color: #d8fb9e, $alpha: 0.3);
+  }
+
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 7rem;
+    font-size: 0.75rem;
   }
 }

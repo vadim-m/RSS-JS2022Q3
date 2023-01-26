@@ -240,7 +240,6 @@ class Garage extends Component {
   getElementTemplate() {
     const htmlTemplate = `
       <div class="garage__manipulation">
-        <div class="garage__icon"></div>
         <div class="garage__manipulation-controls">
           <form class="garage__control" id="create">
             <input class="garage__input" type="text" name="input">
@@ -253,6 +252,7 @@ class Garage extends Component {
             <button class="garage__btn btn" type="submit" name="btn" disabled>Customize</button>
           </form>
         </div>
+        <button class="garage__icon garage__icon-shuffle btn"></button>
         <button class="garage__icon garage__icon-race btn"></button>
         <button class="garage__icon garage__icon-reset btn" disabled></button>
       </div>
