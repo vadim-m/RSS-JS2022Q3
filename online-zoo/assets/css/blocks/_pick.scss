@@ -1,0 +1,125 @@
+.pick {
+  padding: 20px 0 180px;
+
+  @include medium {
+    padding: 20px 0 30px;
+  }
+
+  @include tablets {
+    padding: 27px 0 45px;
+  }
+
+  @include phones {
+    padding: 27px 0 19px;
+  }
+
+  &__wrapper {
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+
+    padding: 40px 90px 62px;
+
+    @include medium {
+      padding: 20px 44px 45px;
+    }
+
+    @include tablets {
+      padding: 29px 0;
+    }
+
+    @include phones {
+      padding: 22px 0 22px;
+    }
+  }
+}
+
+.pick__title {
+  color: var(--orange);
+  text-align: center;
+
+  margin: 0 10px 20px 0;
+
+  @include medium {
+    margin: 0 10px 12px 0;
+  }
+
+  @include tablets {
+    margin: 0 10px 21px 0;
+  }
+
+  @include phones {
+    margin: 0 10px 10px 0;
+  }
+}
+
+.pick__text {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+
+  margin: 0 0 59px 5px;
+
+  @include tablets {
+    text-align: center;
+
+    margin: 0 0 49px 5px;
+  }
+
+  @include phones {
+    font-size: 16px;
+    line-height: 1.4;
+
+    margin: 0 0 13px 0;
+  }
+}
+
+.pick__animal {
+  margin-bottom: 49px;
+
+  @include tablets {
+    margin-bottom: 42px;
+  }
+
+  @include phones {
+    margin-bottom: 0;
+  }
+}
+
+.pick__amount {
+  color: #000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: start;
+
+  margin: 0 0 18px 7px;
+
+  @include tablets {
+    margin: 0 0 6px 7px;
+  }
+  @include phones {
+    margin: 0 0 10px 0;
+  }
+}
+
+.pick__scale {
+  margin-bottom: 50px;
+
+  @include medium {
+    margin-bottom: 48px;
+  }
+
+  @include tablets {
+    margin-bottom: 51px;
+  }
+
+  @include phones {
+    margin-bottom: 25px;
+  }
+}

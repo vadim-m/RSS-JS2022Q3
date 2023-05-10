@@ -1,0 +1,153 @@
+html {
+  min-height: 100vh;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  flex-grow: 1;
+
+  @include tablets {
+    padding-top: 34px;
+  }
+
+  &--donate-bg {
+    background: linear-gradient(
+        315.75deg,
+        rgba(254, 210, 144, 0.7) 30.06%,
+        #febdab 100.95%,
+        rgba(254, 210, 144, 0.7) 106.36%
+      ),
+      linear-gradient(
+        315.75deg,
+        rgba(254, 189, 171, 0.74) 30.06%,
+        rgba(243, 169, 248, 0.66) 50.74%,
+        #e0d8f0 80.49%,
+        #eaf7fe 127.9%,
+        #eaf7fe 149.54%
+      ),
+      linear-gradient(
+        315.75deg,
+        rgba(254, 189, 171, 0.74) 30.06%,
+        rgba(243, 169, 248, 0.66) 50.74%,
+        #e0d8f0 80.49%,
+        #eaf7fe 127.9%,
+        #eaf7fe 149.54%
+      );
+  }
+}
+
+// donate page
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include medium {
+    max-width: 1000px;
+
+    padding: 0 30px;
+  }
+
+  @include tablets {
+    max-width: 640px;
+
+    padding: 0 20px;
+  }
+
+  @include phones {
+    max-width: 320px;
+
+    padding: 0 10px;
+  }
+}
+
+.section__title {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.2;
+
+  @include phones {
+    font-size: 24px;
+  }
+
+  &--colored {
+    color: var(--orange);
+  }
+}

@@ -1,0 +1,174 @@
+.scale {
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    border-radius: 2px;
+
+    @include medium {
+      padding: 0px 20px;
+    }
+
+    @include tablets {
+      padding: 0;
+    }
+
+    // скрыть три первых суммы
+    .one--hidden {
+      @include medium {
+        display: none;
+      }
+    }
+
+    .two--hidden {
+      @include tablets {
+        display: none;
+      }
+    }
+
+    .three--hidden {
+      @include tablets {
+        display: none;
+      }
+    }
+  }
+
+  &__radios-wrap {
+    width: 100%;
+    display: flex;
+    background: #404950;
+
+    padding: 0 25px;
+    margin-bottom: 12px;
+
+    @include medium {
+      padding: 0 10px;
+    }
+
+    @include tablets {
+      padding: 0px 34px;
+    }
+
+    @include phones {
+      padding: 0px 17px;
+      margin-bottom: 6px;
+    }
+  }
+
+  &__radios {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(../../assets/images/pick/line.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    padding: 8px 0;
+
+    @include phones {
+      padding: 3px 0;
+    }
+  }
+
+  &__labels {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include tablets {
+      padding: 0px 13px;
+    }
+
+    @include phones {
+      padding: 0px 7px;
+    }
+  }
+}
+
+.scale__radio {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+
+  @include phones {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+
+    @include phones {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+
+    @include phones {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:checked::after {
+    background: url(../../assets/images/pick/circle.svg);
+    background-size: contain;
+    opacity: 1;
+  }
+}
+
+.scale__label {
+  display: flex;
+  width: 100%;
+  max-width: 73px;
+  color: var(--black);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--orange-active);
+  }
+
+  &.active {
+    color: var(--orange-active);
+  }
+
+  @include medium {
+    width: 5%;
+  }
+
+  @include tablets {
+    width: 10%;
+  }
+
+  @include phones {
+    font-size: 13px;
+  }
+}

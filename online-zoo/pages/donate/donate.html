@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon/favicon-16x16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Uncial+Antiqua&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./donate.css">
+  <title>Donate</title>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__logo">
+          <a href="../../" class="logo">
+            <img src="../../assets/images/logo/logo.png" alt="PetStory online" class="logo__img">
+          </a>
+          <h1 class="header__title">PetStory online</h1>
+        </div>
+        <div class="header__nav">
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="../../" class="nav__link">About</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Map</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Zoos</a></li>
+              <li class="nav__item active"><a href="./donate.html" class="nav__link">Donate</a>
+              </li>
+              <li class="nav__item"><a href="#" class="nav__link">Contact us</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header__design">
+          <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks" target="_blank"
+            class="header__link">Designed by ©</a>
+        </div>
+        <div class="header__burger">
+          <button id="burger-menu" class="burger-menu">
+            <span class=" burger-menu__item"></span>
+          </button>
+        </div>
+        <div class="header__dropdown"></div>
+      </div>
+    </header>
+
+    <main class="content content--donate-bg">
+      <div class="watch--donate"></div>
+
+      <section class="help">
+        <div class="container">
+          <h2 class="section__title help__title">THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h2>
+          <div class="help__text">
+            <p>
+              Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational
+              programs and public and private events cancelled or postponed for additional months. We need you now more
+              than ever to help ensure that we overcome these challenges. We have been actively raising funds in the
+              community, and we are grateful for the generosity. But much more support is still needed, and we need your
+              help! Please consider a gift today – no matter what size – to help us sustain our mission.
+            </p>
+          </div>
+          <h3 class="help__subtitle">Donation Information</h3>
+        </div>
+      </section>
+
+      <section class="pick">
+        <div class="container">
+          <div class="pick__wrapper">
+            <h2 class="section__title pick__title">Pick and feed a friend</h2>
+            <p class="pick__text">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
+            <div class="pick__animal animal">
+              <div class="animal__info">
+                <div class="animal__days-number">4</div>
+                <div class="animal__days-text">Panda diet for the day.</div>
+              </div>
+              <div class="animal__image">
+                <img src="../../assets/images/pick/panda.svg" alt="animal pic" class="pick__img">
+              </div>
+            </div>
+            <div class="pick__amount">Amount</div>
+            <div class="pick__scale scale">
+              <div class="scale__bar">
+                <div class="scale__radios-wrap">
+                  <div class="scale__radios">
+                    <input type="radio" id="5000" name="scale-radio" class="scale__radio one--hidden">
+                    <input type="radio" id="2000" name="scale-radio" class="scale__radio two--hidden">
+                    <input type="radio" id="1000" name="scale-radio" class="scale__radio three--hidden">
+                    <input type="radio" id="500" name="scale-radio" class="scale__radio">
+                    <input type="radio" id="250" name="scale-radio" class="scale__radio">
+                    <input type="radio" id="100" checked name="scale-radio" class="scale__radio">
+                    <input type="radio" id="50" name="scale-radio" class="scale__radio">
+                    <input type="radio" id="25" name="scale-radio" class="scale__radio">
+                  </div>
+                </div>
+
+                <div class="scale__labels">
+                  <label for="5000" class="scale__label one--hidden">$5000</label>
+                  <label for="2000" class="scale__label two--hidden">$2000</label>
+                  <label for="1000" class="scale__label three--hidden">$1000</label>
+                  <label for="500" class="scale__label four">$500</label>
+                  <label for="250" class="scale__label five">$250</label>
+                  <label for="100" class="scale__label active six">$100</label>
+                  <label for="50" class="scale__label seven">&nbsp$50</label>
+                  <label for="25" class="scale__label eight">&nbsp$25</label>
+                </div>
+              </div>
+            </div>
+            <div class="pick__form">
+              <form action="#" class="donate-form">
+                <input type="number" min="1" max="9999" value="100" title="Введите число" required
+                  class="donate-form__input" id="donate-form__input" placeholder="Another amount">
+                <div class="donate-form__radio-wrap">
+                  <label class="donate-form__radio">
+                    <input type="radio" name="donate-radio" checked class="donate--hide">
+                    <span class="donate-form__radio-span"></span>
+                    Monthly
+                  </label>
+                  <label class="donate-form__radio">
+                    <input type="radio" name="donate-radio" class="donate--hide">
+                    <span class="donate-form__radio-span"></span>
+                    Once
+                  </label>
+                </div>
+                <button type="submit" class="donate-form__submit btn btn--round">Feed a friend now</button>
+                <div class="donate-form__text">
+                  Share with your friends on social networks
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer footer-donate">
+      <div class="container">
+        <div class="footer__wrapper">
+          <div class="footer__logo">PetStory online
+            <a href="../../" class="logo">
+              <img src="../../assets/images/logo/logo.png" alt="PetStory online" class="logo__img">
+            </a>
+          </div>
+          <div class="footer__donate">
+            <a href="./donate.html" class="btn btn--square">donate for volunteers</a>
+          </div>
+          <div class="footer__socials">
+            <ul class="socials__list">
+              <li class="socials__item"><a href="https://www.facebook.com/" class="socials__link">
+                  <span class="socials__icon">
+                    <svg class="socials__svg">
+                      <use xlink:href="../../assets/icons/socials/socials.svg#fb"></use>
+                    </svg></span>Facebook
+                </a>
+              </li>
+              <li class="socials__item"><a href="https://www.facebook.com/" class="socials__link">
+                  <span class="socials__icon">
+                    <svg class="socials__svg">
+                      <use xlink:href="../../assets/icons/socials/socials.svg#tw"></use>
+                    </svg>
+                  </span>Twitter
+                </a>
+              </li>
+              <li class="socials__item"><a href="https://www.facebook.com/" class="socials__link">
+                  <span class="socials__icon">
+                    <svg class="socials__svg">
+                      <use xlink:href="../../assets/icons/socials/socials.svg#insta"></use>
+                    </svg>
+                  </span>Instagram
+                </a>
+              </li>
+              <li class="socials__item"><a href="https://www.facebook.com/" class="socials__link">
+                  <span class="socials__icon">
+                    <svg class="socials__svg">
+                      <use xlink:href="../../assets/icons/socials/socials.svg#youtube"></use>
+                    </svg>
+                  </span>Youtube
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__nav">
+            <ul class="nav__list">
+              <li class="nav__item"><a href="../../" class="nav__link">About</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Map</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Zoos</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Contact us</a></li>
+            </ul>
+          </div>
+          <div class="footer__form">
+            <form action="#" class="subscribe-form">
+              <h4 class="subscribe-form__title">Subscribe to our news</h4>
+              <input type="email" required class="subscribe-form__email" placeholder="Enter your email">
+              <button class="subscribe-form__btn">Submit</button>
+            </form>
+          </div>
+          <div class="footer__copyright copyright">
+            <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks"
+              class="copyright__link"><span>Designed by Alisa Samborskaya</span>
+              ©RSSchool & ©Yem Digital 2021</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../main.js"></script>
+    <script src="./donate.js"></script>
+  </div>
+</body>
+
+</html>

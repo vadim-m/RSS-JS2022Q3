@@ -1,0 +1,189 @@
+.header {
+  position: relative;
+  background-color: #000;
+  transition: background-color 0.25s 1.35s;
+
+  padding: 13px 0;
+
+  @include tablets {
+    padding: 2px 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    // Burger menu
+    &.active {
+      background-color: #f1f3f2;
+
+      & .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+        background-position: 20px 6px;
+        height: 330px;
+        // вниз
+        transition: height 1s, background-position-y 0.25s 0.5s;
+
+        @include phones {
+          background-position: 10px 6px;
+        }
+      }
+
+      & .header__logo .logo {
+        opacity: 0;
+        transition: opacity 0s;
+      }
+
+      & .header__nav,
+      .header__design {
+        display: flex;
+        top: 0;
+        transition: top 1.2s;
+
+        padding: 0;
+      }
+
+      & .nav__item {
+        margin-bottom: 15px;
+        color: var(--black);
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      & .header__design {
+        margin-bottom: 40px;
+      }
+
+      & .header__burger {
+        order: -1;
+        align-self: flex-end;
+
+        margin-bottom: 36px;
+      }
+
+      & .header__dropdown {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        width: 100%;
+        min-height: 100vh;
+
+        background-color: rgba($color: #000000, $alpha: 0.25);
+      }
+    }
+  }
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+
+  @include tablets {
+    height: 30px;
+    justify-content: space-between;
+    align-items: initial;
+    background: url(./assets/images/logo/logo-orange.png);
+    background-repeat: no-repeat;
+    background-position: 20px -50px;
+    // вверх
+    transition: background-position-y 0.25s, height 1s 0.25s;
+
+    @include phones {
+      @include phones {
+        background-position: 10px -50px;
+      }
+    }
+  }
+}
+
+.header__logo {
+  width: 84px;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+
+  transition: border-color 0.3s, opacity 0.2s 125s;
+
+  &:hover {
+    border-color: var(--orange);
+  }
+
+  @include tablets {
+    width: 48px;
+    border: none;
+    margin: 0 0 0 -2px;
+
+    & .logo {
+      opacity: 1;
+      transition: opacity 0.2s 1.35s;
+    }
+  }
+}
+
+.header__title {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  visibility: hidden;
+}
+
+.header__nav {
+  flex-grow: 1;
+
+  padding: 0 62px;
+
+  @include tablets {
+    position: relative;
+    padding: 0;
+    top: -450px;
+  }
+
+  & .nav__list {
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+}
+
+.header__design {
+  @include tablets {
+    position: relative;
+    top: -450px;
+  }
+}
+
+.header__link {
+  color: var(--white);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: var(--orange);
+  }
+
+  @include tablets {
+    color: var(--black);
+  }
+}
+
+.header__burger {
+  display: none;
+
+  @include tablets {
+    display: flex;
+    align-self: flex-start;
+
+    margin-top: 10px;
+  }
+}
+
+.header__dropdown {
+  display: none;
+}

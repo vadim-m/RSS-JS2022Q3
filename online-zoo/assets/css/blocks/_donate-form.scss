@@ -1,0 +1,151 @@
+.donate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donate-form__input {
+  width: 100%;
+  max-width: 268px;
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: transparent;
+  background-image: url(../../assets/images/pick/dollar.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  border: 1px solid #929699;
+  border-radius: 2px;
+
+  padding: 12px 10px;
+  margin-bottom: 25px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  @include tablets {
+    max-width: 180px;
+    padding: 9px 6px;
+
+    margin-bottom: 33px;
+  }
+
+  @include phones {
+    font-size: 13px;
+
+    margin-bottom: 25px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 1px solid var(--green);
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+.donate--hide {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.donate-form__radio-wrap {
+  width: 100%;
+  max-width: 268px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 31px;
+
+  @include phones {
+    margin-bottom: 29px;
+  }
+}
+
+.donate-form__radio {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  cursor: pointer;
+
+  &:first-child {
+    margin-right: 50px;
+
+    @include medium {
+      margin-right: 48px;
+    }
+  }
+
+  &:last-child {
+    margin-right: 10px;
+
+    @include medium {
+      margin-right: 18px;
+    }
+  }
+}
+
+.donate-form__radio .donate-form__radio-span {
+  position: relative;
+  display: block;
+  float: left;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--orange);
+  border-radius: 50%;
+  transition: all 0.25s ease-in-out;
+
+  margin: 0 10px 2px 0;
+}
+
+.donate-form__radio .donate-form__radio-span:after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: all 0.25s ease-in-out;
+}
+
+input:checked + .donate-form__radio-span::after {
+  background-color: var(--orange-active);
+}
+
+.donate-form__submit {
+  margin-bottom: 30px;
+
+  @include phones {
+    margin-bottom: 30px;
+  }
+}
+
+.donate-form__text {
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+
+  @include phones {
+    font-size: 15.75px;
+  }
+}
