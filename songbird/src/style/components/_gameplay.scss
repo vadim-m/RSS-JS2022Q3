@@ -1,0 +1,172 @@
+.gameplay {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+
+  &__photo {
+    grid-column: span 3;
+    grid-row: span 2;
+
+    @include tablets {
+      grid-column: span 4;
+      grid-row: initial;
+    }
+
+    @include phones {
+      grid-column: span 5;
+    }
+  }
+
+  &__classification {
+    min-width: 10rem;
+    grid-column: span 7;
+    align-self: end;
+    justify-self: center;
+    text-align: center;
+
+    padding: 0.5rem 0;
+
+    @include tablets {
+      grid-column: span 5;
+      align-self: center;
+    }
+
+    @include phones {
+      grid-column: span 7;
+    }
+  }
+
+  &__next {
+    line-height: 0;
+    grid-column: span 2;
+    grid-row: span 2;
+
+    @include tablets {
+      grid-row: initial;
+      grid-column: span 3;
+    }
+
+    @include phones {
+      grid-column: span 12;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &__player {
+    grid-column: span 7;
+    align-self: flex-end;
+
+    @include tablets {
+      grid-column: span 12;
+    }
+  }
+}
+
+.gameplay__photo {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gameplay__pic {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding-top: 75%;
+
+  &.active {
+    background-image: url(./img/birds/placeholder.webp);
+  }
+
+  &.active .gameplay__img {
+    z-index: -5;
+  }
+
+  .gameplay__img {
+    z-index: 0;
+  }
+}
+
+.gameplay__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gameplay__kind {
+  position: relative;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.active.gameplay__kind::after {
+  content: "?";
+  position: absolute;
+  line-height: 1.7rem;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: red;
+  background-color: var(--green);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gameplay__genus {
+  position: relative;
+  font-weight: 300;
+}
+
+.active.gameplay__genus::after {
+  content: "?";
+  position: absolute;
+  font-weight: 700;
+  line-height: 1.7rem;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: red;
+  background-color: var(--green);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.gameplay__next {
+  align-self: center;
+}
+
+.gameplay__btn-next {
+  width: 100%;
+  padding-top: 100%;
+  background-color: var(--white);
+  background-image: url("./img/icons/next.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+
+  @include phones {
+    background-size: 10%;
+    border-radius: 2rem;
+    padding-top: 3rem;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--yellow);
+  }
+
+  &:disabled,
+  &[disabled] {
+    border: 1px solid #cccccc;
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}
