@@ -1,7 +1,7 @@
 import { IAnimationStore } from '../interfaces/interfaces';
 
-export const RANDOM_CARS_COUNT = 100;
-const API_URL = 'http://127.0.0.1:3000';
+export const RANDOM_CARS_COUNT = 4;
+const API_URL = 'https://web-vm-api-async-race.glitch.me';
 
 export const pathURL = {
   garage: `${API_URL}/garage`,
