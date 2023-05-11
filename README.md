@@ -5,7 +5,7 @@
 
 ## Online-zoo
 
-[Deploy](https://app.netlify.com/sites/webvm-online-zoo/overview)
+[Deploy](https://webvm-online-zoo.netlify.app/)
 
 Online-zoo - это платформа, где собрана информация о животных из различных зоопарков. В рамках проекта разрабатывается адаптивная верстка и интерактивность _главной страницы,_ и _страницы с донатами._
 
